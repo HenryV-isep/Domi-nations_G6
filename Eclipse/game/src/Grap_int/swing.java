@@ -1,4 +1,4 @@
-package Main;
+package Grap_int;
 
 import javax.swing.*;
 import java.awt.event.*;

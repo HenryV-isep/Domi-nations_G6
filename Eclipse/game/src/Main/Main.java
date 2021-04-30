@@ -1,6 +1,6 @@
 package Main;
 
-import Main.swing;
+import Grap_int.*;
 
 public class Main {
 	public static void main(String[] args) {
