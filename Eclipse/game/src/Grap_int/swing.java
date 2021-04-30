@@ -1,4 +1,4 @@
-package tours;
+package Grap_int;
 
 import javax.swing.*;
 import java.awt.event.*;
