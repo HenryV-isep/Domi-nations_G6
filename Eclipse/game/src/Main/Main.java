@@ -1,6 +1,6 @@
-package tours;
+package Main;
 
-import tours.swing;
+import Main.swing;
 
 public class Main {
 	public static void main(String[] args) {

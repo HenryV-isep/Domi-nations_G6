@@ -1,4 +1,4 @@
-package tours;
+package Main;
 
 import javax.swing.*;
 import java.awt.event.*;
