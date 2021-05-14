@@ -172,6 +172,7 @@ public class swing extends JFrame implements Action {
 
    /**
     * Add all panels to the frame for the new game menu.
+    * ! Not all panels is make
     * @param none
     * @return none
     */
@@ -184,7 +185,7 @@ public class swing extends JFrame implements Action {
    }
 
    /**
-    * Create the north panel for the new game mene.
+    * Create the north panel for the new game menu.
     * The layout of the panel is a BorderLayout.
     * @param none
     * @return JPanel : panel
@@ -211,7 +212,7 @@ public class swing extends JFrame implements Action {
    }
 
    /**
-    * Create the west panel for the new game mene.
+    * Create the west panel for the new game menu.
     * The layout of the panel is a GridLayout.
     * @param none
     * @return JPanel : panel
@@ -289,13 +290,19 @@ public class swing extends JFrame implements Action {
       return panelWest;
    }
 
+   /**
+    * Create the west panel for the new game menu. for 2 players selection
+    * The layout of the panel is a GridLayout.
+    * @param none
+    * @return JPanel : panel
+    */
    private JPanel twoPlayers() {
       /**
        * * Set the panel
        * * The layout of the panel is a GridLayout.
        * * The layout have 7 rows and 1 column
        * * The layout have marging of 0 for width and 50 for height
-       * * The button use the row 2 to 7
+       * * The button use the row 2 to 4 and 7
        * * Each row is a panel and this panel contain the content
        */
       panelWest = new JPanel();
@@ -361,7 +368,7 @@ public class swing extends JFrame implements Action {
             }
          }
 
-         // Not use
+         // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
             // TODO Auto-generated method stub
@@ -388,7 +395,7 @@ public class swing extends JFrame implements Action {
             }
          }
 
-         // Not use
+         // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
             // TODO Auto-generated method stub
@@ -423,6 +430,7 @@ public class swing extends JFrame implements Action {
    }
 
    /**
+    * ! The three and four players panel is not done
     * todo Create function for 3 and 4 players
     */
    private JPanel threePlayers() {
@@ -569,6 +577,7 @@ public class swing extends JFrame implements Action {
       return panelWest;
    }
 
+   // All listener for button/action
    @Override
    public void actionPerformed(ActionEvent e) {
       if ( e.getSource() == backToStartMenu ) {
@@ -603,15 +612,14 @@ public class swing extends JFrame implements Action {
       frame.repaint();
    }
 
+   // Don't check this part
    @Override
    public Object getValue(String key) {
-      // TODO Auto-generated method stub
       return null;
    }
 
    @Override
    public void putValue(String key, Object value) {
-      // TODO Auto-generated method stub
       
    }
 
