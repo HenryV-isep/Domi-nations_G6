@@ -34,7 +34,7 @@ public class swing extends JFrame implements Action {
    static JLabel background;
    static int numberPlayers;
 
-   // Define all button in attribut for more efficiency for the actionListener
+   // Define all button in attribut for more efficiency in the actionListener
    private JButton newGameBtn = new JButton( "Nouvelle partie" );
    private JButton soundBtn = new JButton( "Desactiver le son" );
    private JButton leave = new JButton( "Quitter" );
