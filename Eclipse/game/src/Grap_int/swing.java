@@ -118,7 +118,7 @@ public class swing extends JFrame implements Action {
       panelEast.setPreferredSize( new Dimension( 170, 0 ) );
 
       //Some variable use in this panel
-      int color = 0x6aa84f;
+      int color = 0xf1c232;
       int widthBtn = 150;
       int heightbtn = 50;
 
@@ -291,7 +291,8 @@ public class swing extends JFrame implements Action {
    }
 
    /**
-    * Create the west panel for the new game menu. for 2 players selection
+    * Create the west panel for the new game menu. for 2 players selection.
+    * It's here the players is create
     * The layout of the panel is a GridLayout.
     * @param none
     * @return JPanel : panel
