@@ -317,9 +317,6 @@ public class swing extends JFrame implements Action {
 
       panelWest.setBackground(new Color( 0xf6b26b ));
 
-      /**
-       * * This part create the different panel and button
-       */
       // Create all panel
       JLabel nothing1 = new JLabel();
       JLabel nothing2 = new JLabel();
@@ -361,6 +358,7 @@ public class swing extends JFrame implements Action {
          public void keyTyped(KeyEvent e) {
             if (e.getKeyChar() == KeyEvent.VK_ENTER) {
                /**
+                * * Create a player, when enter is press
                 * * Put here the code to create player
                 * todo Check if the player is create
                 * todo if is create update him
