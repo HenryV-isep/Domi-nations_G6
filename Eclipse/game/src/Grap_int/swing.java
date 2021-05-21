@@ -25,14 +25,9 @@ import TextPrompt.TextPrompt;
 
 public class swing extends JFrame implements Action {
    // Global variable
-   static JPanel panelNorth;
-   static JPanel panelSouth;
-   static JPanel panelEast;
-   static JPanel panelWest;
-   static JPanel panelCenter;
-   static JLabel banner;
-   static JLabel background;
-   static int numberPlayers;
+   private static JLabel banner;
+   private static JLabel background;
+   public static Integer numberPlayers;
 
    // Define all button in attribut for more efficiency in the actionListener
    private JButton newGameBtn = new JButton( "Nouvelle partie" );
@@ -45,10 +40,17 @@ public class swing extends JFrame implements Action {
    private JButton fourPlayersBtn = new JButton( "4 joueurs" );
    private JButton backToSelection = new JButton( "Retour selection" );
 
-   static JFrame frame = new JFrame("Domi-nation");
+   // Define all panel
+   private static JPanel panelNorth;
+   private static JPanel panelSouth;
+   private static JPanel panelEast;
+   private static JPanel panelWest;
+   private static JPanel panelCenter;
+
    /**
-    * * Initializes the frame of the game and set up ths frame on the Main menu
+    * * Initializes the frame of the game and set up ths frame on the start menu
     */
+   static JFrame frame = new JFrame("Domi-nation");
    public swing() {
       super("Domi-nation");
       
@@ -70,7 +72,8 @@ public class swing extends JFrame implements Action {
        * ? newGameMenu();
        */
       startMenu();
-      
+
+      frame.setExtendedState( frame.getExtendedState()|JFrame.MAXIMIZED_BOTH ); 
       frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
       frame.setVisible(true);
    }
@@ -91,10 +94,11 @@ public class swing extends JFrame implements Action {
       background = new JLabel();
       background.setIcon(new ImageIcon("Image/kingdomino.jpg"));
 
+      panelEast = new JPanel();
       // Add the different content into the frame
       frame.add(banner, BorderLayout.NORTH);
       frame.add(background, BorderLayout.LINE_START);
-      frame.add(panelEastForStartMenu(), BorderLayout.LINE_END);
+      frame.add(panelEastForStartMenu(panelEast), BorderLayout.LINE_END);
    }
 
    /**
@@ -103,7 +107,7 @@ public class swing extends JFrame implements Action {
     * @param none
     * @return JPanel : panel
     */
-   private JPanel panelEastForStartMenu() {
+   private JPanel panelEastForStartMenu(JPanel panelEast) {
 
       /**
        * * Set the panel
@@ -113,7 +117,7 @@ public class swing extends JFrame implements Action {
        * * The button use the row 2 to 5
        * * Each row is a panel and this panel contain the content
        */
-      panelEast = new JPanel();
+      // panelEast = new JPanel();
       panelEast.setLayout( new GridLayout(6, 1, 0, 50) );
       panelEast.setPreferredSize( new Dimension( 170, 0 ) );
 
@@ -182,6 +186,7 @@ public class swing extends JFrame implements Action {
       frame.add(panelNorthForNewGameMenu(), BorderLayout.NORTH);
       frame.add(panelWestForNewGameMenu(), BorderLayout.LINE_START);
       // frame.add(panelLeftForStarMenu(), BorderLayout.LINE_END);
+      // frame.add(panelSouthForNewGameMenu()), BorderLayout.LINE_END);
    }
 
    /**
@@ -291,7 +296,17 @@ public class swing extends JFrame implements Action {
    }
 
    /**
-    * Create the west panel for the new game menu. for 2 players selection.
+    * Create the west panel for the new game menu.
+    * The layout of the panel is a GridLayout.
+    * @param none
+    * @return JPanel : panel
+    */
+   /* private JPanel panelSouthForNewGameMenu() {
+      
+   } */
+
+   /**
+    * Create the west panel for the new game menu for 2 players selection.
     * It's here the players is create
     * The layout of the panel is a GridLayout.
     * @param none
@@ -576,35 +591,79 @@ public class swing extends JFrame implements Action {
       return panelWest;
    }
 
+   private void cleanJPanel() {
+      if (panelNorth != null) {
+         panelNorth = null;
+      }
+      if (panelSouth != null) {
+         panelSouth = null;
+      }
+      if (panelEast != null) {
+         panelEast = null;
+      }
+      if (panelWest != null) {
+         panelWest = null;
+      }
+      if (panelCenter != null) {
+         panelCenter = null;
+      }
+      if (banner != null) {
+         banner = null;
+      }
+      if (background != null) {
+         background = null;
+      }
+   }
+
    // All listener for button/action
    @Override
    public void actionPerformed(ActionEvent e) {
       if ( e.getSource() == backToStartMenu ) {
          frame.remove(panelNorth);
          frame.remove(panelWest);
+         cleanJPanel();
          startMenu();
       } else if ( e.getSource() == newGameBtn ) {
+         numberPlayers = 0;
          frame.remove(panelEast);
          frame.remove(banner);
          frame.remove(background);
+         cleanJPanel();
          newGameMenu();
       } else if ( e.getSource() == twoPlayersBtn ) {
          numberPlayers = 2;
+         System.out.println(numberPlayers);
          frame.remove(panelWest);
+         if (panelWest != null) {
+            panelWest = null;
+         }
          frame.add(twoPlayers(), BorderLayout.LINE_START);
       } else if ( e.getSource() == threePlayersBtn ) {
          numberPlayers = 3;
+         System.out.println(numberPlayers);
          frame.remove(panelWest);
+         if (panelWest != null) {
+            panelWest = null;
+         }
          frame.add(threePlayers(), BorderLayout.LINE_START);
       } else if ( e.getSource() == fourPlayersBtn ) {
          numberPlayers = 4;
+         System.out.println(numberPlayers);
          frame.remove(panelWest);
+         if (panelWest != null) {
+            panelWest = null;
+         }
          frame.add(fourPlayers(), BorderLayout.LINE_START);
       } else if ( e.getSource() == backToSelection ) {
          /**
           * todo destroy player when he back to the selection of the number of players
           */
+         numberPlayers = 0;
+         System.out.println(numberPlayers);
          frame.remove(panelWest);
+         if (panelWest != null) {
+            panelWest = null;
+         }
          frame.add(panelWestForNewGameMenu(), BorderLayout.LINE_START);
       }
       frame.validate();
