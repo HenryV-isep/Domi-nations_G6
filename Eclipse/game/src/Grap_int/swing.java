@@ -12,15 +12,19 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.Action;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.Border;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import TextPrompt.TextPrompt;
@@ -29,6 +33,7 @@ public class swing extends JFrame implements Action {
    // Global variable
    private static JLabel banner;
    private static JLabel background;
+   private static String  police = "Century Gothic";
    public static Integer numberPlayers;
    public static Integer numberDominos;
    public static Integer sizeKingdom;
@@ -38,17 +43,26 @@ public class swing extends JFrame implements Action {
    public static int harmonie = 0;
    public static int middleEmpire = 0;
    public static int theGrandDuel = 0;
+   public static int displayTime = 0;
+   public static int displayTimeLimited = 0;
 
    // Define all button in attribut for more efficiency in the actionListener
    private JButton newGameBtn = new JButton( "Nouvelle partie" );
-   private JButton soundBtn = new JButton( "Desactiver le son" );
+   private JButton soundBtn = new JButton( "Son activé" );
    private JButton leave = new JButton( "Quitter" );
    private JButton credits = new JButton( "Crédits" );
    private JButton backToStartMenu = new JButton("Retour");
    private JButton twoPlayersBtn = new JButton( "2 joueurs" );
    private JButton threePlayersBtn = new JButton( "3 joueurs" );
    private JButton fourPlayersBtn = new JButton( "4 joueurs" );
-   private JButton backToSelection = new JButton( "Retour selection" );
+   private JButton backToSelection = new JButton( "Retour sélection" );
+   private JRadioButton displayTimeBtn = new JRadioButton("Afficher le temps");
+   private JRadioButton displayTimeLimitedBtn = new JRadioButton("Ajouter une limite de temps");
+   private JCheckBox dynastieBtn = new JCheckBox("Dynastie");
+   private JCheckBox harmonieBtn = new JCheckBox("Harmonie");
+   private JCheckBox middleEmpireBtn = new JCheckBox("Empire du milieu");
+   private JCheckBox theGrandDuelBtn = new JCheckBox("Le Grand Duel");
+   private JButton launchGame = new JButton( "Lancer la partie" );
 
    // Define all panel
    private static JPanel panelNorth;
@@ -96,7 +110,7 @@ public class swing extends JFrame implements Action {
 
       // Set the image for the banner
       banner = new JLabel();
-      banner.setIcon(new ImageIcon("Image/banner.jpg"));
+      banner.setIcon(new ImageIcon("Image/banner.png"));
 
       // Set the image for the background
       background = new JLabel();
@@ -148,22 +162,24 @@ public class swing extends JFrame implements Action {
 
       // Create all button
       newGameBtn.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      newGameBtn.setFont( new Font ("Arial", Font.PLAIN, 18));
+      newGameBtn.setFont( new Font (police, Font.PLAIN, 16));
       
       soundBtn.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      soundBtn.setFont( new Font ("Arial", Font.PLAIN, 16));
+      soundBtn.setFont( new Font (police, Font.PLAIN, 18));
       
       leave.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      leave.setFont( new Font ("Arial", Font.PLAIN, 25));
+      leave.setFont( new Font (police, Font.PLAIN, 20));
       
       credits.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      credits.setFont( new Font ("Arial", Font.PLAIN, 25));
+      credits.setFont( new Font (police, Font.PLAIN, 20));
 
       //Listener
       leave.addActionListener(e -> {
          frame.dispose();
       });
       newGameBtn.addActionListener(this);
+      soundBtn.addActionListener(this);
+      credits.addActionListener(this);
 
       // Add all buttons into there panel
       panel1.add(newGameBtn);
@@ -183,7 +199,6 @@ public class swing extends JFrame implements Action {
 
    /**
     * Add all panels to the frame for the new game menu.
-    * ! Not all panels is make
     * @param none
     * @return none
     */
@@ -210,11 +225,11 @@ public class swing extends JFrame implements Action {
 
       JLabel textNorth = new JLabel("Création de partie", SwingConstants.CENTER);
       textNorth.setVerticalAlignment(SwingConstants.CENTER);
-      textNorth.setFont( new Font ("Arial", Font.PLAIN, 30));
+      textNorth.setFont( new Font (police, Font.PLAIN, 30));
       textNorth.setPreferredSize(new Dimension(1100, 50));
       
       backToStartMenu.setPreferredSize(new Dimension(100,50));
-      backToStartMenu.setFont( new Font ("Arial", Font.PLAIN, 20));
+      backToStartMenu.setFont( new Font (police, Font.PLAIN, 20));
       backToStartMenu.addActionListener(this);
 
       panelNorth.add(textNorth, BorderLayout.CENTER);
@@ -241,6 +256,7 @@ public class swing extends JFrame implements Action {
       panelWest = new JPanel();
       panelWest.setLayout( new GridLayout(6, 1, 0, 50) );
       panelWest.setPreferredSize( new Dimension( 200, 0 ) );
+
       //Some variable use in this panel
       int color = 0xf6b26b;
       int widthBtn = 170;
@@ -260,23 +276,24 @@ public class swing extends JFrame implements Action {
       panel4.setBackground( new Color( color ) );
 
       // Create all button
-      JLabel selectText1 = new JLabel( "Sélectionner le", SwingConstants.CENTER);
+      JLabel selectText1 = new JLabel( "Nombre de", SwingConstants.CENTER);
       selectText1.setPreferredSize( new Dimension(200, 20) );
-      selectText1.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText1.setFont( new Font (police, Font.PLAIN, 22));
 
-      JLabel selectText2 = new JLabel( "nombre de joueur :", SwingConstants.CENTER);
-      selectText2.setPreferredSize( new Dimension(200, 23) );
-      selectText2.setFont( new Font ("Arial", Font.PLAIN, 22));
+      JLabel selectText2 = new JLabel( "joueurs :", SwingConstants.CENTER);
+      selectText2.setPreferredSize( new Dimension(200, 28) );
+      selectText2.setFont( new Font (police, Font.PLAIN, 22));
       
       twoPlayersBtn.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      twoPlayersBtn.setFont( new Font ("Arial", Font.PLAIN, 22));
+      twoPlayersBtn.setFont( new Font (police, Font.PLAIN, 22));
       
       threePlayersBtn.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      threePlayersBtn.setFont( new Font ("Arial", Font.PLAIN, 22));
+      threePlayersBtn.setFont( new Font (police, Font.PLAIN, 22));
       
       fourPlayersBtn.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      fourPlayersBtn.setFont( new Font ("Arial", Font.PLAIN, 22));
+      fourPlayersBtn.setFont( new Font (police, Font.PLAIN, 22));
 
+      // Listener
       twoPlayersBtn.addActionListener(this);
       threePlayersBtn.addActionListener(this);
       fourPlayersBtn.addActionListener(this);
@@ -342,32 +359,32 @@ public class swing extends JFrame implements Action {
       // Create all button
       JLabel selectText1 = new JLabel( numberPlayers +" joueurs", SwingConstants.CENTER);
       selectText1.setPreferredSize( new Dimension(200, 23) );
-      selectText1.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText1.setFont( new Font (police, Font.PLAIN, 22));
 
       JLabel selectText2 = new JLabel( "sélectionnés", SwingConstants.CENTER);
       selectText2.setPreferredSize( new Dimension(200, 20) );
-      selectText2.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText2.setFont( new Font (police, Font.PLAIN, 22));
 
       JLabel selectText3 = new JLabel( "Appuyer sur ENTRER", SwingConstants.CENTER);
       selectText3.setPreferredSize( new Dimension(200, 20) );
-      selectText3.setFont( new Font ("Arial", Font.PLAIN, 20));
+      selectText3.setFont( new Font (police, Font.PLAIN, 20));
 
       JLabel selectText4 = new JLabel( "pour chaque joueur", SwingConstants.CENTER);
       selectText4.setPreferredSize( new Dimension(200, 23) );
-      selectText4.setFont( new Font ("Arial", Font.PLAIN, 20));
+      selectText4.setFont( new Font (police, Font.PLAIN, 20));
 
       JTextField playerOne = new JTextField();
       playerOne.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerOne.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerOne.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerOnePrompt = new TextPrompt("Premier joueur", playerOne);
 
       JTextField playerTwo = new JTextField();
       playerTwo.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerTwo.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerTwo.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerTwoPrompt = new TextPrompt("Deuxième joueur", playerTwo);
       
       backToSelection.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      backToSelection.setFont( new Font ("Arial", Font.PLAIN, 18));
+      backToSelection.setFont( new Font (police, Font.PLAIN, 18));
 
       // Listener
       playerOne.addKeyListener( new KeyListener() { 
@@ -377,10 +394,10 @@ public class swing extends JFrame implements Action {
                if (!playerOne.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   playerTwo.requestFocusInWindow();
                }
@@ -390,14 +407,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -408,10 +427,10 @@ public class swing extends JFrame implements Action {
                if (!playerTwo.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
@@ -421,14 +440,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
       backToSelection.addActionListener(this);
@@ -499,37 +520,37 @@ public class swing extends JFrame implements Action {
       // Create all button
       JLabel selectText1 = new JLabel( numberPlayers +" joueurs", SwingConstants.CENTER);
       selectText1.setPreferredSize( new Dimension(200, 23) );
-      selectText1.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText1.setFont( new Font (police, Font.PLAIN, 22));
 
       JLabel selectText2 = new JLabel( "sélectionnés", SwingConstants.CENTER);
       selectText2.setPreferredSize( new Dimension(200, 20) );
-      selectText2.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText2.setFont( new Font (police, Font.PLAIN, 22));
 
       JLabel selectText3 = new JLabel( "Appuyer sur ENTRER", SwingConstants.CENTER);
       selectText3.setPreferredSize( new Dimension(200, 20) );
-      selectText3.setFont( new Font ("Arial", Font.PLAIN, 20));
+      selectText3.setFont( new Font (police, Font.PLAIN, 20));
 
       JLabel selectText4 = new JLabel( "pour chaque joueur", SwingConstants.CENTER);
       selectText4.setPreferredSize( new Dimension(200, 23) );
-      selectText4.setFont( new Font ("Arial", Font.PLAIN, 20));
+      selectText4.setFont( new Font (police, Font.PLAIN, 20));
 
       JTextField playerOne = new JTextField();
       playerOne.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerOne.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerOne.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerOnePrompt = new TextPrompt("Premier joueur", playerOne);
 
       JTextField playerTwo = new JTextField();
       playerTwo.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerTwo.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerTwo.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerTwoPrompt = new TextPrompt("Deuxième joueur", playerTwo);
 
       JTextField playerThree = new JTextField();
       playerThree.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerThree.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerThree.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerThreePrompt = new TextPrompt("Troisième joueur", playerThree);
 
       backToSelection.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      backToSelection.setFont( new Font ("Arial", Font.PLAIN, 18));
+      backToSelection.setFont( new Font (police, Font.PLAIN, 18));
 
       // Listener
       playerOne.addKeyListener( new KeyListener() { 
@@ -539,10 +560,10 @@ public class swing extends JFrame implements Action {
                if (!playerOne.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   playerTwo.requestFocusInWindow();
                }
@@ -552,14 +573,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -570,10 +593,10 @@ public class swing extends JFrame implements Action {
                if (!playerTwo.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   playerThree.requestFocusInWindow();
                }
@@ -583,14 +606,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -601,10 +626,10 @@ public class swing extends JFrame implements Action {
                if (!playerThree.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
@@ -614,14 +639,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -695,42 +722,42 @@ public class swing extends JFrame implements Action {
       // Create all button
       JLabel selectText1 = new JLabel( numberPlayers +" joueurs", SwingConstants.CENTER);
       selectText1.setPreferredSize( new Dimension(200, 23) );
-      selectText1.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText1.setFont( new Font (police, Font.PLAIN, 22));
 
       JLabel selectText2 = new JLabel( "sélectionnés", SwingConstants.CENTER);
       selectText2.setPreferredSize( new Dimension(200, 20) );
-      selectText2.setFont( new Font ("Arial", Font.PLAIN, 22));
+      selectText2.setFont( new Font (police, Font.PLAIN, 22));
 
       JLabel selectText3 = new JLabel( "Appuyer sur ENTRER", SwingConstants.CENTER);
       selectText3.setPreferredSize( new Dimension(200, 20) );
-      selectText3.setFont( new Font ("Arial", Font.PLAIN, 20));
+      selectText3.setFont( new Font (police, Font.PLAIN, 20));
 
       JLabel selectText4 = new JLabel( "pour chaque joueur", SwingConstants.CENTER);
       selectText4.setPreferredSize( new Dimension(200, 23) );
-      selectText4.setFont( new Font ("Arial", Font.PLAIN, 20));
+      selectText4.setFont( new Font (police, Font.PLAIN, 20));
 
       JTextField playerOne = new JTextField();
       playerOne.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerOne.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerOne.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerOnePrompt = new TextPrompt("Premier joueur", playerOne);
 
       JTextField playerTwo = new JTextField();
       playerTwo.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerTwo.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerTwo.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerTwoPrompt = new TextPrompt("Deuxième joueur", playerTwo);
 
       JTextField playerThree = new JTextField();
       playerThree.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerThree.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerThree.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerThreePrompt = new TextPrompt("Troisième joueur", playerThree);
 
       JTextField playerFour = new JTextField();
       playerFour.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      playerFour.setFont( new Font ("Arial", Font.PLAIN, 18));
+      playerFour.setFont( new Font (police, Font.PLAIN, 18));
       TextPrompt playerFourPrompt = new TextPrompt("Quatrième joueur", playerFour);
 
       backToSelection.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-      backToSelection.setFont( new Font ("Arial", Font.PLAIN, 18));
+      backToSelection.setFont( new Font (police, Font.PLAIN, 18));
 
       // Listener
       playerOne.addKeyListener( new KeyListener() { 
@@ -740,10 +767,10 @@ public class swing extends JFrame implements Action {
                if (!playerOne.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   playerTwo.requestFocusInWindow();
                }
@@ -753,14 +780,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -771,10 +800,10 @@ public class swing extends JFrame implements Action {
                if (!playerTwo.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   playerThree.requestFocusInWindow();
                }
@@ -784,14 +813,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -802,10 +833,10 @@ public class swing extends JFrame implements Action {
                if (!playerThree.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   playerFour.requestFocusInWindow();
                }
@@ -815,14 +846,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -833,10 +866,10 @@ public class swing extends JFrame implements Action {
                if (!playerFour.getText().equals("")) {
                   /**
                    * * Create a player, when enter is press
-                  * * Put here the code to create player
-                  * todo Check if the player is create
-                  * todo if is create update him
-                  * todo else create him
+                   * * Put here the code to create player
+                   * TODO Check if the player is create
+                   * TODO if is create update him
+                   * TODO else create him
                   */
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
@@ -846,14 +879,16 @@ public class swing extends JFrame implements Action {
          // Dont check this part
          @Override
          public void keyPressed(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
 
          @Override
          public void keyReleased(KeyEvent e) {
-            // TODO Auto-generated method stub
-            
+            /**
+             * ! Don't look this part 
+             */
          }
       });
 
@@ -916,7 +951,7 @@ public class swing extends JFrame implements Action {
          }
       }
 
-      text.setFont( new Font ("Arial", Font.PLAIN, 30));
+      text.setFont( new Font (police, Font.PLAIN, 30));
 
       panelSouth.add(text);
 
@@ -935,19 +970,17 @@ public class swing extends JFrame implements Action {
 
       // Define some variables
       int color = 0xfefae0;
-      int width = panelCenter.getWidth();
-      int height = panelCenter.getHeight();
+      int textSize = 25;
 
       panelCenter.setBackground(new Color(color));
 
       /**
        * * Create a panel inside the main panel to contain all content
        * * The layout of the inside panel is GridLayout
-       * * He have 7 rows and 1 column
+       * * He have 9 rows and 1 column
        */
       JPanel panelInt = new JPanel();
-      panelInt.setLayout(new GridLayout(7,1));
-      panelInt.setPreferredSize(new Dimension(width, height));
+      panelInt.setLayout(new GridLayout(9,1));
       panelInt.setBackground( new Color( color ) );
 
       // Create all panel
@@ -955,31 +988,91 @@ public class swing extends JFrame implements Action {
       nothing1.setBackground( new Color( color ) );
       JPanel nothing2 = new JPanel();
       nothing2.setBackground( new Color( color ) );
+      JPanel nothing3 = new JPanel();
+      nothing3.setBackground( new Color( color ) );
+      JPanel nothing4 = new JPanel();
+      nothing4.setBackground( new Color( color ) );
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
+      panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
+      panel2.setPreferredSize( new Dimension( 300, 60 ) );
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
+      if ( numberPlayers != 0 ) {
+         panel4.setLayout(new GridLayout(2,2, 20, 20));
+         panel4.setBackground( new Color( color ) );
+      }
+      panel4.setPreferredSize( new Dimension( 500, 85 ) );
       JPanel panel5 = new JPanel();
       panel5.setBackground( new Color( color ) );
-
-      JLabel gameOption = new JLabel("<html><body><u>Option de partie</u></body></html>");
-      gameOption.setFont( new Font ("Arial", Font.PLAIN, 20));
       
+      // All content ( Button, JLabel )
+      JLabel gameOptionText = new JLabel("<html><body><u>Option de partie</u></body></html>");
+      gameOptionText.setFont( new Font (police, Font.PLAIN, textSize));
+
+      displayTimeBtn.setFont( new Font (police, Font.PLAIN, textSize));
+      displayTimeLimitedBtn.setFont( new Font (police, Font.PLAIN, textSize));
+
+      dynastieBtn.setFont( new Font (police, Font.PLAIN, textSize));
+      harmonieBtn.setFont( new Font (police, Font.PLAIN, textSize));
+      middleEmpireBtn.setFont( new Font (police, Font.PLAIN, textSize));
+      theGrandDuelBtn.setFont( new Font (police, Font.PLAIN, textSize));
+
+      ButtonGroup btnRadio1 = new ButtonGroup();
+      btnRadio1.add(displayTimeBtn);
+      btnRadio1.add(displayTimeLimitedBtn);
+
+      JLabel bonusText = new JLabel("<html><body><u>Bonus</u></body></html>");
+      bonusText.setFont( new Font (police, Font.PLAIN, textSize));
+
+      JLabel bonusText2 = new JLabel("Veuillez sélectionner un nombre");
+      bonusText2.setFont( new Font (police, Font.PLAIN, textSize));
+      
+      JLabel bonusText3 = new JLabel("de joueurs pour accéder aux bonus");
+      bonusText3.setFont( new Font (police, Font.PLAIN, textSize));
+      
+      launchGame.setFont( new Font (police, Font.PLAIN, textSize));
+
+      // Event Listenent
+      displayTimeBtn.addActionListener(this);
+      displayTimeLimitedBtn.addActionListener(this);
+      dynastieBtn.addActionListener(this);
+      harmonieBtn.addActionListener(this);
+      middleEmpireBtn.addActionListener(this);
+      theGrandDuelBtn.addActionListener(this);
+            
       // Add all content into the each panel
-      panel1.add(gameOption);
+      panel1.add(gameOptionText);
+      panel2.add(displayTimeBtn);
+      panel2.add(displayTimeLimitedBtn);
+      panel3.add(bonusText);
+      if ( numberPlayers == 0 ) {
+         panel4.add(bonusText2);
+         panel4.add(bonusText3);
+      } else {
+         panel4.add(dynastieBtn);
+         panel4.add(harmonieBtn);
+         panel4.add(middleEmpireBtn);
+         if ( numberPlayers == 2 ) {
+            panel4.add(theGrandDuelBtn);
+         }
+      }
+      panel5.add(launchGame);
 
       // Add all panel into the inside panel
       panelInt.add(nothing1);
       panelInt.add(panel1);
       panelInt.add(panel2);
+      panelInt.add(nothing2);
       panelInt.add(panel3);
       panelInt.add(panel4);
+      panelInt.add(nothing3);
       panelInt.add(panel5);
-      panelInt.add(nothing2);
+      panelInt.add(nothing4);
 
       // Add the panel into the main panel
       panelCenter.add(panelInt);
@@ -1014,7 +1107,9 @@ public class swing extends JFrame implements Action {
    // All listener for button/action
    @Override
    public void actionPerformed(ActionEvent e) {
+      
       if ( e.getSource() == backToStartMenu ) {
+
          frame.remove(panelNorth);
          frame.remove(panelWest);
          frame.remove(panelCenter);
@@ -1022,7 +1117,9 @@ public class swing extends JFrame implements Action {
 
          cleanJPanel();
          startMenu();
+
       } else if ( e.getSource() == newGameBtn ) {
+
          numberPlayers = 0;
 
          frame.remove(panelEast);
@@ -1031,89 +1128,176 @@ public class swing extends JFrame implements Action {
 
          cleanJPanel();
          newGameMenu();
+
       } else if ( e.getSource() == twoPlayersBtn ) {
+
          numberPlayers = 2;
 
-         frame.remove(panelWest);
-         frame.remove(panelSouth);
+         frame.remove( panelWest );
+         frame.remove( panelSouth );
+         frame.remove( panelCenter );
 
-         if (panelWest != null) {
+         if ( panelWest != null ) {
             panelWest = null;
          }
-         if (panelSouth != null) {
+         if ( panelSouth != null ) {
             panelSouth = null;
          }
 
-         frame.add(twoPlayers(), BorderLayout.LINE_START);
-         frame.add(panelSouthForNewGameMenu(1), BorderLayout.SOUTH);
+         frame.add( twoPlayers(), BorderLayout.LINE_START );
+         frame.add( panelSouthForNewGameMenu(1), BorderLayout.SOUTH );
+         frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
       } else if ( e.getSource() == threePlayersBtn ) {
+
          numberPlayers = 3;
 
-         frame.remove(panelWest);
-         frame.remove(panelSouth);
+         frame.remove( panelWest );
+         frame.remove( panelSouth );
+         frame.remove( panelCenter );
 
-         if (panelWest != null) {
+         if ( panelWest != null ) {
             panelWest = null;
          }
-         if (panelSouth != null) {
+         if ( panelSouth != null ) {
             panelSouth = null;
          }
 
-         frame.add(threePlayers(), BorderLayout.LINE_START);
-         frame.add(panelSouthForNewGameMenu(2), BorderLayout.SOUTH);
+         frame.add( threePlayers(), BorderLayout.LINE_START );
+         frame.add( panelSouthForNewGameMenu(2), BorderLayout.SOUTH );
+         frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
+
       } else if ( e.getSource() == fourPlayersBtn ) {
+
          numberPlayers = 4;
 
-         frame.remove(panelWest);
-         frame.remove(panelSouth);
+         frame.remove( panelWest );
+         frame.remove( panelSouth );
+         frame.remove( panelCenter );
 
-         if (panelWest != null) {
+         if ( panelWest != null ) {
             panelWest = null;
          }
-         if (panelSouth != null) {
+         if ( panelSouth != null ) {
             panelSouth = null;
          }
 
-         frame.add(fourPlayers(), BorderLayout.LINE_START);
-         frame.add(panelSouthForNewGameMenu(3), BorderLayout.SOUTH);
+         frame.add( fourPlayers(), BorderLayout.LINE_START );
+         frame.add( panelSouthForNewGameMenu(3), BorderLayout.SOUTH );
+         frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
+
       } else if ( e.getSource() == backToSelection ) {
          /**
-          * todo destroy player when he back to the selection of the number of players
+          * TODO destroy player when he back to the selection of the number of players
           */
          numberPlayers = 0;
 
-         frame.remove(panelWest);
-         frame.remove(panelSouth);
+         frame.remove( panelWest );
+         frame.remove( panelSouth );
+         frame.remove( panelCenter );
 
-         if (panelWest != null) {
+         if ( panelWest != null ) {
             panelWest = null;
          }
-         if (panelSouth != null) {
+         if ( panelSouth != null ) {
             panelSouth = null;
          }
 
-         frame.add(panelWestForNewGameMenu(), BorderLayout.LINE_START);
-         frame.add(panelSouthForNewGameMenu(0), BorderLayout.SOUTH);
+         if ( dynastie != 0 ) {
+            dynastie = 0;
+            if ( dynastieBtn.isSelected() ) {
+               dynastieBtn.setSelected(false);
+            }
+         }
+         if ( harmonie != 0 ) {
+            harmonie = 0;
+            if ( harmonieBtn.isSelected() ) {
+               harmonieBtn.setSelected(false);
+            }
+         }
+         if ( middleEmpire != 0 ) {
+            middleEmpire = 0;
+            if ( middleEmpireBtn.isSelected() ) {
+               middleEmpireBtn.setSelected(false);
+            }
+         }
+         if ( theGrandDuel != 0 ) {
+            theGrandDuel = 0;
+            if ( theGrandDuelBtn.isSelected() ) {
+               theGrandDuelBtn.setSelected(false);
+            }
+         }
+
+         frame.add( panelWestForNewGameMenu(), BorderLayout.LINE_START );
+         frame.add( panelSouthForNewGameMenu(0), BorderLayout.SOUTH );
+         frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
+
+      } else if ( e.getSource() == soundBtn ) {
+         
+         /**
+          * TODO Cut the sound when is activated, and inversement
+          */
+
+      } else if ( e.getSource() == credits) {
+
+         /**
+          * TODO make the transition between pages
+          */
+
+      } else if ( e.getSource() == displayTimeBtn ) {
+
+         if ( displayTimeBtn.isSelected() ) {
+            System.out.println("test");
+         } 
+         displayTime = 1;
+         if ( displayTimeLimited == 1 ) {
+            displayTimeLimited = 0;
+         }
+         /**
+          * * This part is for display the time you take to play
+          * TODO create the funtion to do this
+          */
+
+      } else if ( e.getSource() == displayTimeLimitedBtn ) {
+
+         displayTimeLimited = 1;
+         if ( displayTime == 1 ) {
+            displayTime = 0;
+         }
+
+         /**
+          * * This part is for display the limitation if time you have
+          * TODO create the funtion to do this
+          */
+
+      } else if ( e.getSource() == dynastieBtn ) {
+         dynastie = 1;
+      } else if ( e.getSource() == harmonieBtn ) {
+         harmonie = 1;
+      } else if ( e.getSource() == middleEmpireBtn ) {
+         middleEmpire = 1;
+      } else if ( e.getSource() == theGrandDuelBtn ) {
+         theGrandDuel = 1;
       }
+
       frame.validate();
       frame.repaint();
    }
 
    // Don't check this part
    @Override
-   public Object getValue(String key) {
+   public Object getValue( String key ) {
       return null;
    }
 
    @Override
-   public void putValue(String key, Object value) {
+   public void putValue( String key, Object value ) {
       
    }
 
    public static void main(String [] args) throws Exception{
-      UIManager.setLookAndFeel(new NimbusLookAndFeel());
+      UIManager.setLookAndFeel( new NimbusLookAndFeel() );
 
-      SwingUtilities.invokeLater(new Runnable()
+      SwingUtilities.invokeLater( new Runnable()
       {
          @Override
          public void run()
