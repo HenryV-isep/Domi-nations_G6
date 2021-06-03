@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db20c61a-7064-496a-8427-04cce99c36df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__3_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/TESTS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Grap_int/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Grap_int/swing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/Castle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/Domino.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoDrawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoLeft.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoPlaced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoSideOne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoSideTwo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/King.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Main/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/TextPrompt/TextPrompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eclipse/game/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Eclipse/game/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,34 +49,55 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/TESTS/src" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TESTS/src" />
       <recent name="$PROJECT_DIR$/Image" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.swing">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="sun.rmi.rmic.Main" />
-      <module name="Domi-nations_G6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="14" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <module name="TESTS" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration name="swing" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="14" />
+      <option name="MAIN_CLASS_NAME" value="Grap_int.swing" />
+      <module name="TESTS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.swing" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,5 +125,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Domi_nations_G6$Main.ic" NAME="Main Coverage Results" MODIFIED="1622728657581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
