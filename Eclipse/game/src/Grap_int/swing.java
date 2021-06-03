@@ -28,6 +28,8 @@ import javax.swing.border.Border;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import TextPrompt.TextPrompt;
+import Game.*;
+
 
 public class swing extends JFrame implements Action {
    // Global variable
@@ -399,6 +401,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                   playerTwo.requestFocusInWindow();
                }
             }
@@ -432,6 +435,8 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
+
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
             }
@@ -565,6 +570,8 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerOne.getText(),1,"blue");
+
                   playerTwo.requestFocusInWindow();
                }
             }
@@ -598,6 +605,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                   playerThree.requestFocusInWindow();
                }
             }
@@ -631,6 +639,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerThree.getText(),3,"green");
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
             }
@@ -772,6 +781,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                   playerTwo.requestFocusInWindow();
                }
             }
@@ -805,6 +815,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                   playerThree.requestFocusInWindow();
                }
             }
@@ -838,6 +849,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerThree.getText(),3,"green");
                   playerFour.requestFocusInWindow();
                }
             }
@@ -871,6 +883,7 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
+                  createPlayer(numberPlayers,playerFour.getText(),4,"orange");
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
             }
