@@ -14,8 +14,7 @@ public class Game {
 	public void createPlayer(int numberPlayers, String namePlayer, int numPlayer, String color) {
 		this.players = new Player[numberPlayers];
 		this.players[numPlayer-1] = new Player(namePlayer,color);
-		//King(color);
-		//Castle(color);
+		System.out.println(players[0]); // ne marche pas
 	}
 
 	private boolean isValidMove() {

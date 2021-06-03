@@ -1,6 +1,8 @@
 package Main;
 
 public class Player {
+	public King king;
+	public Castle castle;
 	private String name;
 	public String getName() {
 		return name;
@@ -20,6 +22,8 @@ public class Player {
 		super();
 		this.name = name;
 		this.color = color;
+		//this.king.setColor(color);
+		//this.castle.color = color;
 	}
-	public King king;
+
 }
