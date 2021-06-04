@@ -7,16 +7,29 @@ import static Grap_int.swing.numberDominos;
 import static Grap_int.swing.numberPlayers;
 
 public class Game {
-
+	private King[] king = null;
 	private Player[] players = null;
+	private Castle[] castle = null;
+	int numberKing;
 
 	public void createPlayer(int numberPlayers, String namePlayer, int numPlayer, String color) {
 		if ((this.players == null) || (this.players.length != numberPlayers)){
 			this.players = new Player[numberPlayers];
+			this.king = new King[numberPlayers];
+			this.castle = new Castle[numberPlayers];
 		}
+		if (numberPlayers > 2) {
+			numberKing = 1;
+		} else {
+			numberKing = 2;
+		}
+		this.castle[numPlayer-1] = new Castle(color);
+		this.king[numPlayer-1] = new King(color,numberKing);
 		this.players[numPlayer-1] = new Player(namePlayer,color);
 		//System.out.println(players[numPlayer-1].getName());// to check if the name are correct
-		//System.out.println(Arrays.toString(players)); // to check if the list is completed
+		// System.out.println(Arrays.toString(players)); // to check if the list is completed
+		//System.out.println(king[numPlayer-1].getNumberKing()); // to check the numberKing of each player
+		// System.out.println(players[numPlayer-1].getName()+ " " +king[numPlayer-1].getColor()+" "+players[numPlayer-1].getColor()+" "+castle[numPlayer-1].getColor()); // Gros bordel
 	}
 
 	private boolean isValidMove() {
