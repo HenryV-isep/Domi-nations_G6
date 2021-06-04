@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db20c61a-7064-496a-8427-04cce99c36df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTS/src/Grap_int/swingvv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TESTS/src/Grap_int/swing.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Grap_int/swing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +52,7 @@
       <recent name="$PROJECT_DIR$/Image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.swing">
+  <component name="RunManager" selected="Application.swingvv">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="14" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -55,9 +62,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="swing" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="swingvv" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="14" />
-      <option name="MAIN_CLASS_NAME" value="Grap_int.swing" />
+      <option name="MAIN_CLASS_NAME" value="Grap_int.swingvv" />
       <module name="TESTS" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -78,7 +85,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.swing" />
+      <item itemvalue="Application.swingvv" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

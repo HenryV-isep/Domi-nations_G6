@@ -1,8 +1,5 @@
 package Main;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 import static Grap_int.swing.numberDominos;
 import static Grap_int.swing.numberPlayers;
 
