@@ -1,5 +1,6 @@
 package Main;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static Grap_int.swing.numberDominos;
@@ -7,14 +8,15 @@ import static Grap_int.swing.numberPlayers;
 
 public class Game {
 
-	private Player[] players;
-	public int nbTuiles;
-	private Scanner clavier = new Scanner(System.in);
+	private Player[] players = null;
 
 	public void createPlayer(int numberPlayers, String namePlayer, int numPlayer, String color) {
-		this.players = new Player[numberPlayers];
+		if ((this.players == null) || (this.players.length != numberPlayers)){
+			this.players = new Player[numberPlayers];
+		}
 		this.players[numPlayer-1] = new Player(namePlayer,color);
-		System.out.println(players[0]); // ne marche pas
+		//System.out.println(players[numPlayer-1].getName());// to check if the name are correct
+		//System.out.println(Arrays.toString(players)); // to check if the list is completed
 	}
 
 	private boolean isValidMove() {

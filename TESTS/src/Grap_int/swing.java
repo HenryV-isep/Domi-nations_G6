@@ -36,6 +36,7 @@ public class swing extends JFrame implements Action {
    private static JLabel banner;
    private static JLabel background;
    private static String  police = "Century Gothic";
+   private static Game game = new Game();
    public static Integer numberPlayers;
    public static Integer numberDominos;
    public static Integer sizeKingdom;
@@ -401,7 +402,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                   playerTwo.requestFocusInWindow();
                }
@@ -436,7 +436,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
 
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
@@ -572,7 +571,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
 
                   playerTwo.requestFocusInWindow();
@@ -608,7 +606,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                   playerThree.requestFocusInWindow();
                }
@@ -643,7 +640,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }
@@ -786,7 +782,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                   playerTwo.requestFocusInWindow();
                }
@@ -821,7 +816,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                   playerThree.requestFocusInWindow();
                }
@@ -856,7 +850,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                   playerFour.requestFocusInWindow();
                }
@@ -891,7 +884,6 @@ public class swing extends JFrame implements Action {
                    * TODO if is create update him
                    * TODO else create him
                   */
-                  Game game = new Game();
                   game.createPlayer(numberPlayers,playerFour.getText(),4,"orange");
                   KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                }

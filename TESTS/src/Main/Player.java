@@ -18,6 +18,7 @@ public class Player {
 	public void setColor() {
 		this.color = color;
 	}
+
 	public Player(String name, String color) {
 		super();
 		this.name = name;
