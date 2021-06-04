@@ -28,6 +28,26 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import TextPrompt.TextPrompt;
 
+/**
+ * * This is the documentation of all know bugs:
+ * 
+ * ! Bug with addAction for all buttons
+ * * Detail of the bug
+ * * The button keep all action listener, and this double all action
+ * ? Influence on the program
+ * * After lots of click ( arround hundred thousand ) in a button, the game become more slower
+ * ? How resolve it ?
+ * y To resolve this bug, we need to turn the button null, and reassign the button
+ * y Or destroy all action listener for the button before adding a new action listener
+ * 
+ * ! Bug with changement between start menu and new game menu
+ * * Detail of the bug
+ * * Print exception in console log
+ * ? Influence on the program
+ * * Nothing
+ * ? How resolve it ?
+ * y Don't know yet
+ */
 public class swing extends JFrame implements Action {
    // Global variable
    public static Integer numberPlayers;
@@ -41,6 +61,42 @@ public class swing extends JFrame implements Action {
    public static int theGrandDuel = 0;
    public static int displayTime = 0;
    public static int displayTimeLimited = 0;
+
+   public static Integer getNumberPlayers() {
+      return numberPlayers;
+   }
+
+   public static Integer getNumberDominos() {
+      return numberDominos;
+   }
+
+   public static Integer getSizeKingdom() {
+      return sizeKingdom;
+   }
+
+   public static int getDynastie() {
+      return dynastie;
+   }
+
+   public static int getHarmonie() {
+      return harmonie;
+   }
+
+   public static int getMiddleEmpire() {
+      return middleEmpire;
+   }
+
+   public static int getTheGrandDuel() {
+      return theGrandDuel;
+   }
+
+   public static int getDisplayTime() {
+      return displayTime;
+   }
+
+   public static int getDisplayTimeLimited() {
+      return displayTimeLimited;
+   }
 
    // Variable for swing
    private static JLabel banner;
@@ -99,7 +155,9 @@ public class swing extends JFrame implements Action {
        */
       startMenu();
 
+      // Maximized the frame
       frame.setExtendedState( frame.getExtendedState() | JFrame.MAXIMIZED_BOTH ); 
+      // If there are two frame pr more, juste close the frame, else close swing
       frame.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE ); 
       frame.setVisible( true );
    }
@@ -146,12 +204,16 @@ public class swing extends JFrame implements Action {
 
       // Create all panels for grid layout
       JLabel nothing = new JLabel();
+
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
+
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
+
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
+
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
 
@@ -172,6 +234,7 @@ public class swing extends JFrame implements Action {
       leave.addActionListener( e -> {
          frame.dispose();
       } );
+
       newGameBtn.addActionListener( this );
       soundBtn.addActionListener( this );
       credits.addActionListener( this );
@@ -259,12 +322,16 @@ public class swing extends JFrame implements Action {
 
       // Create all panels
       JLabel nothing = new JLabel();
+
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
+
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
+
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
+
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
 
@@ -329,15 +396,21 @@ public class swing extends JFrame implements Action {
 
       // Create all panels for grid layout
       JLabel nothing1 = new JLabel();
+
       JLabel nothing2 = new JLabel();
+
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
+
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
+
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
+
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
+
       JPanel panel5 = new JPanel();
       panel5.setBackground( new Color( color ) );
 
@@ -437,6 +510,7 @@ public class swing extends JFrame implements Action {
              */
          }
       });
+      
       backToSelection.addActionListener( this );
 
       // Add all contents into there panel
@@ -481,16 +555,22 @@ public class swing extends JFrame implements Action {
 
       // Create all panels
       JLabel nothing2 = new JLabel();
+
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
+
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
+
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
+
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
+
       JPanel panel5 = new JPanel();
       panel5.setBackground( new Color( color ) );
+
       JPanel panel6 = new JPanel();
       panel6.setBackground( new Color( color ) );
 
@@ -675,16 +755,22 @@ public class swing extends JFrame implements Action {
       // Create all panels
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
+
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
+
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
+
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
+
       JPanel panel5 = new JPanel();
       panel5.setBackground( new Color( color ) );
+
       JPanel panel6 = new JPanel();
       panel6.setBackground( new Color( color ) );
+
       JPanel panel7 = new JPanel();
       panel7.setBackground( new Color( color ) );
 
@@ -965,20 +1051,27 @@ public class swing extends JFrame implements Action {
       // Create all panels for grid layout
       JPanel nothing1 = new JPanel();
       nothing1.setBackground( new Color( color ) );
+
       JPanel nothing2 = new JPanel();
       nothing2.setBackground( new Color( color ) );
+
       JPanel nothing3 = new JPanel();
       nothing3.setBackground( new Color( color ) );
+
       JPanel nothing4 = new JPanel();
       nothing4.setBackground( new Color( color ) );
+
       JPanel panel1 = new JPanel();
       panel1.setBackground( new Color( color ) );
+
       JPanel panel2 = new JPanel();
       panel2.setBackground( new Color( color ) );
       panel2.setLayout( new FlowLayout( FlowLayout.CENTER ) );
       panel2.setPreferredSize( new Dimension( 300, 60 ) );
+
       JPanel panel3 = new JPanel();
       panel3.setBackground( new Color( color ) );
+
       JPanel panel4 = new JPanel();
       panel4.setBackground( new Color( color ) );
       if ( numberPlayers != 0 ) {
@@ -986,6 +1079,7 @@ public class swing extends JFrame implements Action {
          panel4.setBackground( new Color( color ) );
       }
       panel4.setPreferredSize( new Dimension( 500, 85 ) );
+
       JPanel panel5 = new JPanel();
       panel5.setBackground( new Color( color ) );
       
@@ -994,11 +1088,15 @@ public class swing extends JFrame implements Action {
       gameOptionText.setFont( new Font( police, Font.PLAIN, textSize ) );
 
       displayTimeBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
+
       displayTimeLimitedBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
 
       dynastieBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
+
       harmonieBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
+
       middleEmpireBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
+
       theGrandDuelBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
 
       ButtonGroup btnRadio1 = new ButtonGroup();
@@ -1029,6 +1127,7 @@ public class swing extends JFrame implements Action {
       panel2.add( displayTimeBtn );
       panel2.add( displayTimeLimitedBtn );
       panel3.add( bonusText );
+
       if ( numberPlayers == 0 ) {
          panel4.add( bonusText2 );
          panel4.add( bonusText3 );
@@ -1040,6 +1139,7 @@ public class swing extends JFrame implements Action {
             panel4.add( theGrandDuelBtn );
          }
       }
+      
       panel5.add( launchGame );
 
       // Add all panels the panel
@@ -1066,46 +1166,118 @@ public class swing extends JFrame implements Action {
     */
    private void credit() {
 
+      // Initializes the main panel
+      panelEast = new JPanel();
+      panelEast.setPreferredSize( new Dimension( 150,0 ) );
+      panelEast.setBackground( new Color( 0xf1c232 ) );
+
+      panelWest = new JPanel();
+      panelWest.setPreferredSize( new Dimension( 150,0 ) );
+      panelWest.setBackground( new Color( 0xf1c232 ) );
+
       // Add panels into the frame
-      frame.add( panelForCredit() );
+      frame.add( panelNorthForCredit(), BorderLayout.NORTH );
+      frame.add( panelEast, BorderLayout.EAST );
+      frame.add( panelWest, BorderLayout.WEST );
+      frame.add( panelCenterForCredit(), BorderLayout.CENTER );
    }
 
    /**
-    * Create the panel for credit
+    * Create the north panel for credit
     * @param none
     * @return JPanel
     */
-   private JPanel panelForCredit() {
+   private JPanel panelNorthForCredit () {
 
       // Initialaze the main panel
-      panelCenter = new JPanel();
-
-      panelCenter.setLayout( new GridLayout( 3,1,0,30) );
-      panelCenter.setBackground( new Color( 0xf1c232 ) );
+      panelNorth = new JPanel();
+      panelNorth.setLayout( new FlowLayout( FlowLayout.LEFT ) );
+      panelNorth.setBackground( new Color( 0xf1c232 ) );
       
-      // Create all panels for grid layout
-      JPanel panel1 = new JPanel();
-      panel1.setLayout( new FlowLayout( FlowLayout.LEFT));
-      panel1.setBackground( new Color( 0xf1c232 ) );
-      JPanel panel2 = new JPanel();
-      panel2.setBackground( new Color( 0xf1c232 ) );
-      JPanel panel3 = new JPanel();
-      panel3.setBackground( new Color( 0xf1c232 ) );
-
       // Create all contents
       backToStartMenu2.setPreferredSize( new Dimension( 100,50 ) );
       backToStartMenu2.setFont( new Font (police, Font.PLAIN, 20) );
 
-      // Add contents into there panel
-      panel1.add( backToStartMenu2 );
-
       // Listeners
       backToStartMenu2.addActionListener( this );
+
+      // Add all contents into the main panel
+      panelNorth.add( backToStartMenu2 );
+
+      return panelNorth;
+   }
+
+   /**
+    * Create the center panel for credit
+    * @param none
+    * @return JPanel
+    */
+   private JPanel panelCenterForCredit() {
+
+      // Initialaze the main panel
+      panelCenter = new JPanel();
+      panelCenter.setLayout( new FlowLayout( FlowLayout.CENTER, 0, 50 ) );
+      panelCenter.setBackground( new Color( 0xf1c232 ) );
+      
+      Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+      int width  = ( int )dimension.getWidth() - 300;
+      System.out.println(width);
+
+      // Create all panels for grid layout
+      JPanel panel1 = new JPanel();
+      panel1.setBackground( new Color( 0xfff2cc ) );
+      panel1.setPreferredSize( new Dimension( width, 50 ) );
+
+      JPanel panel2 = new JPanel();
+      panel2.setLayout( new FlowLayout( FlowLayout.CENTER ) );
+      panel2.setBackground( new Color( 0xfff2cc ) );
+      panel2.setPreferredSize( new Dimension( width, 500 ) );
+
+      // Create all contents
+      JLabel creditTitle = new JLabel( "Crédits" );
+      creditTitle.setFont( new Font( police, Font.PLAIN, 30 ) );
+
+      JLabel text1 = new JLabel( "Domination (v1.2.1 HD)", SwingConstants.CENTER );
+      text1.setPreferredSize( new Dimension( width, 80 ) );
+      text1.setFont( new Font( police, Font.PLAIN, 30 ) );
+      
+      JLabel text2 = new JLabel( "@ 2021 ISEPG6GAME3", SwingConstants.CENTER );
+      text2.setPreferredSize( new Dimension( width, 80 ) );
+      text2.setFont( new Font( police, Font.PLAIN, 30 ) );
+
+      JLabel text3 = new JLabel( "isepG6game3.com", SwingConstants.CENTER );
+      text3.setPreferredSize( new Dimension( width, 100 ) );
+      text3.setFont( new Font( police, Font.PLAIN, 30 ) );
+
+      JLabel text4 = new JLabel( "Jeu créé par :", SwingConstants.CENTER );
+      text4.setPreferredSize( new Dimension( width, 80 ) );
+      text4.setFont( new Font( police, Font.PLAIN, 30 ) );
+
+      JLabel text5 = new JLabel( "Tendzin ROFFLER", SwingConstants.CENTER );
+      text5.setPreferredSize( new Dimension( width, 40 ) );
+      text5.setFont( new Font( police, Font.PLAIN, 30 ) );
+      
+      JLabel text6 = new JLabel( "Henry VIEN", SwingConstants.CENTER );
+      text6.setPreferredSize( new Dimension( width, 40 ) );
+      text6.setFont( new Font( police, Font.PLAIN, 30 ) );
+
+      JLabel text7 = new JLabel( "Cécile LI", SwingConstants.CENTER );
+      text7.setPreferredSize( new Dimension( width, 40 ) );
+      text7.setFont( new Font( police, Font.PLAIN, 30 ) );
+
+      // Add contents into there panel
+      panel1.add( creditTitle );
+      panel2.add( text1 );
+      panel2.add( text2 );
+      panel2.add( text3 );
+      panel2.add( text4 );
+      panel2.add( text5 );
+      panel2.add( text6 );
+      panel2.add( text7 );
 
       // Add panels to main panel
       panelCenter.add( panel1 );
       panelCenter.add( panel2 );
-      panelCenter.add( panel3 );
 
       return panelCenter;
    }
@@ -1160,6 +1332,9 @@ public class swing extends JFrame implements Action {
       } else if ( e.getSource() == backToStartMenu2 ) {
 
          // Remove all panels from the frame
+         frame.remove( panelEast );
+         frame.remove( panelNorth );
+         frame.remove( panelWest );
          frame.remove( panelCenter );
 
          // Clean panel used
