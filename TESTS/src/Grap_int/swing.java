@@ -33,22 +33,12 @@ import Main.Game;
 /**
  * * This is the documentation of all know bugs:
  *
- * ! Bug with addAction for all buttons
- * * Detail of the bug
- * * The button keep all action listener, and this double all action
- * ? Influence on the program
- * * After lots of click ( arround hundred thousand ) in a button, the game become more slower
- * ? How resolve it ?
- * y To resolve this bug, we need to turn the button null, and reassign the button
- * y Or destroy all action listener for the button before adding a new action listener
- *
  * ! Bug with changement between start menu and new game menu
- * * Detail of the bug
- * * Print exception in console log
+ * * 
  * ? Influence on the program
- * * Nothing
+ * * 
  * ? How resolve it ?
- * y Don't know yet
+ * y 
  */
 public class swing extends JFrame implements Action {
     // Global variable
@@ -1235,7 +1225,6 @@ public class swing extends JFrame implements Action {
 
         Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         int width  = ( int )dimension.getWidth() - 300;
-        System.out.println(width);
 
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
@@ -1305,23 +1294,92 @@ public class swing extends JFrame implements Action {
         if ( panelNorth != null ) {
             panelNorth = null;
         }
+
         if ( panelSouth != null ) {
             panelSouth = null;
         }
+
         if ( panelEast != null ) {
             panelEast = null;
         }
+
         if ( panelWest != null ) {
             panelWest = null;
         }
+
         if ( panelCenter != null ) {
             panelCenter = null;
         }
+
         if ( banner != null ) {
             banner = null;
         }
+
         if ( background != null ) {
             background = null;
+        }
+    }
+
+    /**
+     * Clean all button for action event
+     * @param none
+     * @return none
+     */
+    private void cleanButton() {
+
+        if ( newGameBtn.getActionListeners().length > 1 ) {
+            newGameBtn = null;
+            newGameBtn = new JButton( "Nouvelle partie" );
+        }
+        
+        if ( soundBtn.getActionListeners().length > 1 ) {
+            soundBtn = null;
+            soundBtn = new JButton( "Son activé" );
+        }
+        
+        if ( leave.getActionListeners().length > 1 ) {
+            leave = null;
+            leave = new JButton( "Quitter" );
+        }
+        
+        if ( credits.getActionListeners().length > 1 ) {
+            credits = null;
+            credits = new JButton( "Crédits" );
+        }
+        
+        if ( backToStartMenu.getActionListeners().length > 1 ) {
+            backToStartMenu = null;
+            backToStartMenu = new JButton("Retour");
+        }
+        
+        if ( backToStartMenu2.getActionListeners().length > 1 ) {
+            backToStartMenu2 = null;
+            backToStartMenu2 = new JButton("Retour");
+        }
+        
+        if ( twoPlayersBtn.getActionListeners().length > 1 ) {
+            twoPlayersBtn = null;
+            twoPlayersBtn = new JButton( "2 joueurs" );
+        }
+        
+        if ( threePlayersBtn.getActionListeners().length > 1 ) {
+            threePlayersBtn = null;
+            threePlayersBtn = new JButton( "3 joueurs" );
+        }
+        
+        if ( fourPlayersBtn.getActionListeners().length > 1 ) {
+            fourPlayersBtn = null;
+            fourPlayersBtn = new JButton( "4 joueurs" );
+        }
+        
+        if ( backToSelection.getActionListeners().length > 1 ) {
+            backToSelection = null;
+            backToSelection = new JButton( "Retour sélection" );
+        }
+        
+        if ( launchGame.getActionListeners().length > 1 ) {
+            launchGame = null;
+            launchGame = new JButton( "Lancer la partie" );
         }
     }
 
@@ -1337,8 +1395,9 @@ public class swing extends JFrame implements Action {
             frame.remove( panelCenter );
             frame.remove( panelSouth );
 
-            // Clean panel used
+            // Clean panels and buttons used
             cleanJPanel();
+            cleanButton();
 
             // Add new panels to the frame
             startMenu();
@@ -1351,8 +1410,9 @@ public class swing extends JFrame implements Action {
             frame.remove( panelWest );
             frame.remove( panelCenter );
 
-            // Clean panel used
+            // Clean panels and button used
             cleanJPanel();
+            cleanButton();
 
             // Add new panels to the frame
             startMenu();
@@ -1367,8 +1427,9 @@ public class swing extends JFrame implements Action {
             frame.remove(banner);
             frame.remove(background);
 
-            // Clean panel used
+            // Clean panels and buttons used
             cleanJPanel();
+            cleanButton();
 
             // Add new panels to the frame
             newGameMenu();
@@ -1377,18 +1438,23 @@ public class swing extends JFrame implements Action {
 
             // Set the number of players
             numberPlayers = 2;
+            System.out.println(numberPlayers);
 
             // Remove all panels from the frame
             frame.remove( panelWest );
             frame.remove( panelSouth );
             frame.remove( panelCenter );
 
-            // Clean panel used
+            // Clean panels and buttons used
             if ( panelWest != null ) {
                 panelWest = null;
             }
             if ( panelSouth != null ) {
                 panelSouth = null;
+            }
+            if ( twoPlayersBtn.getActionListeners().length > 1 ) {
+                twoPlayersBtn = null;
+                twoPlayersBtn = new JButton( "2 joueurs" );
             }
 
             position = 1;
@@ -1408,12 +1474,16 @@ public class swing extends JFrame implements Action {
             frame.remove( panelSouth );
             frame.remove( panelCenter );
 
-            // Clean panel used
+            // Clean panels and buttons used
             if ( panelWest != null ) {
                 panelWest = null;
             }
             if ( panelSouth != null ) {
                 panelSouth = null;
+            }
+            if ( threePlayersBtn.getActionListeners().length > 1 ) {
+                threePlayersBtn = null;
+                threePlayersBtn = new JButton( "3 joueurs" );
             }
 
             position = 2;
@@ -1440,6 +1510,10 @@ public class swing extends JFrame implements Action {
             if ( panelSouth != null ) {
                 panelSouth = null;
             }
+            if ( fourPlayersBtn.getActionListeners().length > 1 ) {
+                fourPlayersBtn = null;
+                fourPlayersBtn = new JButton( "4 joueurs" );
+            }
 
             position = 3;
 
@@ -1449,9 +1523,7 @@ public class swing extends JFrame implements Action {
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == backToSelection ) {
-            /**
-             * TODO destroy player when he back to the selection of the number of players
-             */
+
             // Set the number of players
             numberPlayers = 0;
 
@@ -1460,12 +1532,16 @@ public class swing extends JFrame implements Action {
             frame.remove( panelSouth );
             frame.remove( panelCenter );
 
-            // Clean panel used
+            // Clean panels and buttons used
             if ( panelWest != null ) {
                 panelWest = null;
             }
             if ( panelSouth != null ) {
                 panelSouth = null;
+            }
+            if ( backToSelection.getActionListeners().length > 1 ) {
+                backToSelection = null;
+                backToSelection = new JButton( "Retour sélection" );
             }
 
             // Clean all option selected
@@ -1517,12 +1593,16 @@ public class swing extends JFrame implements Action {
         } else if ( e.getSource() == credits ) {
 
             // Remove all panels from the frame
+            System.out.println( panelEast );
+            System.out.println( banner );
+            System.out.println( background );
             frame.remove( panelEast );
             frame.remove( banner );
             frame.remove( background );
 
-            // Clean panel used
+            // Clean panels and buttons used
             cleanJPanel();
+            cleanButton();
 
             // Add new panels to the frame
             credit();
