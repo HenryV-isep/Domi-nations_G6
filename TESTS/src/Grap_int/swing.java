@@ -26,8 +26,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
-import TextPrompt.TextPrompt;
 import Main.Game;
+import Main.Player;
+import TextPrompt.TextPrompt;
 
 
 /**
@@ -94,6 +95,7 @@ public class swing extends JFrame implements Action {
     private static JLabel banner;
     private static JLabel background;
     private static int position;
+    private static int gameLaunch = 0;
     private static String police = "Century Gothic";
     private static Game game = new Game();
 
@@ -134,23 +136,17 @@ public class swing extends JFrame implements Action {
         int height = ( int )dimension.getHeight() + 100;
         int width  = ( int )dimension.getWidth() + 100;
 
-        // set the size of the frame
+        // Set the size of the frame
         frame.setSize( new Dimension( width,height ) );
         // Center the frame to the center of the screen
         frame.setLocationRelativeTo( null );
-
-        /**
-         * * Start with the start menu
-         * * Change this to change the start
-         * ! Don't forget to put startMenu() at the end of your work
-         * ? startMenu();
-         * ? newGameMenu();
-         */
+        
+        // Launch the first page
         startMenu();
 
         // Maximized the frame
         frame.setExtendedState( frame.getExtendedState() | JFrame.MAXIMIZED_BOTH );
-        // If there are two frame pr more, juste close the frame, else close swing
+        // If there are two frame or more, juste close the frame, else close swing
         frame.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
         frame.setVisible( true );
     }
@@ -443,15 +439,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerOne.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                         playerTwo.requestFocusInWindow();
+
                     }
                 }
             }
@@ -477,16 +468,11 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerTwo.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
 
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+
                     }
                 }
             }
@@ -611,16 +597,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerOne.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
-
                         playerTwo.requestFocusInWindow();
+
                     }
                 }
             }
@@ -646,15 +626,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerTwo.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                         playerThree.requestFocusInWindow();
+
                     }
                 }
             }
@@ -680,15 +655,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerThree.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+
                     }
                 }
             }
@@ -820,15 +790,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerOne.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                         playerTwo.requestFocusInWindow();
+
                     }
                 }
             }
@@ -854,15 +819,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerTwo.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                         playerThree.requestFocusInWindow();
+
                     }
                 }
             }
@@ -888,15 +848,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerThree.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                         playerFour.requestFocusInWindow();
+
                     }
                 }
             }
@@ -922,15 +877,10 @@ public class swing extends JFrame implements Action {
             public void keyTyped( KeyEvent e ) {
                 if  (e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerFour.getText().equals("") ) {
-                        /**
-                         * * Create a player, when enter is press
-                         * * Put here the code to create player
-                         * TODO Check if the player is create
-                         * TODO if is create update him
-                         * TODO else create him
-                         */
+                        
                         game.createPlayer(numberPlayers,playerFour.getText(),4,"orange");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+                        
                     }
                 }
             }
@@ -1091,6 +1041,12 @@ public class swing extends JFrame implements Action {
         JLabel gameOptionText = new JLabel( "<html><body><u>Option de partie</u></body></html>" );
         gameOptionText.setFont( new Font( police, Font.PLAIN, textSize ) );
 
+        JLabel gameOptionText2 = new JLabel( "Veuillez sélectionner un nombre" );
+        gameOptionText2.setFont( new Font( police, Font.PLAIN, textSize ) );
+
+        JLabel gameOptionText3 = new JLabel( "de joueurs pour accéder aux options" );
+        gameOptionText3.setFont( new Font( police, Font.PLAIN, textSize ) );
+
         displayTimeBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
 
         displayTimeLimitedBtn.setFont( new Font( police, Font.PLAIN, textSize ) );
@@ -1125,26 +1081,33 @@ public class swing extends JFrame implements Action {
         harmonieBtn.addActionListener( this );
         middleEmpireBtn.addActionListener( this );
         theGrandDuelBtn.addActionListener( this );
+        launchGame.addActionListener( this );
 
         // Add all contents into the each panel
         panel1.add( gameOptionText );
-        panel2.add( displayTimeBtn );
-        panel2.add( displayTimeLimitedBtn );
         panel3.add( bonusText );
 
         if ( numberPlayers == 0 ) {
+
+            panel2.add( gameOptionText2 );
+            panel2.add( gameOptionText3 );
             panel4.add( bonusText2 );
             panel4.add( bonusText3 );
+
         } else {
+
+            panel2.add( displayTimeBtn );
+            panel2.add( displayTimeLimitedBtn );
             panel4.add( dynastieBtn );
             panel4.add( harmonieBtn );
             panel4.add( middleEmpireBtn );
+            panel5.add( launchGame );
+
             if ( numberPlayers == 2 ) {
                 panel4.add( theGrandDuelBtn );
             }
         }
 
-        panel5.add( launchGame );
 
         // Add all panels the panel
         panelInt.add( nothing1 );
@@ -1438,7 +1401,6 @@ public class swing extends JFrame implements Action {
 
             // Set the number of players
             numberPlayers = 2;
-            System.out.println(numberPlayers);
 
             // Remove all panels from the frame
             frame.remove( panelWest );
@@ -1456,12 +1418,14 @@ public class swing extends JFrame implements Action {
                 twoPlayersBtn = null;
                 twoPlayersBtn = new JButton( "2 joueurs" );
             }
-
-            position = 1;
+            if ( launchGame.getActionListeners().length > 1 ) {
+                launchGame = null;
+                launchGame = new JButton( "Lancer la partie" );
+            }
 
             // Add new panels to the frame
             frame.add( twoPlayers(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( 1 ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == threePlayersBtn ) {
@@ -1485,12 +1449,14 @@ public class swing extends JFrame implements Action {
                 threePlayersBtn = null;
                 threePlayersBtn = new JButton( "3 joueurs" );
             }
-
-            position = 2;
+            if ( launchGame.getActionListeners().length > 1 ) {
+                launchGame = null;
+                launchGame = new JButton( "Lancer la partie" );
+            }
 
             // Add new panels to the frame
             frame.add( threePlayers(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( 2 ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == fourPlayersBtn ) {
@@ -1514,12 +1480,14 @@ public class swing extends JFrame implements Action {
                 fourPlayersBtn = null;
                 fourPlayersBtn = new JButton( "4 joueurs" );
             }
-
-            position = 3;
+            if ( launchGame.getActionListeners().length > 1 ) {
+                launchGame = null;
+                launchGame = new JButton( "Lancer la partie" );
+            }
 
             // Add new panels to the frame
             frame.add( fourPlayers(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( 3 ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == backToSelection ) {
@@ -1542,6 +1510,10 @@ public class swing extends JFrame implements Action {
             if ( backToSelection.getActionListeners().length > 1 ) {
                 backToSelection = null;
                 backToSelection = new JButton( "Retour sélection" );
+            }
+            if ( launchGame.getActionListeners().length > 1 ) {
+                launchGame = null;
+                launchGame = new JButton( "Lancer la partie" );
             }
 
             // Clean all option selected
@@ -1578,10 +1550,9 @@ public class swing extends JFrame implements Action {
                 }
             }
 
-            position = 0;
             // Add new panels to the frame
             frame.add( panelWestForNewGameMenu(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( 0 ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == soundBtn ) {
@@ -1593,9 +1564,6 @@ public class swing extends JFrame implements Action {
         } else if ( e.getSource() == credits ) {
 
             // Remove all panels from the frame
-            System.out.println( panelEast );
-            System.out.println( banner );
-            System.out.println( background );
             frame.remove( panelEast );
             frame.remove( banner );
             frame.remove( background );
@@ -1666,6 +1634,30 @@ public class swing extends JFrame implements Action {
 
             // Add new panels to the frame
             frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
+        } else if ( e.getSource() == launchGame ) {
+            
+            if ( gameLaunch == 0 ) {
+                int allNames = 1;
+
+                for (Player player : game.getPlayers()) {
+                    if ( player == null )  {
+                        allNames = 0;
+                        break;
+                    }
+                }
+    
+                if ( allNames == 1 ) {
+                    gameLaunch = 1;
+                    // Disabled the button, we can remove this ligne if it's useless
+                    launchGame.setEnabled( false );
+
+                    /**
+                     * TODO implement the function to create game
+                     */
+
+                }
+            }
+
         }
 
         // Actualize the frame

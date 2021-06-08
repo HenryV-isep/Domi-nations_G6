@@ -9,6 +9,27 @@ public class Game {
 	private Castle[] castle = null;
 	int numberKing;
 
+	/**
+	 * @return the king
+	 */
+	public King[] getKing() {
+		return king;
+	}
+
+	/**
+	 * @return the players
+	 */
+	public Player[] getPlayers() {
+		return players;
+	}
+
+	/**
+	 * @return the castle
+	 */
+	public Castle[] getCastle() {
+		return castle;
+	}
+
 	public void createPlayer(int numberPlayers, String namePlayer, int numPlayer, String color) {
 		if ((this.players == null) || (this.players.length != numberPlayers)){
 			this.players = new Player[numberPlayers];
