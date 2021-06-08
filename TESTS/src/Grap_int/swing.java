@@ -470,8 +470,8 @@ public class swing extends JFrame implements Action {
                     if ( !playerTwo.getText().equals("") ) {
                         
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
-
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+                        launchGame.setEnabled( true );
 
                     }
                 }
@@ -658,6 +658,7 @@ public class swing extends JFrame implements Action {
                         
                         game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+                        launchGame.setEnabled( true );
 
                     }
                 }
@@ -880,6 +881,7 @@ public class swing extends JFrame implements Action {
                         
                         game.createPlayer(numberPlayers,playerFour.getText(),4,"orange");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+                        launchGame.setEnabled( true );
                         
                     }
                 }
@@ -1072,6 +1074,9 @@ public class swing extends JFrame implements Action {
         JLabel bonusText3 = new JLabel( "de joueurs pour accéder aux bonus" );
         bonusText3.setFont( new Font( police, Font.PLAIN, textSize ) );
 
+        launchGame.setBackground( new Color( 0xf6b26b ) );
+        launchGame.setPreferredSize( new Dimension( 500, 50 ) );
+        launchGame.setEnabled( false );
         launchGame.setFont( new Font( police, Font.PLAIN, textSize ) );
 
         // Listeners
