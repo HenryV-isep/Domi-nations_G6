@@ -443,6 +443,9 @@ public class swing extends JFrame implements Action {
                         game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                         playerTwo.requestFocusInWindow();
 
+                        if ( !playerTwo.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                     }
                 }
             }
@@ -471,7 +474,10 @@ public class swing extends JFrame implements Action {
                         
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
-                        launchGame.setEnabled( true );
+                        
+                        if ( !playerOne.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
 
                     }
                 }
@@ -601,6 +607,9 @@ public class swing extends JFrame implements Action {
                         game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                         playerTwo.requestFocusInWindow();
 
+                        if ( !playerTwo.getText().equals("") && !playerThree.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                     }
                 }
             }
@@ -630,6 +639,9 @@ public class swing extends JFrame implements Action {
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                         playerThree.requestFocusInWindow();
 
+                        if ( !playerTwo.getText().equals("") && !playerThree.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                     }
                 }
             }
@@ -658,7 +670,10 @@ public class swing extends JFrame implements Action {
                         
                         game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
-                        launchGame.setEnabled( true );
+                        
+                        if ( !playerOne.getText().equals("") && !playerTwo.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
 
                     }
                 }
@@ -795,6 +810,9 @@ public class swing extends JFrame implements Action {
                         game.createPlayer(numberPlayers,playerOne.getText(),1,"blue");
                         playerTwo.requestFocusInWindow();
 
+                        if ( !playerTwo.getText().equals("") && !playerThree.getText().equals("") && !playerFour.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                     }
                 }
             }
@@ -824,6 +842,9 @@ public class swing extends JFrame implements Action {
                         game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
                         playerThree.requestFocusInWindow();
 
+                        if ( !playerOne.getText().equals("") && !playerThree.getText().equals("") && !playerFour.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                     }
                 }
             }
@@ -853,6 +874,9 @@ public class swing extends JFrame implements Action {
                         game.createPlayer(numberPlayers,playerThree.getText(),3,"green");
                         playerFour.requestFocusInWindow();
 
+                        if ( !playerTwo.getText().equals("") && !playerOne.getText().equals("") && !playerFour.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                     }
                 }
             }
@@ -881,7 +905,10 @@ public class swing extends JFrame implements Action {
                         
                         game.createPlayer(numberPlayers,playerFour.getText(),4,"orange");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
-                        launchGame.setEnabled( true );
+                        
+                        if ( !playerTwo.getText().equals("") && !playerThree.getText().equals("") && !playerOne.getText().equals("") ) {
+                            launchGame.setEnabled( true );
+                        }
                         
                     }
                 }
@@ -1642,25 +1669,15 @@ public class swing extends JFrame implements Action {
         } else if ( e.getSource() == launchGame ) {
             
             if ( gameLaunch == 0 ) {
-                int allNames = 1;
+                
+                gameLaunch = 1;
+                // Disabled the button, we can remove this ligne if it's useless
+                launchGame.setEnabled( false );
 
-                for (Player player : game.getPlayers()) {
-                    if ( player == null )  {
-                        allNames = 0;
-                        break;
-                    }
-                }
-    
-                if ( allNames == 1 ) {
-                    gameLaunch = 1;
-                    // Disabled the button, we can remove this ligne if it's useless
-                    launchGame.setEnabled( false );
-
-                    /**
-                     * TODO implement the function to create game
-                     */
-
-                }
+                /**
+                 * TODO implement the function to create game
+                 */
+                
             }
 
         }
