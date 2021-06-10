@@ -25,10 +25,12 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.swing.text.Document;
 
 import Main.Game;
 import Main.Player;
-import TextPrompt.TextPrompt;
+import TextPrompt.*;
+import LimitJTextField.*;
 
 
 /**
@@ -95,7 +97,6 @@ public class swing extends JFrame implements Action {
     private static JLabel banner;
     private static JLabel background;
     private static int position;
-    private static int gameLaunch = 0;
     private static String police = "Century Gothic";
     private static Game game = new Game();
 
@@ -111,6 +112,7 @@ public class swing extends JFrame implements Action {
     private JButton fourPlayersBtn = new JButton( "4 joueurs" );
     private JButton backToSelection = new JButton( "Retour sélection" );
     private JButton launchGame = new JButton( "Lancer la partie" );
+    private JButton leaveGameBtn = new JButton( "Quitter la partie" );
     private JRadioButton displayTimeBtn = new JRadioButton( "Afficher le temps" );
     private JRadioButton displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
     private JCheckBox dynastieBtn = new JCheckBox( "Dynastie" );
@@ -423,11 +425,13 @@ public class swing extends JFrame implements Action {
         JTextField playerOne = new JTextField();
         playerOne.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerOne.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerOne.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerOnePrompt = new TextPrompt( "Premier joueur", playerOne );
 
         JTextField playerTwo = new JTextField();
         playerTwo.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerTwo.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerTwo.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerTwoPrompt = new TextPrompt( "Deuxième joueur", playerTwo );
 
         backToSelection.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
@@ -582,16 +586,19 @@ public class swing extends JFrame implements Action {
         JTextField playerOne = new JTextField();
         playerOne.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerOne.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerOne.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerOnePrompt = new TextPrompt( "Premier joueur", playerOne );
 
         JTextField playerTwo = new JTextField();
         playerTwo.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerTwo.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerTwo.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerTwoPrompt = new TextPrompt( "Deuxième joueur", playerTwo );
 
         JTextField playerThree = new JTextField();
         playerThree.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerThree.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerThree.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerThreePrompt = new TextPrompt( "Troisième joueur", playerThree );
 
         backToSelection.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
@@ -780,21 +787,25 @@ public class swing extends JFrame implements Action {
         JTextField playerOne = new JTextField();
         playerOne.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerOne.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerOne.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerOnePrompt = new TextPrompt( "Premier joueur", playerOne );
 
         JTextField playerTwo = new JTextField();
         playerTwo.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerTwo.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerTwo.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerTwoPrompt = new TextPrompt( "Deuxième joueur", playerTwo );
 
         JTextField playerThree = new JTextField();
         playerThree.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerThree.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerThree.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerThreePrompt = new TextPrompt( "Troisième joueur", playerThree );
 
         JTextField playerFour = new JTextField();
         playerFour.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         playerFour.setFont( new Font( police, Font.PLAIN, 18 ) );
+        playerFour.setDocument( new LimitJTextField( 10 ) );
         TextPrompt playerFourPrompt = new TextPrompt( "Quatrième joueur", playerFour );
 
         backToSelection.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
@@ -839,7 +850,7 @@ public class swing extends JFrame implements Action {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerTwo.getText().equals("") ) {
                         
-                        game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
+                        game.createPlayer(numberPlayers,playerTwo.getText(),2,"red");
                         playerThree.requestFocusInWindow();
 
                         if ( !playerOne.getText().equals("") && !playerThree.getText().equals("") && !playerFour.getText().equals("") ) {
@@ -1281,6 +1292,233 @@ public class swing extends JFrame implements Action {
     }
 
     /**
+     * Function display game menu
+     * @param none
+     * @return none
+     */
+    private void gameMenu() {
+        
+        // Add panels into the frame
+        frame.add( panelEastForGameMenu(), BorderLayout.EAST );
+        frame.add( panelSouthForGameMenu(), BorderLayout.SOUTH );
+
+    }
+
+    /**
+     * Create the east panel for game menu
+     * @param none
+     * @return JPanel
+     */
+    private JPanel panelEastForGameMenu() {
+        
+        // Initialaze the main panel
+        panelEast = new JPanel();
+        panelEast.setPreferredSize( new Dimension( 200,0 ) );
+
+        // Some variables for this panel
+        int font = 18;
+
+        // Create all panels for grid layout
+        JPanel panel2 = new JPanel();
+        panel2.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
+        panel2.setBackground( new Color( 0xe9edc9 ) );
+
+        // Create all contents
+        leaveGameBtn.setBackground( new Color( 0xf1c232 ) );
+        leaveGameBtn.setFont( new Font( police, Font.PLAIN, font ) );
+
+        panelEast.add( leaveGameBtn );
+
+        JPanel panel1_1 = null;
+        JPanel panel1_2 = null;
+        JPanel panel1_3 = null;
+        JPanel panel1_4 = null;
+
+        JLabel playerOneText = null;
+        JLabel playerTwoText = null;
+        JLabel playerThreeText = null;
+        JLabel playerFourText = null;
+
+        JLabel playerOneTextScore = null;
+        JLabel playerTwoTextScore = null;
+        JLabel playerThreeTextScore = null;
+        JLabel playerFourTextScore = null;
+
+        int i = 0;
+        /**
+         * TODO Add player.getScore when is created
+         */
+        for (Player player : game.getPlayers()) {
+            switch ( i ) {
+                case 1:
+                    panelEast.setLayout( new GridLayout( 4,1 ) );
+
+                    panel1_2 = new JPanel();
+                    panel1_2.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
+                    panel1_2.setBackground( new Color( 0xfefae0 ) );
+
+                    playerTwoText = new JLabel( "<html><font color = #FF0000 >[R] " + player.getName() + "</font></html>" );
+                    playerTwoText.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    playerTwoTextScore = new JLabel( "<html><font color = #FF0000 >Score :  " + "</font></html>" );
+                    playerTwoTextScore.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    panel1_2.add( playerTwoText );
+                    panel1_2.add( playerTwoTextScore );
+                    panelEast.add( panel1_2 );
+
+                    i++;
+                    break;
+                case 2:
+                    panelEast.setLayout( new GridLayout( 5,1 ) );
+
+                    panel1_3 = new JPanel();
+                    panel1_3.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
+                    panel1_3.setBackground( new Color( 0xfefae0 ) );
+
+                    playerThreeText = new JLabel( "<html><font color = #00FF00 >[G] " + player.getName() + "</font></html>" );
+                    playerThreeText.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    playerThreeTextScore = new JLabel( "<html><font color = #00FF00 >Score :  " + "</font></html>" );
+                    playerThreeTextScore.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    panel1_3.add( playerThreeText );
+                    panel1_3.add( playerThreeTextScore );
+                    panelEast.add( panel1_3 );
+
+                    i++;
+                    break;
+                case 3:
+                    panelEast.setLayout( new GridLayout( 6,1 ) );
+
+                    panel1_4 = new JPanel();
+                    panel1_4.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
+                    panel1_4.setBackground( new Color( 0xfefae0 ) );
+
+                    playerFourText = new JLabel( "<html><font color = #FD7F00 >[O] " + player.getName() + "</font></html>" );
+                    playerFourText.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    playerFourTextScore = new JLabel( "<html><font color = #FD7F00 >Score :  " + "</font></html>" );
+                    playerFourTextScore.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    panel1_4.add( playerFourText );
+                    panel1_4.add( playerFourTextScore );
+                    panelEast.add( panel1_4 );
+
+                    i++;
+                    break;
+                default:
+                    panelEast.setLayout( new GridLayout( 3,1 ) );
+
+                    panel1_1 = new JPanel();
+                    panel1_1.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
+                    panel1_1.setBackground( new Color( 0xfefae0 ) );
+
+                    playerOneText = new JLabel( "<html><font color = #0000FF >[B] " + player.getName() + "</font></html>" );
+                    playerOneText.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    playerOneTextScore = new JLabel( "<html><font color = #0000FF >Score :  " + "</font></html>" );
+                    playerOneTextScore.setFont( new Font( police, Font.PLAIN, font ) );
+
+                    panel1_1.add( playerOneText );
+                    panel1_1.add( playerOneTextScore );
+                    panelEast.add( panel1_1 );
+
+                    i++;
+                    break;
+            }
+        }
+
+        JLabel bonusText1 = new JLabel( "Auncun bonus" );
+        bonusText1.setFont( new Font( police, Font.PLAIN, font ) );
+
+        JLabel bonusText1_1 = new JLabel( "n'est activé(s)" );
+        bonusText1_1.setFont( new Font( police, Font.PLAIN, font ) );
+
+        JLabel bonusText2 = new JLabel( "Bonus actif :" );
+        bonusText2.setFont( new Font( police, Font.PLAIN, font ) );
+
+        JLabel bonusTextDynastie = new JLabel( "- Dynastie" );
+        bonusTextDynastie.setFont( new Font( police, Font.PLAIN, font ) );
+
+        JLabel bonusTextHarmonie = new JLabel( "- Harmonie" );
+        bonusTextHarmonie.setFont( new Font( police, Font.PLAIN, font ) );
+
+        JLabel bonusTextMiddleEmpire = new JLabel( "- Empire du milieu" );
+        bonusTextMiddleEmpire.setFont( new Font( police, Font.PLAIN, font ) );
+
+        JLabel bonusTextTheGrandDuel = new JLabel( "- Le grand duel" );
+        bonusTextTheGrandDuel.setFont( new Font( police, Font.PLAIN, font ) );
+
+        // Add all contents into there panel
+        if ( dynastie == 0 && harmonie == 0 && middleEmpire == 0 && theGrandDuel == 0 ) {
+            panel2.add( bonusText1 );
+            panel2.add( bonusText1_1 );
+        } else {
+            panel2.add( bonusText2 );
+
+            if ( dynastie == 1 ) {
+                panel2.add(bonusTextDynastie);
+            }
+
+            if ( harmonie == 1 ) {
+                panel2.add(bonusTextHarmonie);
+            }
+
+            if ( middleEmpire == 1 ) {
+                panel2.add(bonusTextMiddleEmpire);
+            }
+
+            if ( theGrandDuel == 1 ) {
+                panel2.add(bonusTextTheGrandDuel);
+            }
+        }
+
+
+        // Listener
+        leaveGameBtn.addActionListener( this );
+
+        // Add all contents into the main panel
+        panelEast.add( panel2 );
+
+        return panelEast;
+    }
+
+    /**
+     * Create the south panel for credit
+     * @param none
+     * @return JPanel
+     */
+    private JPanel panelSouthForGameMenu() {
+        
+        // Initialaze the main panel
+        panelSouth = new JPanel();
+        panelSouth.setLayout( new GridLayout( 1,3 ) );
+        panelSouth.setPreferredSize( new Dimension( 0,200 ) );
+
+        // Create all panels for grid layout
+        JPanel panel1 = new JPanel();
+        panel1.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel panel2 = new JPanel();
+        panel2.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel panel3 = new JPanel();
+        panel3.setBackground( new Color( 0x6a8eae ) );
+
+        // Create all contents
+
+        // Add all contents into there panel
+
+        // Add all contents into the main panel
+        panelSouth.add( panel1 );
+        panelSouth.add( panel2 );
+        panelSouth.add( panel3 );
+        
+        return panelSouth;
+    }
+
+    /**
      * Clean all jpanel
      * @param none
      * @return none
@@ -1376,6 +1614,11 @@ public class swing extends JFrame implements Action {
             launchGame = null;
             launchGame = new JButton( "Lancer la partie" );
         }
+
+        if ( leaveGameBtn.getActionListeners().length > 1 ) {
+            leaveGameBtn = null;
+            leaveGameBtn = new JButton( "Quitter la partie" );
+        }
     }
 
     // All listeners for buttons
@@ -1455,9 +1698,11 @@ public class swing extends JFrame implements Action {
                 launchGame = new JButton( "Lancer la partie" );
             }
 
+            position = 1;
+
             // Add new panels to the frame
             frame.add( twoPlayers(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( 1 ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == threePlayersBtn ) {
@@ -1486,9 +1731,11 @@ public class swing extends JFrame implements Action {
                 launchGame = new JButton( "Lancer la partie" );
             }
 
+            position = 2;
+
             // Add new panels to the frame
             frame.add( threePlayers(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( 2 ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == fourPlayersBtn ) {
@@ -1517,9 +1764,11 @@ public class swing extends JFrame implements Action {
                 launchGame = new JButton( "Lancer la partie" );
             }
 
+            position = 3;
+
             // Add new panels to the frame
             frame.add( fourPlayers(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( 3 ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == backToSelection ) {
@@ -1582,9 +1831,11 @@ public class swing extends JFrame implements Action {
                 }
             }
 
+            position = 0;
+
             // Add new panels to the frame
             frame.add( panelWestForNewGameMenu(), BorderLayout.LINE_START );
-            frame.add( panelSouthForNewGameMenu( 0 ), BorderLayout.SOUTH );
+            frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == soundBtn ) {
@@ -1667,19 +1918,39 @@ public class swing extends JFrame implements Action {
             // Add new panels to the frame
             frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
         } else if ( e.getSource() == launchGame ) {
+
+            /**
+             * TODO implement the function to create game
+             */
             
-            if ( gameLaunch == 0 ) {
-                
-                gameLaunch = 1;
-                // Disabled the button, we can remove this ligne if it's useless
-                launchGame.setEnabled( false );
+            // Remove all panels from the frame
+            frame.remove( panelNorth );
+            frame.remove( panelWest );
+            frame.remove( panelCenter );
+            frame.remove( panelSouth );
 
-                /**
-                 * TODO implement the function to create game
-                 */
-                
-            }
+            // Clean panels and buttons used
+            cleanJPanel();
+            cleanButton();
 
+            // Add new panels to the frame
+            gameMenu();
+
+        } else if ( e.getSource() == leaveGameBtn ) {
+            /**
+             * TODO If needed, remove game
+             */
+
+            // Remove all panels from the frame
+            frame.remove( panelEast );
+            frame.remove( panelSouth );
+
+            // Clean panels and buttons used
+            cleanJPanel();
+            cleanButton();
+
+            // Add new panels to the frame
+            startMenu();
         }
 
         // Actualize the frame
