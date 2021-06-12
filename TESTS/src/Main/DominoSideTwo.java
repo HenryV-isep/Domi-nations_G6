@@ -1,18 +1,18 @@
 package Main;
 
-public class DominoSideTwo extends Domino {
+public class DominoSideTwo{
 	private int crown;
 	public int getCrown() {
 		return crown;
-	}
-	public void setCrown(int crown) {
-		this.crown = crown;
 	}
 	private String type;
 	public String getType() {
 		return type;
 	}
-	public void setType(String type) {
+
+	public DominoSideTwo(int crown, String type){
+		super();
+		this.crown = crown;
 		this.type = type;
 	}
 }
