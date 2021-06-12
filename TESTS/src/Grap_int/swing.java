@@ -49,6 +49,7 @@ public class swing extends JFrame implements Action {
     public static Integer numberPlayers;
     public static Integer numberDominos;
     public static Integer sizeKingdom;
+    public static String currentPlayer;
 
     // Define Option
     public static int dynastie = 0;
@@ -92,6 +93,14 @@ public class swing extends JFrame implements Action {
 
     public static int getDisplayTimeLimited() {
         return displayTimeLimited;
+    }
+
+    public static String getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public static void setCurrentPlayer(String currentPlayer) {
+        swing.currentPlayer = currentPlayer;
     }
 
     // Variable for swing
@@ -1494,85 +1503,138 @@ public class swing extends JFrame implements Action {
 
         // Initializes variables use in this panel
         int fontNotPanel = 25;
+        int sizePanelKingdom = 90;
 
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
         panel1.setLayout( new BorderLayout() );
         panel1.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel panel1_1 = new JPanel();
-        panel1_1.setPreferredSize( new Dimension( 0, 100 ) );
-        panel1_1.setBackground( new Color( 0xd4a373 ) );
-
-        JPanel notPanel1 = new JPanel();
-        notPanel1.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
-        notPanel1.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel notPanel2 = new JPanel();
-        notPanel2.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
-        notPanel2.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel notPanel3 = new JPanel();
-        notPanel3.setPreferredSize( new Dimension( 0, fontNotPanel ) );
-        notPanel3.setBackground( new Color( 0x6a8eae ) );
+        JPanel panel1_1 = null;
+        JPanel notPanel1 = null;
+        JPanel notPanel2 = null;
+        JPanel panel1_2 = null;
 
         JPanel panel2 = new JPanel();
         panel2.setLayout( new BorderLayout() );
         panel2.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel panel2_1 = new JPanel();
-        panel2_1.setPreferredSize( new Dimension( 0, 100 ) );
-        panel2_1.setBackground( new Color( 0xd4a373 ) );
-
-        JPanel notPanel4 = new JPanel();
-        notPanel4.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
-        notPanel4.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel notPanel5 = new JPanel();
-        notPanel5.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
-        notPanel5.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel notPanel6 = new JPanel();
-        notPanel6.setPreferredSize( new Dimension( 0, fontNotPanel ) );
-        notPanel6.setBackground( new Color( 0x6a8eae ) );
+        JPanel panel2_1 = null;
+        JPanel notPanel4 = null;
+        JPanel notPanel5 = null;
+        JPanel panel2_2 = null;
 
         JPanel panel3 = new JPanel();
         panel3.setLayout( new BorderLayout() );
         panel3.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel panel3_1 = new JPanel();
-        panel3_1.setPreferredSize( new Dimension( 0, 100 ) );
-        panel3_1.setBackground( new Color( 0xd4a373 ) );
-
-        JPanel notPanel7 = new JPanel();
-        notPanel7.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
-        notPanel7.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel notPanel8 = new JPanel();
-        notPanel8.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
-        notPanel8.setBackground( new Color( 0x6a8eae ) );
-
-        JPanel notPanel9 = new JPanel();
-        notPanel9.setPreferredSize( new Dimension( 0, fontNotPanel ) );
-        notPanel9.setBackground( new Color( 0x6a8eae ) );
-
-        // Create all contents
+        JPanel panel3_1 = null;
+        JPanel notPanel7 = null;
+        JPanel notPanel8 = null;
+        JPanel panel3_2 = null;
 
         // Add all contents into there panel
-        panel1.add( notPanel1, BorderLayout.EAST );
-        panel1.add( notPanel2, BorderLayout.WEST );
-        panel1.add( notPanel3, BorderLayout.NORTH );
-        panel1.add( panel1_1, BorderLayout.CENTER );
+        // Create all contents
+        JLabel namePlayer1 = null;
+        JLabel namePlayer2 = null;
+        JLabel namePlayer3 = null;
 
-        panel2.add( notPanel4, BorderLayout.EAST );
-        panel2.add( notPanel5, BorderLayout.WEST );
-        panel2.add( notPanel6, BorderLayout.NORTH );
-        panel2.add( panel2_1, BorderLayout.CENTER );
+        int i = 0;
+        for (Player player : game.getPlayers()) {
+            if ( currentPlayer != player.getName() ) {
 
-        panel3.add( notPanel7, BorderLayout.EAST );
-        panel3.add( notPanel8, BorderLayout.WEST );
-        panel3.add( notPanel9, BorderLayout.NORTH );
-        panel3.add( panel3_1, BorderLayout.CENTER );
+                switch ( i ) {
+                    case 1:
+                        
+                        namePlayer2 = new JLabel( player.getName() );
+                        namePlayer2.setFont( new Font( police, Font.PLAIN, 18 ) );
+                
+                        panel2_1 = new JPanel();
+                        panel2_1.setPreferredSize( new Dimension( 0, sizePanelKingdom ) );
+                        panel2_1.setBackground( new Color( 0xd4a373 ) );
+                
+                        notPanel4 = new JPanel();
+                        notPanel4.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+                        notPanel4.setBackground( new Color( 0x6a8eae ) );
+                
+                        notPanel5 = new JPanel();
+                        notPanel5.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+                        notPanel5.setBackground( new Color( 0x6a8eae ) );
+                
+                        panel2_2 = new JPanel();
+                        panel2_2.setPreferredSize( new Dimension( 0, fontNotPanel ) );
+                        panel2_2.setBackground( new Color( 0x6a8eae ) );
+
+                        panel2.add( notPanel4, BorderLayout.EAST );
+                        panel2.add( notPanel5, BorderLayout.WEST );
+                        panel2_2.add( namePlayer2 );
+                        panel2.add( panel2_2, BorderLayout.NORTH );
+                        panel2.add( panel2_1, BorderLayout.CENTER );
+
+                        i++;
+                        break;
+
+                    case 2:
+                        
+                        namePlayer3 = new JLabel( player.getName() );
+                        namePlayer3.setFont( new Font( police, Font.PLAIN, 18 ) );
+
+                        panel3_1 = new JPanel();
+                        panel3_1.setPreferredSize( new Dimension( 0, sizePanelKingdom ) );
+                        panel3_1.setBackground( new Color( 0xd4a373 ) );
+
+                        notPanel7 = new JPanel();
+                        notPanel7.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+                        notPanel7.setBackground( new Color( 0x6a8eae ) );
+
+                        notPanel8 = new JPanel();
+                        notPanel8.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+                        notPanel8.setBackground( new Color( 0x6a8eae ) );
+
+                        panel3_2 = new JPanel();
+                        panel3_2.setPreferredSize( new Dimension( 0, fontNotPanel ) );
+                        panel3_2.setBackground( new Color( 0x6a8eae ) );
+
+                        panel3.add( notPanel7, BorderLayout.EAST );
+                        panel3.add( notPanel8, BorderLayout.WEST );
+                        panel3_2.add( namePlayer3 );
+                        panel3.add( panel3_2, BorderLayout.NORTH );
+                        panel3.add( panel3_1, BorderLayout.CENTER );
+                        
+                        i++;
+                        break;
+                
+                    default:
+
+                        namePlayer1 = new JLabel( player.getName() );
+                        namePlayer1.setFont( new Font( police, Font.PLAIN, 18 ) );
+                
+                        panel1_1 = new JPanel();
+                        panel1_1.setPreferredSize( new Dimension( 0, sizePanelKingdom ) );
+                        panel1_1.setBackground( new Color( 0xd4a373 ) );
+                
+                        notPanel1 = new JPanel();
+                        notPanel1.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+                        notPanel1.setBackground( new Color( 0x6a8eae ) );
+                
+                        notPanel2 = new JPanel();
+                        notPanel2.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+                        notPanel2.setBackground( new Color( 0x6a8eae ) );
+                
+                        panel1_2 = new JPanel();
+                        panel1_2.setPreferredSize( new Dimension( 0, fontNotPanel ) );
+                        panel1_2.setBackground( new Color( 0x6a8eae ) );
+                        
+                        panel1.add( notPanel1, BorderLayout.EAST );
+                        panel1.add( notPanel2, BorderLayout.WEST );
+                        panel1_2.add( namePlayer1 );
+                        panel1.add( panel1_2, BorderLayout.NORTH );
+                        panel1.add( panel1_1, BorderLayout.CENTER );
+
+                        i++;
+                        break;
+                }
+            }
+        }
+
+        // Add all contents into there panel
 
         // Add all contents into the main panel
         panelSouth.add( panel1 );
@@ -2012,7 +2074,9 @@ public class swing extends JFrame implements Action {
 
             /**
              * TODO implement the function to create game
+             * TODO initializes the currentPlayers when the game is launching
              */
+            currentPlayer = game.getPlayers()[0].getName();
             
             // Remove all panels from the frame
             frame.remove( panelNorth );
