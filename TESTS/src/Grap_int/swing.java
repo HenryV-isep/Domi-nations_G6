@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.Action;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -121,8 +122,14 @@ public class swing extends JFrame implements Action {
     private JButton backToSelection = new JButton( "Retour sélection" );
     private JButton launchGame = new JButton( "Lancer la partie" );
     private JButton leaveGameBtn = new JButton( "Quitter la partie" );
+    private JButton rotation = new JButton( "Rotation" );
+    private JButton endTour = new JButton( "Fin du tour" );
     private JRadioButton displayTimeBtn = new JRadioButton( "Afficher le temps" );
     private JRadioButton displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
+    private JRadioButton domino1 = new JRadioButton();
+    private JRadioButton domino2 = new JRadioButton();
+    private JRadioButton domino3 = new JRadioButton();
+    private JRadioButton domino4 = new JRadioButton();
     private JCheckBox dynastieBtn = new JCheckBox( "Dynastie" );
     private JCheckBox harmonieBtn = new JCheckBox( "Harmonie" );
     private JCheckBox middleEmpireBtn = new JCheckBox( "Empire du milieu" );
@@ -1333,7 +1340,7 @@ public class swing extends JFrame implements Action {
         
         // Initialaze the main panel
         panelEast = new JPanel();
-        panelEast.setPreferredSize( new Dimension( 200,0 ) );
+        panelEast.setPreferredSize( new Dimension( 180,0 ) );
         panelEast.setLayout( new GridLayout( 3,1 ) );
 
         // Some variables for this panel
@@ -1379,7 +1386,7 @@ public class swing extends JFrame implements Action {
                     playerTwoText = new JLabel( "<html><font color =" + player.getColor() + ">[R] " + player.getName() + "</font></html>" );
                     playerTwoText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerTwoTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
+                    playerTwoTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + player.getScore() + "</font></html>" );
                     playerTwoTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
                     panel1_1.add( playerTwoText );
@@ -1394,7 +1401,7 @@ public class swing extends JFrame implements Action {
                     playerThreeText = new JLabel( "<html><font color =" + player.getColor() + ">[G] " + player.getName() + "</font></html>" );
                     playerThreeText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerThreeTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
+                    playerThreeTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + player.getScore() + "</font></html>" );
                     playerThreeTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
                     panel1_2.add( playerThreeText );
@@ -1407,7 +1414,7 @@ public class swing extends JFrame implements Action {
                     playerFourText = new JLabel( "<html><font color =" + player.getColor() + ">[O] " + player.getName() + "</font></html>" );
                     playerFourText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerFourTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
+                    playerFourTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + player.getScore() + "</font></html>" );
                     playerFourTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
                     panel1_2.add( playerFourText );
@@ -1420,7 +1427,7 @@ public class swing extends JFrame implements Action {
                     playerOneText = new JLabel( "<html><font color =" + player.getColor() + ">[B] " + player.getName() + "</font></html>" );
                     playerOneText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerOneTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
+                    playerOneTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + player.getScore() + "</font></html>" );
                     playerOneTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
                     panel1_1.add( playerOneText );
@@ -1499,6 +1506,7 @@ public class swing extends JFrame implements Action {
         // Initialaze the main panel
         panelSouth = new JPanel();
         panelSouth.setLayout( new GridLayout( 1,3 ) );
+        panelSouth.setBorder( BorderFactory.createLineBorder( Color.black ) );
         panelSouth.setPreferredSize( new Dimension( 0,200 ) );
 
         // Initializes variables use in this panel
@@ -1538,7 +1546,7 @@ public class swing extends JFrame implements Action {
 
         int i = 0;
         for (Player player : game.getPlayers()) {
-            if ( currentPlayer.getName().equals( player.getName() ) ) {
+            if ( currentPlayer != player ) {
 
                 switch ( i ) {
                     case 1:
@@ -1653,6 +1661,7 @@ public class swing extends JFrame implements Action {
 
         // Initialaze the main panel
         panelCenter = new JPanel();
+        panelCenter.setBorder( BorderFactory.createLineBorder( Color.black ) );
         panelCenter.setLayout( new BorderLayout() );
 
         // Create all panels for grid layout
@@ -1670,7 +1679,7 @@ public class swing extends JFrame implements Action {
         center.setBackground( new Color( 0xd4a373 ) );
 
         // Create all contents
-        JLabel northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + ">[R] " + currentPlayer.getName() + "</font></html>" );
+        JLabel northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + "> c'est le tour de " + currentPlayer.getName() + "</font></html>" );
         northText.setFont( new Font( police, Font.PLAIN, 25 ) );
 
         // Add all contents into the main panel
@@ -1696,18 +1705,40 @@ public class swing extends JFrame implements Action {
         // Initialaze the main panel
         panelWest = new JPanel();
         panelWest.setLayout( new GridLayout( 5,2 ) );
-        panelWest.setPreferredSize( new Dimension( 200,0 ) );
+        panelWest.setPreferredSize( new Dimension( 250,0 ) );
         panelWest.setBackground( new Color( 0xd4a373 ) );
 
         // Initializes variables use in this panel
 
         // Create all panels for grid layout
-
-        // Add all contents into there panel
+        JLabel nextDomino1 = new JLabel("dom5");
+        JLabel nextDomino2 = new JLabel("dom6");
+        JLabel nextDomino3 = new JLabel("dom7");
+        JLabel nextDomino4 = new JLabel("dom8");
 
         // Create all contents
+        rotation.setFont( new Font( police, Font.PLAIN, 18 ) );
+        rotation.setBackground( new Color( 0xfefae0 ) );
+        endTour.setFont( new Font( police, Font.PLAIN, 18 ) );
+        endTour.setBackground( new Color( 0xfefae0 ) );
+
+        ButtonGroup btnRadio = new ButtonGroup();
+        btnRadio.add( domino1 );
+        btnRadio.add( domino2 );
+        btnRadio.add( domino3 );
+        btnRadio.add( domino4 );
 
         // Add all contents into there panel
+        panelWest.add( endTour );
+        panelWest.add( rotation );
+        panelWest.add( nextDomino1 );
+        panelWest.add( domino1 );
+        panelWest.add( nextDomino2 );
+        panelWest.add( domino2 );
+        panelWest.add( nextDomino3 );
+        panelWest.add( domino3 );
+        panelWest.add( nextDomino4 );
+        panelWest.add( domino4 );
         
         // Add all contents into the main panel
         // panelWest.add(  );
@@ -1846,6 +1877,17 @@ public class swing extends JFrame implements Action {
             displayTimeLimitedBtn = null;
             displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
         }
+
+        if ( rotation.getActionListeners().length > 1 ) {
+            rotation = null;
+            rotation = new JButton( "Rotation" );
+        }
+
+        if ( endTour.getActionListeners().length > 1 ) {
+            endTour = null;
+            endTour = new JButton( "Fin du tour" );
+        }
+    
     }
 
     // All listeners for buttons
