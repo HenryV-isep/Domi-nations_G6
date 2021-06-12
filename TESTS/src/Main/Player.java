@@ -4,6 +4,16 @@ public class Player {
 	public King king;
 	public Castle castle;
 	private String name;
+	private int score = 0;
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score += score;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -23,8 +33,7 @@ public class Player {
 		super();
 		this.name = name;
 		this.color = color;
-		//this.king.setColor(color);
-		//this.castle.color = color;
+
 	}
 
 }
