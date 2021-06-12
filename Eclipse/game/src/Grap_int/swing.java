@@ -135,6 +135,52 @@ public class swing extends JFrame implements Action {
    // Initializes the frame of the game and set up ths frame on the start menu
    static JFrame frame = new JFrame( "Domi-nation" );
 
+import TextPrompt.TextPrompt;
+
+public class swing extends JFrame implements Action {
+   // Global variable
+   private static JLabel banner;
+   private static JLabel background;
+   private static String  police = "Century Gothic";
+   public static Integer numberPlayers;
+   public static Integer numberDominos;
+   public static Integer sizeKingdom;
+
+   // Define Option
+   public static int dynastie = 0;
+   public static int harmonie = 0;
+   public static int middleEmpire = 0;
+   public static int theGrandDuel = 0;
+   public static int displayTime = 0;
+   public static int displayTimeLimited = 0;
+
+   // Define all button in attribut for more efficiency in the actionListener
+   private JButton newGameBtn = new JButton( "Nouvelle partie" );
+   private JButton soundBtn = new JButton( "Son activé" );
+   private JButton leave = new JButton( "Quitter" );
+   private JButton credits = new JButton( "Crédits" );
+   private JButton backToStartMenu = new JButton("Retour");
+   private JButton twoPlayersBtn = new JButton( "2 joueurs" );
+   private JButton threePlayersBtn = new JButton( "3 joueurs" );
+   private JButton fourPlayersBtn = new JButton( "4 joueurs" );
+   private JButton backToSelection = new JButton( "Retour sélection" );
+   private JRadioButton displayTimeBtn = new JRadioButton("Afficher le temps");
+   private JRadioButton displayTimeLimitedBtn = new JRadioButton("Ajouter une limite de temps");
+   private JCheckBox dynastieBtn = new JCheckBox("Dynastie");
+   private JCheckBox harmonieBtn = new JCheckBox("Harmonie");
+   private JCheckBox middleEmpireBtn = new JCheckBox("Empire du milieu");
+   private JCheckBox theGrandDuelBtn = new JCheckBox("Le Grand Duel");
+   private JButton launchGame = new JButton( "Lancer la partie" );
+
+   // Define all panel
+   private static JPanel panelNorth;
+   private static JPanel panelSouth;
+   private static JPanel panelEast;
+   private static JPanel panelWest;
+   private static JPanel panelCenter;
+
+   // Initializes the frame of the game and set up ths frame on the start menu
+   static JFrame frame = new JFrame("Domi-nation");
    public swing() {
       super( "Domi-nation" );
       
@@ -269,6 +315,7 @@ public class swing extends JFrame implements Action {
       frame.add( panelWestForNewGameMenu(), BorderLayout.LINE_START );
       frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
       frame.add( panelSouthForNewGameMenu( 0 ), BorderLayout.SOUTH );
+
    }
 
    /**
