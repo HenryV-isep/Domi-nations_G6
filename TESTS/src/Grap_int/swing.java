@@ -13,7 +13,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -26,12 +25,11 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-import javax.swing.text.Document;
 
+import LimitJTextField.LimitJTextField;
 import Main.Game;
 import Main.Player;
-import TextPrompt.*;
-import LimitJTextField.*;
+import TextPrompt.TextPrompt;
 
 
 /**
@@ -49,7 +47,7 @@ public class swing extends JFrame implements Action {
     public static Integer numberPlayers;
     public static Integer numberDominos;
     public static Integer sizeKingdom;
-    public static String currentPlayer;
+    public static Player currentPlayer;
 
     // Define Option
     public static int dynastie = 0;
@@ -95,22 +93,22 @@ public class swing extends JFrame implements Action {
         return displayTimeLimited;
     }
 
-    public static String getCurrentPlayer() {
+    public static Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public static void setCurrentPlayer(String currentPlayer) {
+    public static void setCurrentPlayer(Player currentPlayer) {
         swing.currentPlayer = currentPlayer;
     }
 
-    // Variable for swing
+    // Variables for swing
     private static JLabel banner;
     private static JLabel background;
     private static int position;
     private static String police = "Century Gothic";
     private static Game game = new Game();
 
-    // Define all button in attribut for more efficiency in the actionListener
+    // Define all buttons in attribut for more efficiency in the actionListener
     private JButton newGameBtn = new JButton( "Nouvelle partie" );
     private JButton soundBtn = new JButton( "Son activé" );
     private JButton leave = new JButton( "Quitter" );
@@ -130,14 +128,14 @@ public class swing extends JFrame implements Action {
     private JCheckBox middleEmpireBtn = new JCheckBox( "Empire du milieu" );
     private JCheckBox theGrandDuelBtn = new JCheckBox( "Le Grand Duel" );
 
-    // Define all panel
+    // Define all panels
     private static JPanel panelNorth;
     private static JPanel panelSouth;
     private static JPanel panelEast;
     private static JPanel panelWest;
     private static JPanel panelCenter;
 
-    // Initializes the frame of the game and set up ths frame on the start menu
+    // Initializes the frame of the game and set up the frame to start menu
     static JFrame frame = new JFrame( "Domi-nation" );
 
     public swing() {
@@ -1320,7 +1318,9 @@ public class swing extends JFrame implements Action {
         
         // Add panels into the frame
         frame.add( panelEastForGameMenu(), BorderLayout.EAST );
+        frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         frame.add( panelSouthForGameMenu(), BorderLayout.SOUTH );
+        frame.add( panelWestForGameMenu(), BorderLayout.WEST );
 
     }
 
@@ -1490,7 +1490,7 @@ public class swing extends JFrame implements Action {
     }
 
     /**
-     * Create the south panel for credit
+     * Create the south panel for game menu
      * @param none
      * @return JPanel
      */
@@ -1538,12 +1538,12 @@ public class swing extends JFrame implements Action {
 
         int i = 0;
         for (Player player : game.getPlayers()) {
-            if ( currentPlayer != player.getName() ) {
+            if ( currentPlayer.getName().equals( player.getName() ) ) {
 
                 switch ( i ) {
                     case 1:
                         
-                        namePlayer2 = new JLabel( player.getName() );
+                        namePlayer2 = new JLabel( "Plateau de " + player.getName() );
                         namePlayer2.setFont( new Font( police, Font.PLAIN, 18 ) );
                 
                         panel2_1 = new JPanel();
@@ -1573,7 +1573,7 @@ public class swing extends JFrame implements Action {
 
                     case 2:
                         
-                        namePlayer3 = new JLabel( player.getName() );
+                        namePlayer3 = new JLabel( "Plateau de " + player.getName() );
                         namePlayer3.setFont( new Font( police, Font.PLAIN, 18 ) );
 
                         panel3_1 = new JPanel();
@@ -1603,7 +1603,7 @@ public class swing extends JFrame implements Action {
                 
                     default:
 
-                        namePlayer1 = new JLabel( player.getName() );
+                        namePlayer1 = new JLabel( "Plateau de " + player.getName() );
                         namePlayer1.setFont( new Font( police, Font.PLAIN, 18 ) );
                 
                         panel1_1 = new JPanel();
@@ -1642,6 +1642,77 @@ public class swing extends JFrame implements Action {
         panelSouth.add( panel3 );
         
         return panelSouth;
+    }
+
+    /**
+     * Create the center panel for game menu
+     * @param none
+     * @return JPanel
+     */
+    private JPanel panelCenterForGameMenu() {
+
+        // Initialaze the main panel
+        panelCenter = new JPanel();
+        panelCenter.setLayout( new BorderLayout() );
+
+        // Create all panels for grid layout
+        JPanel north = new JPanel();
+        north.setLayout( new FlowLayout( FlowLayout.CENTER ) );
+        north.setBackground( new Color( 0xe9edc9 ) );
+        north.setPreferredSize( new Dimension( 0,50 ) );
+        JPanel east = new JPanel();
+        east.setBackground( new Color( 0xc57b57 ) );
+        JPanel west = new JPanel();
+        west.setBackground( new Color( 0xc57b57 ) );
+        JPanel south = new JPanel();
+        south.setBackground( new Color( 0xc57b57 ) );
+        JPanel center = new JPanel();
+        center.setBackground( new Color( 0xd4a373 ) );
+
+        // Create all contents
+        JLabel northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + ">[R] " + currentPlayer.getName() + "</font></html>" );
+        northText.setFont( new Font( police, Font.PLAIN, 25 ) );
+
+        // Add all contents into the main panel
+        north.add( northText );
+
+        // Add all contents into the main panel
+        panelCenter.add( north, BorderLayout.NORTH );
+        panelCenter.add( east, BorderLayout.EAST );
+        panelCenter.add( west, BorderLayout.WEST );
+        panelCenter.add( south, BorderLayout.SOUTH );
+        panelCenter.add( center, BorderLayout.CENTER );
+
+        return panelCenter;
+    }
+
+    /**
+     * Create the west panel for game menu
+     * @param none
+     * @return JPanel
+     */
+    private JPanel panelWestForGameMenu() {
+
+        // Initialaze the main panel
+        panelWest = new JPanel();
+        panelWest.setLayout( new GridLayout( 5,2 ) );
+        panelWest.setPreferredSize( new Dimension( 200,0 ) );
+        panelWest.setBackground( new Color( 0xd4a373 ) );
+
+        // Initializes variables use in this panel
+
+        // Create all panels for grid layout
+
+        // Add all contents into there panel
+
+        // Create all contents
+
+        // Add all contents into there panel
+        
+        // Add all contents into the main panel
+        // panelWest.add(  );
+        
+        return panelWest;        
     }
 
     /**
@@ -2076,7 +2147,7 @@ public class swing extends JFrame implements Action {
              * TODO implement the function to create game
              * TODO initializes the currentPlayers when the game is launching
              */
-            currentPlayer = game.getPlayers()[0].getName();
+            currentPlayer = game.getPlayers()[0];
             
             // Remove all panels from the frame
             frame.remove( panelNorth );
@@ -2099,6 +2170,8 @@ public class swing extends JFrame implements Action {
             // Remove all panels from the frame
             frame.remove( panelEast );
             frame.remove( panelSouth );
+            frame.remove( panelCenter );
+            frame.remove( panelWest );
 
             // Clean all option selected
             if ( dynastie != 0 ) {
