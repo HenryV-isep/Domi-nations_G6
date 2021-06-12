@@ -8,15 +8,8 @@ public class King {
 		return color;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
-	}
 	public int getNumberKing() {
 		return numberKing;
-	}
-
-	public void setNumberKing(int numberKing) {
-		this.numberKing = numberKing;
 	}
 
 	public King(String color, int numberKing) {
