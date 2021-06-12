@@ -13,6 +13,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -476,7 +477,7 @@ public class swing extends JFrame implements Action {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerTwo.getText().equals("") ) {
                         
-                        game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
+                        game.createPlayer(numberPlayers,playerTwo.getText(),2,"red");
                         KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
                         
                         if ( !playerOne.getText().equals("") ) {
@@ -643,7 +644,7 @@ public class swing extends JFrame implements Action {
                 if ( e.getKeyChar() == KeyEvent.VK_ENTER ) {
                     if ( !playerTwo.getText().equals("") ) {
                         
-                        game.createPlayer(numberPlayers,playerTwo.getText(),2,"brown");
+                        game.createPlayer(numberPlayers,playerTwo.getText(),2,"red");
                         playerThree.requestFocusInWindow();
 
                         if ( !playerTwo.getText().equals("") && !playerThree.getText().equals("") ) {
@@ -1118,13 +1119,23 @@ public class swing extends JFrame implements Action {
         launchGame.setFont( new Font( police, Font.PLAIN, textSize ) );
 
         // Listeners
-        displayTimeBtn.addActionListener( this );
-        displayTimeLimitedBtn.addActionListener( this );
-        dynastieBtn.addActionListener( this );
-        harmonieBtn.addActionListener( this );
-        middleEmpireBtn.addActionListener( this );
-        theGrandDuelBtn.addActionListener( this );
-        launchGame.addActionListener( this );
+        if ( numberPlayers != 0 ) {
+            displayTimeBtn.addActionListener( this );
+            displayTimeLimitedBtn.addActionListener( this );
+            dynastieBtn.addActionListener( this );
+            harmonieBtn.addActionListener( this );
+            middleEmpireBtn.addActionListener( this );
+            theGrandDuelBtn.addActionListener( this );
+            launchGame.addActionListener( this );
+        } else {
+            displayTimeBtn.removeActionListener( this );;
+            displayTimeLimitedBtn.removeActionListener( this );
+            dynastieBtn.removeActionListener( this );
+            harmonieBtn.removeActionListener( this );
+            middleEmpireBtn.removeActionListener( this );
+            theGrandDuelBtn.removeActionListener( this );
+            launchGame.removeActionListener( this );
+        }
 
         // Add all contents into the each panel
         panel1.add( gameOptionText );
@@ -1314,11 +1325,20 @@ public class swing extends JFrame implements Action {
         // Initialaze the main panel
         panelEast = new JPanel();
         panelEast.setPreferredSize( new Dimension( 200,0 ) );
+        panelEast.setLayout( new GridLayout( 3,1 ) );
 
         // Some variables for this panel
         int font = 18;
 
         // Create all panels for grid layout
+        JPanel panel1_1 = new JPanel();
+        panel1_1.setBackground( new Color( 0xfefae0 ) );
+        panel1_1.setLayout( new FlowLayout( FlowLayout.CENTER, 100, 15 ) );
+
+        JPanel panel1_2 = new JPanel();
+        panel1_2.setBackground( new Color( 0xfefae0 ) );
+        panel1_2.setLayout( new FlowLayout( FlowLayout.CENTER, 100, 15 ) );
+
         JPanel panel2 = new JPanel();
         panel2.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
         panel2.setBackground( new Color( 0xe9edc9 ) );
@@ -1328,11 +1348,6 @@ public class swing extends JFrame implements Action {
         leaveGameBtn.setFont( new Font( police, Font.PLAIN, font ) );
 
         panelEast.add( leaveGameBtn );
-
-        JPanel panel1_1 = null;
-        JPanel panel1_2 = null;
-        JPanel panel1_3 = null;
-        JPanel panel1_4 = null;
 
         JLabel playerOneText = null;
         JLabel playerTwoText = null;
@@ -1351,78 +1366,56 @@ public class swing extends JFrame implements Action {
         for (Player player : game.getPlayers()) {
             switch ( i ) {
                 case 1:
-                    panelEast.setLayout( new GridLayout( 4,1 ) );
 
-                    panel1_2 = new JPanel();
-                    panel1_2.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
-                    panel1_2.setBackground( new Color( 0xfefae0 ) );
-
-                    playerTwoText = new JLabel( "<html><font color = #FF0000 >[R] " + player.getName() + "</font></html>" );
+                    playerTwoText = new JLabel( "<html><font color =" + player.getColor() + ">[R] " + player.getName() + "</font></html>" );
                     playerTwoText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerTwoTextScore = new JLabel( "<html><font color = #FF0000 >Score :  " + "</font></html>" );
+                    playerTwoTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
                     playerTwoTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    panel1_2.add( playerTwoText );
-                    panel1_2.add( playerTwoTextScore );
-                    panelEast.add( panel1_2 );
+                    panel1_1.add( playerTwoText );
+                    panel1_1.add( playerTwoTextScore );
 
                     i++;
                     break;
                 case 2:
-                    panelEast.setLayout( new GridLayout( 5,1 ) );
 
-                    panel1_3 = new JPanel();
-                    panel1_3.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
-                    panel1_3.setBackground( new Color( 0xfefae0 ) );
+                    panelEast.setLayout( new GridLayout( 4,1 ) );
 
-                    playerThreeText = new JLabel( "<html><font color = #00FF00 >[G] " + player.getName() + "</font></html>" );
+                    playerThreeText = new JLabel( "<html><font color =" + player.getColor() + ">[G] " + player.getName() + "</font></html>" );
                     playerThreeText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerThreeTextScore = new JLabel( "<html><font color = #00FF00 >Score :  " + "</font></html>" );
+                    playerThreeTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
                     playerThreeTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    panel1_3.add( playerThreeText );
-                    panel1_3.add( playerThreeTextScore );
-                    panelEast.add( panel1_3 );
+                    panel1_2.add( playerThreeText );
+                    panel1_2.add( playerThreeTextScore );
 
                     i++;
                     break;
                 case 3:
-                    panelEast.setLayout( new GridLayout( 6,1 ) );
 
-                    panel1_4 = new JPanel();
-                    panel1_4.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
-                    panel1_4.setBackground( new Color( 0xfefae0 ) );
-
-                    playerFourText = new JLabel( "<html><font color = #FD7F00 >[O] " + player.getName() + "</font></html>" );
+                    playerFourText = new JLabel( "<html><font color =" + player.getColor() + ">[O] " + player.getName() + "</font></html>" );
                     playerFourText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerFourTextScore = new JLabel( "<html><font color = #FD7F00 >Score :  " + "</font></html>" );
+                    playerFourTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
                     playerFourTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    panel1_4.add( playerFourText );
-                    panel1_4.add( playerFourTextScore );
-                    panelEast.add( panel1_4 );
+                    panel1_2.add( playerFourText );
+                    panel1_2.add( playerFourTextScore );
 
                     i++;
                     break;
                 default:
-                    panelEast.setLayout( new GridLayout( 3,1 ) );
 
-                    panel1_1 = new JPanel();
-                    panel1_1.setLayout( new FlowLayout( FlowLayout.CENTER, 50, 10 ) );
-                    panel1_1.setBackground( new Color( 0xfefae0 ) );
-
-                    playerOneText = new JLabel( "<html><font color = #0000FF >[B] " + player.getName() + "</font></html>" );
+                    playerOneText = new JLabel( "<html><font color =" + player.getColor() + ">[B] " + player.getName() + "</font></html>" );
                     playerOneText.setFont( new Font( police, Font.PLAIN, font ) );
 
-                    playerOneTextScore = new JLabel( "<html><font color = #0000FF >Score :  " + "</font></html>" );
+                    playerOneTextScore = new JLabel( "<html><font color =" + player.getColor() + ">Score :  " + "</font></html>" );
                     playerOneTextScore.setFont( new Font( police, Font.PLAIN, font ) );
 
                     panel1_1.add( playerOneText );
                     panel1_1.add( playerOneTextScore );
-                    panelEast.add( panel1_1 );
 
                     i++;
                     break;
@@ -1474,11 +1467,14 @@ public class swing extends JFrame implements Action {
             }
         }
 
-
         // Listener
         leaveGameBtn.addActionListener( this );
 
         // Add all contents into the main panel
+        panelEast.add( panel1_1 );
+        if ( numberPlayers > 2 ){
+            panelEast.add( panel1_2 );   
+        }
         panelEast.add( panel2 );
 
         return panelEast;
@@ -1496,19 +1492,87 @@ public class swing extends JFrame implements Action {
         panelSouth.setLayout( new GridLayout( 1,3 ) );
         panelSouth.setPreferredSize( new Dimension( 0,200 ) );
 
+        // Initializes variables use in this panel
+        int fontNotPanel = 25;
+
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
+        panel1.setLayout( new BorderLayout() );
         panel1.setBackground( new Color( 0x6a8eae ) );
 
+        JPanel panel1_1 = new JPanel();
+        panel1_1.setPreferredSize( new Dimension( 0, 100 ) );
+        panel1_1.setBackground( new Color( 0xd4a373 ) );
+
+        JPanel notPanel1 = new JPanel();
+        notPanel1.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+        notPanel1.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel notPanel2 = new JPanel();
+        notPanel2.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+        notPanel2.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel notPanel3 = new JPanel();
+        notPanel3.setPreferredSize( new Dimension( 0, fontNotPanel ) );
+        notPanel3.setBackground( new Color( 0x6a8eae ) );
+
         JPanel panel2 = new JPanel();
+        panel2.setLayout( new BorderLayout() );
         panel2.setBackground( new Color( 0x6a8eae ) );
 
+        JPanel panel2_1 = new JPanel();
+        panel2_1.setPreferredSize( new Dimension( 0, 100 ) );
+        panel2_1.setBackground( new Color( 0xd4a373 ) );
+
+        JPanel notPanel4 = new JPanel();
+        notPanel4.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+        notPanel4.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel notPanel5 = new JPanel();
+        notPanel5.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+        notPanel5.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel notPanel6 = new JPanel();
+        notPanel6.setPreferredSize( new Dimension( 0, fontNotPanel ) );
+        notPanel6.setBackground( new Color( 0x6a8eae ) );
+
         JPanel panel3 = new JPanel();
+        panel3.setLayout( new BorderLayout() );
         panel3.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel panel3_1 = new JPanel();
+        panel3_1.setPreferredSize( new Dimension( 0, 100 ) );
+        panel3_1.setBackground( new Color( 0xd4a373 ) );
+
+        JPanel notPanel7 = new JPanel();
+        notPanel7.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+        notPanel7.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel notPanel8 = new JPanel();
+        notPanel8.setPreferredSize( new Dimension( fontNotPanel, 0 ) );
+        notPanel8.setBackground( new Color( 0x6a8eae ) );
+
+        JPanel notPanel9 = new JPanel();
+        notPanel9.setPreferredSize( new Dimension( 0, fontNotPanel ) );
+        notPanel9.setBackground( new Color( 0x6a8eae ) );
 
         // Create all contents
 
         // Add all contents into there panel
+        panel1.add( notPanel1, BorderLayout.EAST );
+        panel1.add( notPanel2, BorderLayout.WEST );
+        panel1.add( notPanel3, BorderLayout.NORTH );
+        panel1.add( panel1_1, BorderLayout.CENTER );
+
+        panel2.add( notPanel4, BorderLayout.EAST );
+        panel2.add( notPanel5, BorderLayout.WEST );
+        panel2.add( notPanel6, BorderLayout.NORTH );
+        panel2.add( panel2_1, BorderLayout.CENTER );
+
+        panel3.add( notPanel7, BorderLayout.EAST );
+        panel3.add( notPanel8, BorderLayout.WEST );
+        panel3.add( notPanel9, BorderLayout.NORTH );
+        panel3.add( panel3_1, BorderLayout.CENTER );
 
         // Add all contents into the main panel
         panelSouth.add( panel1 );
@@ -1619,6 +1683,36 @@ public class swing extends JFrame implements Action {
             leaveGameBtn = null;
             leaveGameBtn = new JButton( "Quitter la partie" );
         }
+
+        if ( dynastieBtn.getActionListeners().length > 1 ) {
+            dynastieBtn = null;
+            dynastieBtn = new JCheckBox( "Dynastie" );
+        }
+
+        if ( harmonieBtn.getActionListeners().length > 1) {
+            harmonieBtn = null;
+            harmonieBtn = new JCheckBox( "Harmonie" );
+        }
+
+        if ( middleEmpireBtn.getActionListeners().length > 1 ) {
+            middleEmpireBtn = null;
+            middleEmpireBtn = new JCheckBox( "Empire du milieu" );
+        }
+
+        if ( theGrandDuelBtn.getActionListeners().length > 1 ) {
+            theGrandDuelBtn = null;
+            theGrandDuelBtn = new JCheckBox( "Le Grand Duel" );
+        }
+
+        if ( displayTimeBtn.getActionListeners().length > 1 ) {
+            displayTimeBtn = null;
+            displayTimeBtn = new JRadioButton( "Afficher le temps" );
+        }
+
+        if ( displayTimeLimitedBtn.getActionListeners().length > 1 ) {
+            displayTimeLimitedBtn = null;
+            displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
+        }
     }
 
     // All listeners for buttons
@@ -1697,7 +1791,7 @@ public class swing extends JFrame implements Action {
                 launchGame = null;
                 launchGame = new JButton( "Lancer la partie" );
             }
-
+            
             position = 1;
 
             // Add new panels to the frame
@@ -1748,7 +1842,7 @@ public class swing extends JFrame implements Action {
             frame.remove( panelSouth );
             frame.remove( panelCenter );
 
-            // Clean panel used
+            // Clean panels and buttons used
             if ( panelWest != null ) {
                 panelWest = null;
             }
@@ -1801,34 +1895,34 @@ public class swing extends JFrame implements Action {
             if ( dynastie != 0 ) {
 
                 dynastie = 0;
-
-                if ( dynastieBtn.isSelected() ) {
-                    dynastieBtn.setSelected( false );
-                }
+                dynastieBtn.setSelected( false );
             }
             if ( harmonie != 0 ) {
 
                 harmonie = 0;
-
-                if ( harmonieBtn.isSelected() ) {
-                    harmonieBtn.setSelected( false );
-                }
+                harmonieBtn.setSelected( false );
             }
             if ( middleEmpire != 0 ) {
 
                 middleEmpire = 0;
-
-                if ( middleEmpireBtn.isSelected() ) {
-                    middleEmpireBtn.setSelected( false );
-                }
+                middleEmpireBtn.setSelected( false );
             }
             if ( theGrandDuel != 0 ) {
 
                 theGrandDuel = 0;
+                theGrandDuelBtn.setSelected( false );
+            }
+            if ( displayTime != 0 ) {
 
-                if ( theGrandDuelBtn.isSelected() ) {
-                    theGrandDuelBtn.setSelected( false );
-                }
+                displayTime = 0;
+                displayTimeBtn = null;
+                displayTimeBtn = new JRadioButton( "Afficher le temps" );
+            }
+            if ( displayTimeLimited != 0 ) {
+
+                displayTimeLimited = 0;
+                displayTimeLimitedBtn = null;
+                displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
             }
 
             position = 0;
@@ -1860,43 +1954,40 @@ public class swing extends JFrame implements Action {
 
         } else if ( e.getSource() == displayTimeBtn ) {
 
-            if ( displayTimeLimited == 1 ) {
-                displayTimeLimited = 0;
-            }
-
+            displayTimeLimited = 0;
             displayTime = 1;
-
-            /**
-             * * This part is for display the time you take to play
-             * TODO create the funtion to do this
-             */
 
         } else if ( e.getSource() == displayTimeLimitedBtn ) {
 
+            displayTime = 0;
             displayTimeLimited = 1;
-            if ( displayTime == 1 ) {
-                displayTime = 0;
-            }
-
-            /**
-             * * This part is for display the limitation if time you have
-             * TODO create the funtion to do this
-             */
 
         } else if ( e.getSource() == dynastieBtn ) {
 
             // Set the game option
-            dynastie = 1;
+            if ( dynastieBtn.isSelected() ) {
+                dynastie = 1;
+            } else {
+                dynastie = 0;
+            }
 
         } else if ( e.getSource() == harmonieBtn ) {
 
             // Set the game option
-            harmonie = 1;
+            if ( harmonieBtn.isSelected() ) {
+                harmonie = 1;
+            } else {
+                harmonie = 0;
+            }
 
         } else if ( e.getSource() == middleEmpireBtn ) {
 
             // Set the game option
-            middleEmpire = 1;
+            if ( middleEmpireBtn.isSelected() ) {
+                middleEmpire = 1;
+            } else {
+                middleEmpire = 0;
+            }
 
         } else if ( e.getSource() == theGrandDuelBtn ) {
 
@@ -1938,12 +2029,46 @@ public class swing extends JFrame implements Action {
 
         } else if ( e.getSource() == leaveGameBtn ) {
             /**
-             * TODO If needed, remove game
+             * TODO If needed, remove/delete game
              */
 
             // Remove all panels from the frame
             frame.remove( panelEast );
             frame.remove( panelSouth );
+
+            // Clean all option selected
+            if ( dynastie != 0 ) {
+
+                dynastie = 0;
+                dynastieBtn.setSelected( false );
+            }
+            if ( harmonie != 0 ) {
+
+                harmonie = 0;
+                harmonieBtn.setSelected( false );
+            }
+            if ( middleEmpire != 0 ) {
+
+                middleEmpire = 0;
+                middleEmpireBtn.setSelected( false );
+            }
+            if ( theGrandDuel != 0 ) {
+
+                theGrandDuel = 0;
+                theGrandDuelBtn.setSelected( false );
+            }
+            if ( displayTime != 0 ) {
+
+                displayTime = 0;
+                displayTimeBtn = null;
+                displayTimeBtn = new JRadioButton( "Afficher le temps" );
+            }
+            if ( displayTimeLimited != 0 ) {
+
+                displayTimeLimited = 0;
+                displayTimeLimitedBtn = null;
+                displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
+            }
 
             // Clean panels and buttons used
             cleanJPanel();
