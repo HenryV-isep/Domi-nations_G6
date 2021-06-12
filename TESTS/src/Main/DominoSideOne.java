@@ -1,6 +1,6 @@
 package Main;
 
-public class DominoSideOne {
+public class DominoSideOne extends Domino{
 	private int crown;
 	public int getCrown() {
 		return crown;
@@ -8,12 +8,12 @@ public class DominoSideOne {
 	public void setCrown(int crown) {
 		this.crown = crown;
 	}
-	private String color;
-	public String getColor() {
-		return color;
+	private String type;
+	public String getType() {
+		return type;
 	}
-	public void setColor(String color) {
-		this.color = color;
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 }

@@ -1,8 +1,6 @@
 package Main;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Domino {
@@ -27,31 +25,33 @@ public class Domino {
 	public int getNumber() throws FileNotFoundException {
 		String[] lines = null;
 		readCsv(lines);
-		List<Integer> numList = new ArrayList<Integer>();
 		for (int i = 1; i<lines.length; i++) {
 			String s = lines[i];
 			String[] dataLines = s.split(";");
 			//SideOne
 				//Crown
 			String strSideOneCrown = dataLines[0];
-			int nOneCrown = Integer.valueOf(strSideOneCrown);
+			int intOneCrown = Integer.valueOf(strSideOneCrown);
 				//Type
 			String strSideOneType = dataLines[1];
-			
 			//SideTwo
 				//Crown
 			String strSideTwoCrown = dataLines[2];
-			int nTwoCrown = Integer.valueOf(strSideTwoCrown);
+			int intTwoCrown = Integer.valueOf(strSideTwoCrown);
 				//Type
 			String strSideTwoType = dataLines[3];
 			//Number
 			String strN = dataLines[4];
-			int nTile = Integer.valueOf(strN);
+			int intTile = Integer.valueOf(strN);
 			
-			//Verify
-			if(dominoSideOne.getColor().equals(strSideOneType) && dominoSideOne.getCrown() == nOneCrown && dominoSideTwo.getColor().equals(strSideTwoType)  && dominoSideTwo.getCrown() == nTwoCrown) {
-				number = nTile;
+			if(dominoSideOne.getType().equals(strSideOneType) && dominoSideOne.getCrown() == intOneCrown && dominoSideTwo.getType().equals(strSideTwoType)  && dominoSideTwo.getCrown() == intTwoCrown) {
+				number = intTile;	
 			}
+			
+			/*Verify
+			if(strSideOneType.equals("Champs") && 1 == nOneCrown && strSideTwoType.equals("Montage")  && 0 == nTwoCrown) {
+				number = nTile;
+			}*/
 		}
 		return number;
 	}
