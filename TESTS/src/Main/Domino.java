@@ -9,7 +9,7 @@ public class Domino {
 	private int number;
 	
 	public static void readCsv(String[] args) throws FileNotFoundException {
-		Scanner scanner = new Scanner(new File("nat2018.csv")); 
+		Scanner scanner = new Scanner(new File("dominos.csv")); 
 		StringBuilder sb = new StringBuilder(); 
 		while (scanner.hasNextLine()) { 
 		 sb.append(scanner.nextLine()) 
