@@ -7,7 +7,7 @@ public class Domino {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void getNumber(int number) {
 		this.number = number;
 	}
 	

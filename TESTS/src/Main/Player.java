@@ -5,6 +5,7 @@ public class Player {
 	public Castle castle;
 	private String name;
 	private int score = 0;
+	private String color;
 
 	public int getScore() {
 		return score;
@@ -17,16 +18,10 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-	public void setName() {
-		this.name = name;
-	}
 	
-	private String color;
+
 	public String getColor() {
 		return color;
-	}
-	public void setColor() {
-		this.color = color;
 	}
 
 	public Player(String name, String color) {
