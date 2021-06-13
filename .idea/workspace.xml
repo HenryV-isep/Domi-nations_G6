@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="db20c61a-7064-496a-8427-04cce99c36df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Document/dominos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Document/dominos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,15 @@
       <recent name="$PROJECT_DIR$/Image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.swing">
+  <component name="RunManager" selected="Application.Graphic_interface">
+    <configuration name="Graphic_interface" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="14" />
+      <option name="MAIN_CLASS_NAME" value="Grap_int.Graphic_interface" />
+      <module name="TESTS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="14" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -62,17 +71,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="swing" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="14" />
-      <option name="MAIN_CLASS_NAME" value="Grap_int.swing" />
-      <module name="TESTS" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.swing" />
+      <item itemvalue="Application.Graphic_interface" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

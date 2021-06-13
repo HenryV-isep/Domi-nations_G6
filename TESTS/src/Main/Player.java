@@ -1,5 +1,7 @@
 package Main;
 
+import static Grap_int.Graphic_interface.numberPlayers;
+
 public class Player {
 	
 	// Class attribute
@@ -8,6 +10,7 @@ public class Player {
 	private String name;
 	private int score = 0;
 	private String color;
+	int numberKing = ( numberPlayers > 2 ) ? 1 : 2;
 
 	// Getter and Setter
 	public int getScore() {
@@ -31,6 +34,8 @@ public class Player {
 		super();
 		this.name = name;
 		this.color = color;
+		this.king = new King(color,numberKing);
+		this.castle = new Castle(color);
 
 	}
 

@@ -14,23 +14,16 @@ import static java.lang.Math.random;
 public class Game {
 	
 	// Class attribute
-	private King[] king = null;
+	private King[] king;
 	private Player[] players = null;
-	private Castle[] castle = null;
+	private Castle[] castle;
 	private Domino[] domino = null;
 	int numberKing;
 
 	// Getter and Setter
-	public King[] getKing() {
-		return king;
-	}
 
 	public Player[] getPlayers() {
 		return players;
-	}
-
-	public Castle[] getCastle() {
-		return castle;
 	}
 
 	public void createPlayer( int numberPlayers, String namePlayer, int numPlayer, String color ) {
@@ -41,12 +34,12 @@ public class Game {
 			this.castle = new Castle[numberPlayers];
 		}
 		
-		numberKing = ( numberPlayers > 2 ) ? 1 : 2;
-		
-		this.castle[numPlayer-1] = new Castle( color );
-		this.king[numPlayer-1] = new King( color, numberKing );
+		//this.castle[numPlayer-1] = new Castle( color );
+		//this.king[numPlayer-1] = new King( color, numberKing );
 		this.players[numPlayer-1] = new Player( namePlayer, color );
 
+		System.out.println(players[numberPlayers-1].king.getColor());
+		System.out.println(players[numberPlayers-1].king.getNumberKing());
 		//System.out.println(players[numPlayer-1].getName());// to check if the name are correct
 		//players[0].setScore(4);
 		//System.out.println(players[numPlayer-1].getScore());
