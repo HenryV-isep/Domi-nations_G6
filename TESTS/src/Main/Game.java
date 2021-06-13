@@ -1,12 +1,21 @@
 package Main;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 import static Grap_int.swing.numberDominos;
 import static Grap_int.swing.numberPlayers;
+import static java.lang.Math.random;
 
 public class Game {
 	private King[] king = null;
 	private Player[] players = null;
 	private Castle[] castle = null;
+	private Domino[] domino = null;
 	int numberKing;
 
 	/**
@@ -51,6 +60,29 @@ public class Game {
 		//System.out.println(king[numPlayer-1].getNumberKing()); // to check the numberKing of each player
 		// System.out.println(players[numPlayer-1].getName()+ " " +king[numPlayer-1].getColor()+" "+players[numPlayer-1].getColor()+" "+castle[numPlayer-1].getColor()); // Gros bordel
 	}
+
+	public void createDomino() throws FileNotFoundException {
+		Scanner scanner = new Scanner(new File("dominos.csv"));
+		StringBuilder sb = new StringBuilder();
+		while (scanner.hasNextLine()) {
+			sb.append(scanner.nextLine())
+					.append("\n");
+		}
+		scanner.close();
+		String data = sb.toString();
+		@SuppressWarnings("unused")
+		List<String> lines = new ArrayList<String>(Arrays.asList(data.split("\n")));
+		this.domino = new Domino[numberDominos];
+		for (int i = 1; i<numberDominos; i++) {
+			int linesMax = lines.size() -1;
+			int indiceRandom = (int) Math.random()*(linesMax-1);
+			String s = lines.get(indiceRandom);
+			String[] dataLines = s.split(";");
+			lines.remove(indiceRandom);
+			this.domino[i-1] = new Domino(new DominoSideOne(Integer.parseInt(dataLines[0]),dataLines[1]), new DominoSideTwo(Integer.parseInt(dataLines[2]),dataLines[3]), Integer.parseInt(dataLines[4]),dataLines[5]);
+		}
+	}
+
 
 	private boolean isValidMove() {
 		return true;

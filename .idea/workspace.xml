@@ -4,8 +4,9 @@
     <list default="true" id="db20c61a-7064-496a-8427-04cce99c36df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Domino.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Domino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/DominoSideOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoSideOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/DominoSideTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/DominoSideTwo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
