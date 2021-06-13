@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.Action;
@@ -35,8 +37,7 @@ import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import LimitJTextField.LimitJTextField;
-import Main.Game;
-import Main.Player;
+import Main.*;
 import TextPrompt.TextPrompt;
 
 
@@ -116,6 +117,7 @@ public class Graphic_interface extends JFrame implements Action {
     private static int position;
     private static String police = "Century Gothic";
     private static Game game = new Game();
+    public static Player[] playersFinal;
     
     // Get the height and the width of the screen
     private static Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -2290,12 +2292,31 @@ public class Graphic_interface extends JFrame implements Action {
              * TODO implement the function to create game
              * TODO initializes the currentPlayers when the game is launching
              */
-            currentPlayer = game.getPlayers()[0];
+
+            playersFinal = new Player[numberPlayers];
+            Player[] players = game.getPlayers();
+            List<Integer> numbers = new ArrayList<Integer>();
+
+            for ( int i = 0; i < numberPlayers; i++ ){
+                numbers.add(i);
+            }
+
+            for ( int i = 0; i < numberPlayers; i++ ) {
+                int indiceRandom = (int) (Math.random() * (numbers.size()));
+                playersFinal[i] = players[numbers.get(indiceRandom)];
+                numbers.remove(indiceRandom);
+                /*System.out.println(indiceRandom);
+                System.out.println(numbers);
+                System.out.println(playersFinal[i].getName());*/
+            }
+
             try {
                 game.createDomino();
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
+
+            currentPlayer = playersFinal[0];
 
             // Remove all panels from the frame
             frame.remove( panelNorth );
