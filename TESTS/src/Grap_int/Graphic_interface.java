@@ -49,7 +49,7 @@ import TextPrompt.TextPrompt;
  * ? How resolve it ?
  * y 
  */
-public class swing extends JFrame implements Action {
+public class Graphic_interface extends JFrame implements Action {
     // Global variable
     public static Integer numberPlayers;
     public static Integer numberDominos;
@@ -104,8 +104,8 @@ public class swing extends JFrame implements Action {
         return currentPlayer;
     }
 
-    public static void setCurrentPlayer(Player currentPlayer) {
-        swing.currentPlayer = currentPlayer;
+    public static void setCurrentPlayer( Player currentPlayer ) {
+        Graphic_interface.currentPlayer = currentPlayer;
     }
 
     // Variables for swing
@@ -156,7 +156,7 @@ public class swing extends JFrame implements Action {
     // Initializes the frame of the game and set up the frame to start menu
     static JFrame frame = new JFrame( "Domi-nation" );
 
-    public swing() {
+    public Graphic_interface() {
         super( "Domi-nation" );
 
         // Set the size of the frame
@@ -264,7 +264,7 @@ public class swing extends JFrame implements Action {
         newGameBtn.setFont( new Font ( police, Font.PLAIN, 16 ));
 
         soundBtn.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
-        soundBtn.setFont( new Font ( police, Font.PLAIN, 18 ) );
+        soundBtn.setFont( new Font ( police, Font.PLAIN, 20 ) );
 
         leave.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         leave.setFont( new Font ( police, Font.PLAIN, 20 ) );
@@ -1054,11 +1054,7 @@ public class swing extends JFrame implements Action {
             }
 
             // Initializes the size of the kingdom
-            if ( theGrandDuel == 1 ) {
-                sizeKingdom = 7;
-            } else {
-                sizeKingdom = 5;
-            }
+            sizeKingdom = ( theGrandDuel == 1 ) ? 7 : 5;
 
             text = new JLabel( numberPlayers + " joueurs - " + numberDominos + " dominos - " + sizeKingdom + " x " + sizeKingdom );
 
@@ -1290,50 +1286,49 @@ public class swing extends JFrame implements Action {
         panelCenter = new JPanel();
         panelCenter.setLayout( new FlowLayout( FlowLayout.CENTER, 0, 50 ) );
         panelCenter.setBackground( new Color( 0xf1c232 ) );
-
-        Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        int width  = ( int )dimension.getWidth() - 300;
+        
+        int widthCredit  = ( int )dimension.getWidth() - 300;
 
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
         panel1.setBackground( new Color( 0xfff2cc ) );
-        panel1.setPreferredSize( new Dimension( width, 50 ) );
+        panel1.setPreferredSize( new Dimension( widthCredit, 50 ) );
 
         JPanel panel2 = new JPanel();
         panel2.setLayout( new FlowLayout( FlowLayout.CENTER ) );
         panel2.setBackground( new Color( 0xfff2cc ) );
-        panel2.setPreferredSize( new Dimension( width, 500 ) );
+        panel2.setPreferredSize( new Dimension( widthCredit, 500 ) );
 
         // Create all contents
         JLabel creditTitle = new JLabel( "Crédits" );
         creditTitle.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text1 = new JLabel( "Domination (v1.2.1 HD)", SwingConstants.CENTER );
-        text1.setPreferredSize( new Dimension( width, 80 ) );
+        text1.setPreferredSize( new Dimension( widthCredit, 80 ) );
         text1.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text2 = new JLabel( "@ 2021 ISEPG6GAME3", SwingConstants.CENTER );
-        text2.setPreferredSize( new Dimension( width, 80 ) );
+        text2.setPreferredSize( new Dimension( widthCredit, 80 ) );
         text2.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text3 = new JLabel( "isepG6game3.com", SwingConstants.CENTER );
-        text3.setPreferredSize( new Dimension( width, 100 ) );
+        text3.setPreferredSize( new Dimension( widthCredit, 100 ) );
         text3.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text4 = new JLabel( "Jeu créé par :", SwingConstants.CENTER );
-        text4.setPreferredSize( new Dimension( width, 80 ) );
+        text4.setPreferredSize( new Dimension( widthCredit, 80 ) );
         text4.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text5 = new JLabel( "Tendzin ROFFLER", SwingConstants.CENTER );
-        text5.setPreferredSize( new Dimension( width, 40 ) );
+        text5.setPreferredSize( new Dimension( widthCredit, 40 ) );
         text5.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text6 = new JLabel( "Henry VIEN", SwingConstants.CENTER );
-        text6.setPreferredSize( new Dimension( width, 40 ) );
+        text6.setPreferredSize( new Dimension( widthCredit, 40 ) );
         text6.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         JLabel text7 = new JLabel( "Cécile LI", SwingConstants.CENTER );
-        text7.setPreferredSize( new Dimension( width, 40 ) );
+        text7.setPreferredSize( new Dimension( widthCredit, 40 ) );
         text7.setFont( new Font( police, Font.PLAIN, 30 ) );
 
         // Add contents into there panel
@@ -1413,9 +1408,6 @@ public class swing extends JFrame implements Action {
         JLabel playerFourTextScore;
 
         int i = 0;
-        /**
-         * TODO Add player.getScore when is created
-         */
         for (Player player : game.getPlayers()) {
             switch ( i ) {
                 case 1:
@@ -1706,12 +1698,16 @@ public class swing extends JFrame implements Action {
         north.setLayout( new FlowLayout( FlowLayout.CENTER ) );
         north.setBackground( new Color( 0xe9edc9 ) );
         north.setPreferredSize( new Dimension( 0,50 ) );
+
         JPanel east = new JPanel();
         east.setBackground( new Color( 0xc57b57 ) );
+
         JPanel west = new JPanel();
         west.setBackground( new Color( 0xc57b57 ) );
+
         JPanel south = new JPanel();
         south.setBackground( new Color( 0xc57b57 ) );
+
         JPanel center = new JPanel();
         center.setBackground( new Color( 0xd4a373 ) );
 
@@ -1765,7 +1761,7 @@ public class swing extends JFrame implements Action {
         btnRadio.add( domino3 );
         btnRadio.add( domino4 );
 
-        // Add all contents into there panel
+        // Add all contents into the main panel
         panelWest.add( endTour );
         panelWest.add( rotation );
         panelWest.add( nextDomino1 );
@@ -1776,9 +1772,6 @@ public class swing extends JFrame implements Action {
         panelWest.add( domino3 );
         panelWest.add( nextDomino4 );
         panelWest.add( domino4 );
-        
-        // Add all contents into the main panel
-        // panelWest.add(  );
         
         return panelWest;        
     }
@@ -2184,38 +2177,22 @@ public class swing extends JFrame implements Action {
         } else if ( e.getSource() == dynastieBtn ) {
 
             // Set the game option
-            if ( dynastieBtn.isSelected() ) {
-                dynastie = 1;
-            } else {
-                dynastie = 0;
-            }
+            dynastie = ( dynastieBtn.isSelected() ) ? 1 : 0;
 
         } else if ( e.getSource() == harmonieBtn ) {
 
             // Set the game option
-            if ( harmonieBtn.isSelected() ) {
-                harmonie = 1;
-            } else {
-                harmonie = 0;
-            }
+            harmonie = ( harmonieBtn.isSelected() ) ? 1 : 0;
 
         } else if ( e.getSource() == middleEmpireBtn ) {
 
             // Set the game option
-            if ( middleEmpireBtn.isSelected() ) {
-                middleEmpire = 1;
-            } else {
-                middleEmpire = 0;
-            }
+            middleEmpire = ( middleEmpireBtn.isSelected() ) ? 1 : 0;
 
         } else if ( e.getSource() == theGrandDuelBtn ) {
 
             // Set the game option
-            if ( theGrandDuelBtn.isSelected() ) {
-                theGrandDuel = 1;
-            } else {
-                theGrandDuel = 0;
-            }
+            theGrandDuel = ( theGrandDuelBtn.isSelected() ) ? 1 : 0;
 
             // Remove all panel from the frame
             frame.remove( panelSouth );
@@ -2326,7 +2303,7 @@ public class swing extends JFrame implements Action {
             @Override
             public void run()
             {
-                new swing();
+                new Graphic_interface();
             }
         });
     }

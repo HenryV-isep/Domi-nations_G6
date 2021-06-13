@@ -1,17 +1,17 @@
 package Main;
 
 public class Castle {
-	private String color;
 
+	// Class attribute
+	private String color;
+	
+	// Getter and Setter
 	public String getColor() {
 		return color;
 	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}	
 	
-	public Castle(String color) {
+	// Class Builder
+	public Castle( String color ) {
 		this.color = color;
 	}
 }

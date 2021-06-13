@@ -1,6 +1,6 @@
 package Main;
 
-import Grap_int.swing;
+import Grap_int.Graphic_interface;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -12,10 +12,8 @@ public class Main extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new swing();
+                new Graphic_interface();
             }
-            Game game = new Game();
-                  //game.play();
         });
     }
 }
