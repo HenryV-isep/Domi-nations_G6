@@ -215,13 +215,21 @@ public class Graphic_interface extends JFrame implements Action {
         frame.add( background, BorderLayout.LINE_START );
     }
 
-    private Image fitimage( Image img , int w , int h ) {
+    /**
+     * This function resize the imag.
+     * Example of use ==> function startMenu()
+     * @param img : The image who need resizing
+     * @param width : The width for resizing
+     * @param height : The height for resizing
+     * @return Image
+     */
+    private Image fitimage( Image img , int width , int height ) {
 
-        BufferedImage resizedimage = new BufferedImage( w, h, BufferedImage.TYPE_INT_RGB );
+        BufferedImage resizedimage = new BufferedImage( width, height, BufferedImage.TYPE_INT_RGB );
         Graphics2D g2 = resizedimage.createGraphics();
 
         g2.setRenderingHint( RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR );
-        g2.drawImage( img, 0, 0, w, h, null );
+        g2.drawImage( img, 0, 0, width, height, null );
         g2.dispose();
 
         return resizedimage;
@@ -230,7 +238,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the panel for the start menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelEast
      */
     private JPanel panelEastForStartMenu() {
 
@@ -316,7 +324,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the north panel for the new game menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelNorth
      */
     private JPanel panelNorthForNewGameMenu() {
 
@@ -328,9 +336,7 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Create the contents for this panel
         JLabel textNorth = new JLabel( "Création de partie", SwingConstants.CENTER );
-        textNorth.setVerticalAlignment( SwingConstants.CENTER );
         textNorth.setFont( new Font( police, Font.PLAIN, 30 ) );
-        textNorth.setPreferredSize( new Dimension( 1100, 50 ) );
 
         backToStartMenu.setPreferredSize( new Dimension( 100,50 ) );
         backToStartMenu.setFont( new Font( police, Font.PLAIN, 20 ) );
@@ -348,7 +354,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel panelWestForNewGameMenu() {
 
@@ -422,7 +428,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu for 2 players selection.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel twoPlayers() {
 
@@ -582,7 +588,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu for 3 players selection.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel threePlayers() {
 
@@ -782,7 +788,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu for 4 players selection.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel fourPlayers() {
 
@@ -1026,7 +1032,7 @@ public class Graphic_interface extends JFrame implements Action {
      * 1 for 2 players,
      * 2 for 3 players,
      * 3 for 4 players,
-     * @return JPanel : panel
+     * @return JPanel : panelSouth
      */
     private JPanel panelSouthForNewGameMenu( int position ) {
 
@@ -1073,7 +1079,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the center panel for the new game menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelCenter
      */
     private JPanel panelCenterForNewGameMenu() {
 
@@ -1255,7 +1261,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the north panel for credit
      * @param none
-     * @return JPanel
+     * @return JPanelNorth
      */
     private JPanel panelNorthForCredit () {
 
@@ -1280,7 +1286,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the center panel for credit
      * @param none
-     * @return JPanel
+     * @return JPanelCenter
      */
     private JPanel panelCenterForCredit() {
 
@@ -1368,7 +1374,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the east panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanelEast
      */
     private JPanel panelEastForGameMenu() {
         
@@ -1530,7 +1536,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the south panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanel : panelSouth
      */
     private JPanel panelSouthForGameMenu() {
         
@@ -1686,7 +1692,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the center panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanel : panelCenter
      */
     private JPanel panelCenterForGameMenu() {
 
@@ -1733,49 +1739,121 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanel : panelWest
      */
     private JPanel panelWestForGameMenu() {
 
         // Initialaze the main panel
         panelWest = new JPanel();
         panelWest.setLayout( new GridLayout( 5,2 ) );
-        panelWest.setPreferredSize( new Dimension( 250,0 ) );
+        panelWest.setPreferredSize( new Dimension( 300,0 ) );
         panelWest.setBackground( new Color( 0xd4a373 ) );
 
-        // Initializes variables use in this panel
+        // Initializes variables for this game
+        int widthPanelWest = (int) panelWest.getPreferredSize().getWidth()/2;
+        int heightPanelWest = (int) panelWest.getPreferredSize().getHeight()/5;
 
         // Create all panels for grid layout
-        JLabel nextDomino1 = new JLabel();
-        JLabel nextDomino2 = new JLabel();
-        JLabel nextDomino3 = new JLabel();
-        JLabel nextDomino4 = new JLabel();
+        JPanel panel1 = new JPanel();
+        panel1.setLayout( new BorderLayout() );
+        panel1.setBackground( new Color( 0xd4a373 ) );
+        panel1.setBorder( BorderFactory.createLineBorder( Color.black ) );
+        JPanel panel2 = new JPanel();
+        panel2.setLayout( new BorderLayout() );
+        panel2.setBackground( new Color( 0xd4a373 ) );
+        JPanel panel3 = new JPanel();
+        panel3.setLayout( new BorderLayout() );
+        panel3.setBackground( new Color( 0xd4a373 ) );
+        panel3.setBorder( BorderFactory.createLineBorder( Color.black ) );
+        JPanel panel4 = new JPanel();
+        panel4.setLayout( new BorderLayout() );
+        panel4.setBackground( new Color( 0xd4a373 ) );
 
         // Create all contents
         rotation.setFont( new Font( police, Font.PLAIN, 18 ) );
         rotation.setBackground( new Color( 0xfefae0 ) );
         endTour.setFont( new Font( police, Font.PLAIN, 18 ) );
         endTour.setBackground( new Color( 0xfefae0 ) );
+        
+        JLabel nextDomino1 = new JLabel();
+        BufferedImage nextDomino1Image = null;
 
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino1Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        // nextDomino1.setIcon( new ImageIcon( fitimage( nextDomino1Image, widthPanelWest, heightPanelWest ) ) );
+
+        JLabel nextDomino2 = new JLabel();
+        nextDomino2.setBorder( BorderFactory.createLineBorder( Color.black ) );
+        BufferedImage nextDomino2Image = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino2Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        // nextDomino2.setIcon( new ImageIcon( fitimage( nextDomino2Image, widthPanelWest, heightPanelWest ) ) );
+
+        JLabel nextDomino3 = new JLabel();
+        BufferedImage nextDomino3Image = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino3Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        // nextDomino3.setIcon( new ImageIcon( fitimage( nextDomino3Image, widthPanelWest, heightPanelWest ) ) );
+        
+        JLabel nextDomino4 = new JLabel();
+        nextDomino4.setBorder( BorderFactory.createLineBorder( Color.black ) );
+        BufferedImage nextDomino4Image = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino4Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        // nextDomino4.setIcon( new ImageIcon( fitimage( nextDomino4Image, widthPanelWest, heightPanelWest ) ) );
+        
         ButtonGroup btnRadio = new ButtonGroup();
         btnRadio.add( domino1 );
         btnRadio.add( domino2 );
         btnRadio.add( domino3 );
         btnRadio.add( domino4 );
 
+        // Listenere
+        rotation.addActionListener( this );
+        endTour.addActionListener( this ); 
+
+        // Add all contents into the main panel
+        panel1.add( domino1, BorderLayout.LINE_END );
+        panel2.add( domino2, BorderLayout.LINE_END );
+        panel3.add( domino3, BorderLayout.LINE_END );
+        panel4.add( domino4, BorderLayout.LINE_END );
+
         // Add all contents into the main panel
         panelWest.add( endTour );
         panelWest.add( rotation );
         panelWest.add( nextDomino1 );
-        panelWest.add( domino1 );
+        panelWest.add( panel1 );
         panelWest.add( nextDomino2 );
-        panelWest.add( domino2 );
+        panelWest.add( panel2 );
         panelWest.add( nextDomino3 );
-        panelWest.add( domino3 );
+        panelWest.add( panel3 );
         panelWest.add( nextDomino4 );
-        panelWest.add( domino4 );
+        panelWest.add( panel4 );
         
-        return panelWest;        
+        return panelWest;
     }
 
     /**
@@ -2283,6 +2361,10 @@ public class Graphic_interface extends JFrame implements Action {
 
             // Add new panels to the frame
             startMenu();
+        } else if ( e.getSource() == rotation ) {
+            
+        } else if ( e.getSource() == endTour ) {
+            
         }
 
         // Actualize the frame
