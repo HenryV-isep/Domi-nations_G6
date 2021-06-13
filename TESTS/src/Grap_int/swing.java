@@ -1007,6 +1007,7 @@ public class swing extends JFrame implements Action {
             text = new JLabel( "Initialisation de la partie" );
 
         } else {
+
             // Initializes the numbers of dominos in function of the number of players
             if ( position == 1 ){
                 numberDominos = 24;
@@ -1365,15 +1366,15 @@ public class swing extends JFrame implements Action {
 
         panelEast.add( leaveGameBtn );
 
-        JLabel playerOneText = null;
-        JLabel playerTwoText = null;
-        JLabel playerThreeText = null;
-        JLabel playerFourText = null;
+        JLabel playerOneText;
+        JLabel playerTwoText;
+        JLabel playerThreeText;
+        JLabel playerFourText;
 
-        JLabel playerOneTextScore = null;
-        JLabel playerTwoTextScore = null;
-        JLabel playerThreeTextScore = null;
-        JLabel playerFourTextScore = null;
+        JLabel playerOneTextScore;
+        JLabel playerTwoTextScore;
+        JLabel playerThreeTextScore;
+        JLabel playerFourTextScore;
 
         int i = 0;
         /**
@@ -1517,32 +1518,32 @@ public class swing extends JFrame implements Action {
         JPanel panel1 = new JPanel();
         panel1.setLayout( new BorderLayout() );
         panel1.setBackground( new Color( 0x6a8eae ) );
-        JPanel panel1_1 = null;
-        JPanel notPanel1 = null;
-        JPanel notPanel2 = null;
-        JPanel panel1_2 = null;
+        JPanel panel1_1;
+        JPanel notPanel1;
+        JPanel notPanel2;
+        JPanel panel1_2;
 
         JPanel panel2 = new JPanel();
         panel2.setLayout( new BorderLayout() );
         panel2.setBackground( new Color( 0x6a8eae ) );
-        JPanel panel2_1 = null;
-        JPanel notPanel4 = null;
-        JPanel notPanel5 = null;
-        JPanel panel2_2 = null;
+        JPanel panel2_1;
+        JPanel notPanel4;
+        JPanel notPanel5;
+        JPanel panel2_2;
 
         JPanel panel3 = new JPanel();
         panel3.setLayout( new BorderLayout() );
         panel3.setBackground( new Color( 0x6a8eae ) );
-        JPanel panel3_1 = null;
-        JPanel notPanel7 = null;
-        JPanel notPanel8 = null;
-        JPanel panel3_2 = null;
+        JPanel panel3_1;
+        JPanel notPanel7;
+        JPanel notPanel8;
+        JPanel panel3_2;
 
         // Add all contents into there panel
         // Create all contents
-        JLabel namePlayer1 = null;
-        JLabel namePlayer2 = null;
-        JLabel namePlayer3 = null;
+        JLabel namePlayer1;
+        JLabel namePlayer2;
+        JLabel namePlayer3;
 
         int i = 0;
         for (Player player : game.getPlayers()) {
@@ -2108,7 +2109,14 @@ public class swing extends JFrame implements Action {
             frame.add( panelCenterForNewGameMenu(), BorderLayout.CENTER );
 
         } else if ( e.getSource() == soundBtn ) {
-
+            
+            if ( soundBtn.getText() == "Son activé" ) {
+                soundBtn.setText( "Son désactivé" );
+                soundBtn.setFont( new Font ( police, Font.PLAIN, 17 ));
+            } else {
+                soundBtn.setText( "Son activé" );
+                soundBtn.setFont( new Font ( police, Font.PLAIN, 20 ));
+            }
             /**
              * TODO Cut the sound when is activated, and inversement
              */
