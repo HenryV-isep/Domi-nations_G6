@@ -1745,25 +1745,28 @@ public class Graphic_interface extends JFrame implements Action {
         // Initialaze the main panel
         panelWest = new JPanel();
         panelWest.setLayout( new GridLayout( 5,2 ) );
-        panelWest.setPreferredSize( new Dimension( 300,0 ) );
+        panelWest.setPreferredSize( new Dimension( 430, (int) ((int) width - panelSouth.getPreferredSize().getHeight()) ) );
         panelWest.setBackground( new Color( 0xd4a373 ) );
 
         // Initializes variables for this game
         int widthPanelWest = (int) panelWest.getPreferredSize().getWidth()/2;
-        int heightPanelWest = (int) panelWest.getPreferredSize().getHeight()/5;
+        int heightPanelWest = (int) panelWest.getPreferredSize().getHeight()/10;
 
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
         panel1.setLayout( new BorderLayout() );
         panel1.setBackground( new Color( 0xd4a373 ) );
         panel1.setBorder( BorderFactory.createLineBorder( Color.black ) );
+
         JPanel panel2 = new JPanel();
         panel2.setLayout( new BorderLayout() );
         panel2.setBackground( new Color( 0xd4a373 ) );
+
         JPanel panel3 = new JPanel();
         panel3.setLayout( new BorderLayout() );
         panel3.setBackground( new Color( 0xd4a373 ) );
         panel3.setBorder( BorderFactory.createLineBorder( Color.black ) );
+
         JPanel panel4 = new JPanel();
         panel4.setLayout( new BorderLayout() );
         panel4.setBackground( new Color( 0xd4a373 ) );
@@ -1784,7 +1787,7 @@ public class Graphic_interface extends JFrame implements Action {
             e.printStackTrace();
         }   
 
-        // nextDomino1.setIcon( new ImageIcon( fitimage( nextDomino1Image, widthPanelWest, heightPanelWest ) ) );
+        nextDomino1.setIcon( new ImageIcon( fitimage( nextDomino1Image, widthPanelWest, heightPanelWest ) ) );
 
         JLabel nextDomino2 = new JLabel();
         nextDomino2.setBorder( BorderFactory.createLineBorder( Color.black ) );
@@ -1797,7 +1800,7 @@ public class Graphic_interface extends JFrame implements Action {
             e.printStackTrace();
         }   
 
-        // nextDomino2.setIcon( new ImageIcon( fitimage( nextDomino2Image, widthPanelWest, heightPanelWest ) ) );
+        nextDomino2.setIcon( new ImageIcon( fitimage( nextDomino2Image, widthPanelWest, heightPanelWest ) ) );
 
         JLabel nextDomino3 = new JLabel();
         BufferedImage nextDomino3Image = null;
@@ -1809,7 +1812,7 @@ public class Graphic_interface extends JFrame implements Action {
             e.printStackTrace();
         }   
 
-        // nextDomino3.setIcon( new ImageIcon( fitimage( nextDomino3Image, widthPanelWest, heightPanelWest ) ) );
+        nextDomino3.setIcon( new ImageIcon( fitimage( nextDomino3Image, widthPanelWest, heightPanelWest ) ) );
         
         JLabel nextDomino4 = new JLabel();
         nextDomino4.setBorder( BorderFactory.createLineBorder( Color.black ) );
@@ -1822,7 +1825,7 @@ public class Graphic_interface extends JFrame implements Action {
             e.printStackTrace();
         }   
 
-        // nextDomino4.setIcon( new ImageIcon( fitimage( nextDomino4Image, widthPanelWest, heightPanelWest ) ) );
+        nextDomino4.setIcon( new ImageIcon( fitimage( nextDomino4Image, widthPanelWest, heightPanelWest ) ) );
         
         ButtonGroup btnRadio = new ButtonGroup();
         btnRadio.add( domino1 );
@@ -1830,7 +1833,7 @@ public class Graphic_interface extends JFrame implements Action {
         btnRadio.add( domino3 );
         btnRadio.add( domino4 );
 
-        // Listenere
+        // Listener
         rotation.addActionListener( this );
         endTour.addActionListener( this ); 
 
