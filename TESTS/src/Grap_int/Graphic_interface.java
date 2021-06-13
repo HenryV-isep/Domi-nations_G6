@@ -55,6 +55,7 @@ public class Graphic_interface extends JFrame implements Action {
     public static Integer numberDominos;
     public static Integer sizeKingdom;
     public static Player currentPlayer;
+    public static int turn = 0;
 
     // Define Option
     public static int dynastie = 0;
@@ -1411,7 +1412,6 @@ public class Graphic_interface extends JFrame implements Action {
         for (Player player : game.getPlayers()) {
             switch ( i ) {
                 case 1:
-
                     playerTwoText = new JLabel( "<html><font color =" + player.getColor() + ">[R] " + player.getName() + "</font></html>" );
                     playerTwoText.setFont( new Font( police, Font.PLAIN, font ) );
 

@@ -44,9 +44,8 @@ public class Game {
 		numberKing = ( numberPlayers > 2 ) ? 1 : 2;
 		
 		this.castle[numPlayer-1] = new Castle( color );
-		this.king[numPlayer-1] = new King( color,numberKing );
+		this.king[numPlayer-1] = new King( color, numberKing );
 		this.players[numPlayer-1] = new Player( namePlayer, color );
-
 
 		//System.out.println(players[numPlayer-1].getName());// to check if the name are correct
 		//players[0].setScore(4);
