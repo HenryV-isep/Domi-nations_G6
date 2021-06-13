@@ -1412,6 +1412,8 @@ public class Graphic_interface extends JFrame implements Action {
         for (Player player : game.getPlayers()) {
             switch ( i ) {
                 case 1:
+                    System.out.println(game.getKing()[0].getNumberKing());
+
                     playerTwoText = new JLabel( "<html><font color =" + player.getColor() + ">[R] " + player.getName() + "</font></html>" );
                     playerTwoText.setFont( new Font( police, Font.PLAIN, font ) );
 
