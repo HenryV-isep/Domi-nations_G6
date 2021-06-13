@@ -15,6 +15,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileNotFoundException;
 
 import javax.imageio.ImageIO;
 import javax.swing.Action;
@@ -2212,7 +2213,12 @@ public class Graphic_interface extends JFrame implements Action {
              * TODO initializes the currentPlayers when the game is launching
              */
             currentPlayer = game.getPlayers()[0];
-            
+            try {
+                game.createDomino();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+
             // Remove all panels from the frame
             frame.remove( panelNorth );
             frame.remove( panelWest );

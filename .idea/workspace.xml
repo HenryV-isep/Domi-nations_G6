@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db20c61a-7064-496a-8427-04cce99c36df" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESTS/src/Grap_int/Graphic_interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Grap_int/Graphic_interface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TESTS/src/Main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/TESTS/src/Main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +117,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Domi_nations_G6$Main.ic" NAME="Main Coverage Results" MODIFIED="1622728657581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -38,10 +38,7 @@ public class Game {
 
 		this.players[numPlayer-1] = new Player( namePlayer, color );
 
-		/*System.out.println(players[numPlayer-1].king.getColor());
-		System.out.println(players[numPlayer-1].king.getNumberKing());
-		System.out.println(players[numPlayer-1].castle.getColor());
-		System.out.println(players[numPlayer-1].getName());// to check if the name are correct
+		/*System.out.println(players[numPlayer-1].king.getColor() + players[numPlayer-1].king.getNumberKing() + players[numPlayer-1].castle.getColor() + players[numPlayer-1].getName());// to check if the name are correct
 		players[0].setScore(4);
 		System.out.println(players[numPlayer-1].getScore());
 		System.out.println(Arrays.toString(players)); // to check if the list is completed
@@ -49,9 +46,15 @@ public class Game {
 		 */
 	}
 
-	public void createDomino() throws FileNotFoundException {
+	/*
+	* create the list of domino which would be use during the game
+	* it's retrieve the list from the csv
+	* we convert it to a list and remove the title of the column
+	* then we do a for to randomly choose domino to add to the Domino class domino
+	*/
+	public void createDomino() throws Exception {
 
-		Scanner scanner = new Scanner( new File( "dominos.csv" ) );
+		Scanner scanner = new Scanner( new File( "Document/dominos.csv" ) );
 		StringBuilder sb = new StringBuilder();
 		while ( scanner.hasNextLine() ) {
 			sb.append( scanner.nextLine() )
@@ -61,23 +64,25 @@ public class Game {
 
 		String data = sb.toString();
 
-		@SuppressWarnings("unused")
-
 		List<String> lines = new ArrayList<String>( Arrays.asList( data.split( "\n" ) ) );
+		lines.remove(lines.get(0));
+
+		//System.out.println(Arrays.deepToString(new List[]{lines}));
+
 		this.domino = new Domino[numberDominos];
+		int linesMax = lines.size();
 
-		for ( int i = 1; i < numberDominos; i++ ) {
-
-			int linesMax = lines.size() -1;
-			int indiceRandom = (int) Math.random()*( linesMax - 1 );
-
-			String s = lines.get( indiceRandom );
+		for ( int i = 1; i <= numberDominos; i++ ) {
+			int indiceRandom = (int) (Math.random() * (linesMax));
+			String s = lines.get(indiceRandom);
 			String[] dataLines = s.split( ";" );
-
-			lines.remove( indiceRandom );
-
+			lines.remove( lines.get(indiceRandom) );
+			linesMax--;
 			this.domino[i-1] = new Domino( new DominoSideOne( Integer.parseInt( dataLines[0] ), dataLines[1] ), new DominoSideTwo( Integer.parseInt( dataLines[2] ), dataLines[3] ), Integer.parseInt( dataLines[4] ), dataLines[5] );
+			//System.out.println(domino[i-1].dominoSideOne.getType() + domino[i-1].dominoSideOne.getCrown() + domino[i-1].dominoSideTwo.getType() + domino[i-1].dominoSideTwo.getCrown() + domino[i-1].getNumber() + domino[i-1].getNameFile());
 		}
+		//System.out.println(Arrays.deepToString(domino));
+
 	}
 
 
