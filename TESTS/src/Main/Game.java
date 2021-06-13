@@ -7,18 +7,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static Grap_int.Graphic_interface.numberDominos;
-import static Grap_int.Graphic_interface.numberPlayers;
+import static Grap_int.Graphic_interface.numberDominos; // number of Domino depending the number of players
+import static Grap_int.Graphic_interface.numberPlayers; // number of players
 import static java.lang.Math.random;
 
 public class Game {
 	
 	// Class attribute
-	private King[] king;
 	private Player[] players = null;
-	private Castle[] castle;
 	private Domino[] domino = null;
-	int numberKing;
 
 	// Getter and Setter
 
@@ -26,26 +23,30 @@ public class Game {
 		return players;
 	}
 
+	/*
+	*create the list of players
+	*@param numberPlayers for the total number of players
+	*@param namePlayer for the name of the players at the position numPlayer
+	*@param numPlayer for the position of the player ( player 1,2,3 or 4)
+	*@param color for the color of the player
+	*/
 	public void createPlayer( int numberPlayers, String namePlayer, int numPlayer, String color ) {
 
 		if ( ( this.players == null ) || ( this.players.length != numberPlayers ) ) {
 			this.players = new Player[numberPlayers];
-			this.king = new King[numberPlayers];
-			this.castle = new Castle[numberPlayers];
 		}
-		
-		//this.castle[numPlayer-1] = new Castle( color );
-		//this.king[numPlayer-1] = new King( color, numberKing );
+
 		this.players[numPlayer-1] = new Player( namePlayer, color );
 
-		System.out.println(players[numberPlayers-1].king.getColor());
-		System.out.println(players[numberPlayers-1].king.getNumberKing());
-		//System.out.println(players[numPlayer-1].getName());// to check if the name are correct
-		//players[0].setScore(4);
-		//System.out.println(players[numPlayer-1].getScore());
-		// System.out.println(Arrays.toString(players)); // to check if the list is completed
-		//System.out.println(king[numPlayer-1].getNumberKing()); // to check the numberKing of each player
-		// System.out.println(players[numPlayer-1].getName()+ " " +king[numPlayer-1].getColor()+" "+players[numPlayer-1].getColor()+" "+castle[numPlayer-1].getColor()); // Gros bordel
+		/*System.out.println(players[numPlayer-1].king.getColor());
+		System.out.println(players[numPlayer-1].king.getNumberKing());
+		System.out.println(players[numPlayer-1].castle.getColor());
+		System.out.println(players[numPlayer-1].getName());// to check if the name are correct
+		players[0].setScore(4);
+		System.out.println(players[numPlayer-1].getScore());
+		System.out.println(Arrays.toString(players)); // to check if the list is completed
+		System.out.println(Arrays.toString(getPlayers())); //same
+		 */
 	}
 
 	public void createDomino() throws FileNotFoundException {

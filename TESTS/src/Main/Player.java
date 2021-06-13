@@ -10,7 +10,7 @@ public class Player {
 	private String name;
 	private int score = 0;
 	private String color;
-	int numberKing = ( numberPlayers > 2 ) ? 1 : 2;
+	public int numberKing = ( numberPlayers > 2 ) ? 1 : 2;
 
 	// Getter and Setter
 	public int getScore() {
