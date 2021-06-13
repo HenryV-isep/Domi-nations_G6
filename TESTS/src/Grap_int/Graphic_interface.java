@@ -214,13 +214,21 @@ public class Graphic_interface extends JFrame implements Action {
         frame.add( background, BorderLayout.LINE_START );
     }
 
-    private Image fitimage( Image img , int w , int h ) {
+    /**
+     * This function resize the imag.
+     * Example of use ==> function startMenu()
+     * @param img : The image who need resizing
+     * @param width : The width for resizing
+     * @param height : The height for resizing
+     * @return Image
+     */
+    private Image fitimage( Image img , int width , int height ) {
 
-        BufferedImage resizedimage = new BufferedImage( w, h, BufferedImage.TYPE_INT_RGB );
+        BufferedImage resizedimage = new BufferedImage( width, height, BufferedImage.TYPE_INT_RGB );
         Graphics2D g2 = resizedimage.createGraphics();
 
         g2.setRenderingHint( RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR );
-        g2.drawImage( img, 0, 0, w, h, null );
+        g2.drawImage( img, 0, 0, width, height, null );
         g2.dispose();
 
         return resizedimage;
@@ -229,7 +237,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the panel for the start menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelEast
      */
     private JPanel panelEastForStartMenu() {
 
@@ -315,7 +323,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the north panel for the new game menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelNorth
      */
     private JPanel panelNorthForNewGameMenu() {
 
@@ -327,9 +335,7 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Create the contents for this panel
         JLabel textNorth = new JLabel( "Création de partie", SwingConstants.CENTER );
-        textNorth.setVerticalAlignment( SwingConstants.CENTER );
         textNorth.setFont( new Font( police, Font.PLAIN, 30 ) );
-        textNorth.setPreferredSize( new Dimension( 1100, 50 ) );
 
         backToStartMenu.setPreferredSize( new Dimension( 100,50 ) );
         backToStartMenu.setFont( new Font( police, Font.PLAIN, 20 ) );
@@ -347,7 +353,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel panelWestForNewGameMenu() {
 
@@ -421,7 +427,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu for 2 players selection.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel twoPlayers() {
 
@@ -581,7 +587,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu for 3 players selection.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel threePlayers() {
 
@@ -781,7 +787,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for the new game menu for 4 players selection.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelWest
      */
     private JPanel fourPlayers() {
 
@@ -1025,7 +1031,7 @@ public class Graphic_interface extends JFrame implements Action {
      * 1 for 2 players,
      * 2 for 3 players,
      * 3 for 4 players,
-     * @return JPanel : panel
+     * @return JPanel : panelSouth
      */
     private JPanel panelSouthForNewGameMenu( int position ) {
 
@@ -1072,7 +1078,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the center panel for the new game menu.
      * @param none
-     * @return JPanel : panel
+     * @return JPanel : panelCenter
      */
     private JPanel panelCenterForNewGameMenu() {
 
@@ -1254,7 +1260,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the north panel for credit
      * @param none
-     * @return JPanel
+     * @return JPanelNorth
      */
     private JPanel panelNorthForCredit () {
 
@@ -1279,7 +1285,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the center panel for credit
      * @param none
-     * @return JPanel
+     * @return JPanelCenter
      */
     private JPanel panelCenterForCredit() {
 
@@ -1367,7 +1373,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the east panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanelEast
      */
     private JPanel panelEastForGameMenu() {
         
@@ -1529,7 +1535,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the south panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanel : panelSouth
      */
     private JPanel panelSouthForGameMenu() {
         
@@ -1685,7 +1691,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the center panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanel : panelCenter
      */
     private JPanel panelCenterForGameMenu() {
 
@@ -1732,7 +1738,7 @@ public class Graphic_interface extends JFrame implements Action {
     /**
      * Create the west panel for game menu
      * @param none
-     * @return JPanel
+     * @return JPanel : panelWest
      */
     private JPanel panelWestForGameMenu() {
 
