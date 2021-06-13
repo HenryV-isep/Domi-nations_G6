@@ -2,6 +2,11 @@ package Grap_int;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.*;
+import java.io.File;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -11,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.imageio.ImageIO;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -108,6 +114,11 @@ public class swing extends JFrame implements Action {
     private static int position;
     private static String police = "Century Gothic";
     private static Game game = new Game();
+    
+    // Get the height and the width of the screen
+    private static Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+    private static int height = ( int )dimension.getHeight() + 100;
+    private static int width  = ( int )dimension.getWidth() + 100;
 
     // Define all buttons in attribut for more efficiency in the actionListener
     private JButton newGameBtn = new JButton( "Nouvelle partie" );
@@ -148,11 +159,6 @@ public class swing extends JFrame implements Action {
     public swing() {
         super( "Domi-nation" );
 
-        // Get the height and the width of the screen
-        Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        int height = ( int )dimension.getHeight() + 100;
-        int width  = ( int )dimension.getWidth() + 100;
-
         // Set the size of the frame
         frame.setSize( new Dimension( width,height ) );
         // Center the frame to the center of the screen
@@ -174,19 +180,49 @@ public class swing extends JFrame implements Action {
      * @return none
      */
     private void startMenu() {
+        frame.add( panelEastForStartMenu(), BorderLayout.LINE_END );
 
         // Set the image for the banner
         banner = new JLabel();
-        banner.setIcon( new ImageIcon( "Image/banner.png" ) );
+        BufferedImage bannerImage = null;
+
+        try {
+            bannerImage = ImageIO.read( new File( "Image/banner.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+
+        banner.setIcon( new ImageIcon( fitimage( bannerImage, width, 135 ) ) );
 
         // Set the image for the background
         background = new JLabel();
-        background.setIcon( new ImageIcon( "Image/kingdomino.jpg" ) );
+        BufferedImage backgroundImage = null;
+
+        try {
+            backgroundImage = ImageIO.read( new File( "Image/kingdomino.jpg" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        int backgroundWidth = width - (int) panelEast.getPreferredSize().width;
+        int backgroundHeight = height - (int) banner.getPreferredSize().height;
+
+        background.setIcon( new ImageIcon( fitimage( backgroundImage, backgroundWidth, backgroundHeight ) ) );
 
         // Add the contents into the frame
         frame.add( banner, BorderLayout.NORTH );
         frame.add( background, BorderLayout.LINE_START );
-        frame.add( panelEastForStartMenu(), BorderLayout.LINE_END );
+    }
+
+    private Image fitimage( Image img , int w , int h ) {
+
+        BufferedImage resizedimage = new BufferedImage( w, h, BufferedImage.TYPE_INT_RGB );
+        Graphics2D g2 = resizedimage.createGraphics();
+
+        g2.setRenderingHint( RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR );
+        g2.drawImage( img, 0, 0, w, h, null );
+        g2.dispose();
+
+        return resizedimage;
     }
 
     /**
