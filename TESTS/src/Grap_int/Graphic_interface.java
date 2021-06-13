@@ -240,8 +240,8 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Initializes variables for this panel
         int color = 0xf1c232;
-        int widthBtn = 150;
-        int heightbtn = 50;
+        int widthBtn = 165;
+        int heightbtn = 60;
 
         panelEast.setBackground( new Color( color ) );
 
@@ -262,7 +262,7 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Create all contents for this panel
         newGameBtn.setPreferredSize( new Dimension(widthBtn, heightbtn) );
-        newGameBtn.setFont( new Font ( police, Font.PLAIN, 16 ));
+        newGameBtn.setFont( new Font ( police, Font.PLAIN, 18 ));
 
         soundBtn.setPreferredSize( new Dimension( widthBtn, heightbtn ) );
         soundBtn.setFont( new Font ( police, Font.PLAIN, 20 ) );
@@ -321,7 +321,7 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Initializes the main panel
         panelNorth = new JPanel();
-
+        panelNorth.setLayout( new BorderLayout() );
         panelNorth.setPreferredSize( new Dimension( 0, 60 ) );
         panelNorth.setBackground( new Color( 0xd4a373 ) );
 
@@ -1412,6 +1412,7 @@ public class Graphic_interface extends JFrame implements Action {
         for (Player player : game.getPlayers()) {
             switch ( i ) {
                 case 1:
+
                     playerTwoText = new JLabel( "<html><font color =" + player.getColor() + ">[R] " + player.getName() + "</font></html>" );
                     playerTwoText.setFont( new Font( police, Font.PLAIN, font ) );
 
@@ -1744,10 +1745,10 @@ public class Graphic_interface extends JFrame implements Action {
         // Initializes variables use in this panel
 
         // Create all panels for grid layout
-        JLabel nextDomino1 = new JLabel("dom5");
-        JLabel nextDomino2 = new JLabel("dom6");
-        JLabel nextDomino3 = new JLabel("dom7");
-        JLabel nextDomino4 = new JLabel("dom8");
+        JLabel nextDomino1 = new JLabel();
+        JLabel nextDomino2 = new JLabel();
+        JLabel nextDomino3 = new JLabel();
+        JLabel nextDomino4 = new JLabel();
 
         // Create all contents
         rotation.setFont( new Font( police, Font.PLAIN, 18 ) );
