@@ -122,8 +122,8 @@ public class Graphic_interface extends JFrame implements Action {
     private static String police = "Century Gothic";
     private static Game game = new Game();
     public static Player[] playersFinal;
-    public static Domino[] currentDominos;
-    public static Domino[] nextDominos;
+    public static Domino[] currentDominos = new Domino[4];
+    public static Domino[] nextDominos = new Domino[4];
     
     // Get the height and the width of the screen
     private static Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -2404,6 +2404,90 @@ public class Graphic_interface extends JFrame implements Action {
                 game.createDomino();
             } catch (Exception exception) {
                 exception.printStackTrace();
+            }
+
+            Domino[] dominoBegun = game.getDomino();
+
+            /*System.out.println("début");
+            for(int k=0; k< numberDominos; k ++){
+                System.out.println(dominoBegun[k].getNumber());
+            }*/
+
+            if(numberPlayers ==2 || numberPlayers ==4) {
+                for (int k = 0; k < numberDominos; k += 4) {
+                    for (int i = k; i < k + 3; i++) {
+                        int indiceMin = i;
+                        for (int j = i; j < k + 4; j++) {
+                            if (dominoBegun[j].getNumber() < dominoBegun[indiceMin].getNumber()) {
+                                indiceMin = j;
+                            }
+                        }
+                        Domino swap = dominoBegun[i];
+                        dominoBegun[i] = dominoBegun[indiceMin];
+                        dominoBegun[indiceMin] = swap;
+                    }
+
+                    currentDominos[0] = dominoBegun[k];
+                    currentDominos[1] = dominoBegun[k + 1];
+                    currentDominos[2] = dominoBegun[k + 2];
+                    currentDominos[3] = dominoBegun[k + 3];
+
+                /*System.out.println("début2 "+ k);
+                System.out.println(currentDominos[0].getNumber());
+                System.out.println(currentDominos[1].getNumber());
+                System.out.println(currentDominos[2].getNumber());
+                System.out.println(currentDominos[3].getNumber());*/
+                }
+
+                for (int k = 4; k < numberDominos; k += 4) {
+                    nextDominos[0] = dominoBegun[k];
+                    nextDominos[1] = dominoBegun[k + 1];
+                    nextDominos[2] = dominoBegun[k + 2];
+                    nextDominos[3] = dominoBegun[k + 3];
+
+                /*System.out.println("début3 "+ k);
+                System.out.println(nextDominos[0].getNumber());
+                System.out.println(nextDominos[1].getNumber());
+                System.out.println(nextDominos[2].getNumber());
+                System.out.println(nextDominos[3].getNumber());*/
+
+                }
+            }
+            else {
+                for (int k = 0; k < numberDominos; k += 3) {
+                    for (int i = k; i < k + 2; i++) {
+                        int indiceMin = i;
+                        for (int j = i; j < k + 3; j++) {
+                            if (dominoBegun[j].getNumber() < dominoBegun[indiceMin].getNumber()) {
+                                indiceMin = j;
+                            }
+                        }
+                        Domino swap = dominoBegun[i];
+                        dominoBegun[i] = dominoBegun[indiceMin];
+                        dominoBegun[indiceMin] = swap;
+                    }
+
+                    currentDominos[0] = dominoBegun[k];
+                    currentDominos[1] = dominoBegun[k + 1];
+                    currentDominos[2] = dominoBegun[k + 2];
+
+                /*System.out.println("début2 "+ k);
+                System.out.println(currentDominos[0].getNumber());
+                System.out.println(currentDominos[1].getNumber());
+                System.out.println(currentDominos[2].getNumber());*/
+                }
+
+                for (int k = 3; k < numberDominos; k += 3) {
+                    nextDominos[0] = dominoBegun[k];
+                    nextDominos[1] = dominoBegun[k + 1];
+                    nextDominos[2] = dominoBegun[k + 2];
+
+                /*System.out.println("début3 "+ k);
+                System.out.println(nextDominos[0].getNumber());
+                System.out.println(nextDominos[1].getNumber());
+                System.out.println(nextDominos[2].getNumber());*/
+
+                }
             }
 
             currentPlayer = playersFinal[0];
