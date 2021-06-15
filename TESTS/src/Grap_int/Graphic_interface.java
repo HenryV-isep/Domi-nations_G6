@@ -33,6 +33,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -1553,6 +1554,9 @@ public class Graphic_interface extends JFrame implements Action {
         panelSouth.setLayout( new GridLayout( 1,3 ) );
         panelSouth.setBorder( BorderFactory.createLineBorder( Color.black ) );
         panelSouth.setPreferredSize( new Dimension( 0,200 ) );
+        
+        /* JScrollBar scrollBar = new JScrollBar();
+        panelSouth.add( scrollBar ); */
 
         // Initializes variables use in this panel
         int fontNotPanel = 25;
@@ -2312,9 +2316,11 @@ public class Graphic_interface extends JFrame implements Action {
         } else if ( e.getSource() == soundBtn ) {
             
             if ( soundBtn.getText() == "Son activé" ) {
+
                 soundBtn.setText( "Son désactivé" );
                 soundBtn.setFont( new Font ( police, Font.PLAIN, 17 ));
             } else {
+
                 soundBtn.setText( "Son activé" );
                 soundBtn.setFont( new Font ( police, Font.PLAIN, 20 ));
             }
@@ -2477,6 +2483,7 @@ public class Graphic_interface extends JFrame implements Action {
         } else if ( e.getSource() == endTour ) {
             
         } else if ( e.getSource() == domino1 ) {
+
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2495,10 +2502,11 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelEast = null;
+            panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         } else if ( e.getSource() == domino2 ) {
+
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2517,10 +2525,11 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelEast = null;
+            panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         } else if ( e.getSource() == domino3 ) {
+
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2539,10 +2548,11 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelEast = null;
+            panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         } else if ( e.getSource() == domino4 ) {
+
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2561,7 +2571,7 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelEast = null;
+            panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         }
