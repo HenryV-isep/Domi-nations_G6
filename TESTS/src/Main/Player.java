@@ -1,5 +1,8 @@
 package Main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static Grap_int.Graphic_interface.numberPlayers;
 
 public class Player {
@@ -11,6 +14,15 @@ public class Player {
 	private int score = 0;
 	private String color;
 	public int numberKing = ( numberPlayers > 2 ) ? 1 : 2;
+	private List<Domino> dominoTaken = new ArrayList<Domino>(numberKing);
+
+	public List<Domino> getDominoTaken() {
+		return dominoTaken;
+	}
+
+	public void setDominoTaken(List<Domino> dominoTaken) {
+		this.dominoTaken = dominoTaken;
+	}
 
 	// Getter and Setter
 	public int getScore() {
