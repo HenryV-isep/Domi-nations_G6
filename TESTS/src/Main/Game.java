@@ -23,6 +23,10 @@ public class Game {
 		return players;
 	}
 
+	public Domino[] getDomino() {
+		return domino;
+	}
+
 	/*
 	*create the list of players
 	*@param numberPlayers for the total number of players

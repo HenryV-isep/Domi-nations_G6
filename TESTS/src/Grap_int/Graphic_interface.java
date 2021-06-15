@@ -2298,18 +2298,18 @@ public class Graphic_interface extends JFrame implements Action {
 
             playersFinal = new Player[numberPlayers];
             Player[] players = game.getPlayers();
-            List<Integer> numbers = new ArrayList<Integer>();
+            List<Integer> numPlayers = new ArrayList<Integer>();
 
             for ( int i = 0; i < numberPlayers; i++ ){
-                numbers.add(i);
+                numPlayers.add(i);
             }
 
             for ( int i = 0; i < numberPlayers; i++ ) {
-                int indiceRandom = (int) (Math.random() * (numbers.size()));
-                playersFinal[i] = players[numbers.get(indiceRandom)];
-                numbers.remove(indiceRandom);
+                int indiceRandom = (int) (Math.random() * (numPlayers.size()));
+                playersFinal[i] = players[numPlayers.get(indiceRandom)];
+                numPlayers.remove(indiceRandom);
                 /*System.out.println(indiceRandom);
-                System.out.println(numbers);
+                System.out.println(numPlayers);
                 System.out.println(playersFinal[i].getName());*/
             }
 
