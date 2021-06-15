@@ -5,12 +5,15 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.*;
 import java.io.File;
+import java.io.IOException;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -31,6 +34,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.Border;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import LimitJTextField.LimitJTextField;
@@ -1754,21 +1758,25 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
-        panel1.setLayout( new BorderLayout() );
+        panel1.setLayout( new GridBagLayout() );
+        GridBagConstraints gbc1 = new GridBagConstraints(); 
         panel1.setBackground( new Color( 0xd4a373 ) );
         panel1.setBorder( BorderFactory.createLineBorder( Color.black ) );
 
         JPanel panel2 = new JPanel();
-        panel2.setLayout( new BorderLayout() );
+        panel2.setLayout( new GridBagLayout() );
+        GridBagConstraints gbc2 = new GridBagConstraints(); 
         panel2.setBackground( new Color( 0xd4a373 ) );
 
         JPanel panel3 = new JPanel();
-        panel3.setLayout( new BorderLayout() );
+        panel3.setLayout( new GridBagLayout() );
+        GridBagConstraints gbc3 = new GridBagConstraints(); 
         panel3.setBackground( new Color( 0xd4a373 ) );
         panel3.setBorder( BorderFactory.createLineBorder( Color.black ) );
 
         JPanel panel4 = new JPanel();
-        panel4.setLayout( new BorderLayout() );
+        panel4.setLayout( new GridBagLayout() );
+        GridBagConstraints gbc4 = new GridBagConstraints(); 
         panel4.setBackground( new Color( 0xd4a373 ) );
 
         // Create all contents
@@ -1777,6 +1785,7 @@ public class Graphic_interface extends JFrame implements Action {
         endTour.setFont( new Font( police, Font.PLAIN, 18 ) );
         endTour.setBackground( new Color( 0xfefae0 ) );
         
+        //  Next Domino image
         JLabel nextDomino1 = new JLabel();
         BufferedImage nextDomino1Image = null;
 
@@ -1826,6 +1835,55 @@ public class Graphic_interface extends JFrame implements Action {
         }   
 
         nextDomino4.setIcon( new ImageIcon( fitimage( nextDomino4Image, widthPanelWest, heightPanelWest ) ) );
+
+        // Domino drawn image
+        JLabel domino1Image = new JLabel();
+        BufferedImage imageDomino1 = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino1 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        domino1Image.setIcon( new ImageIcon( fitimage( imageDomino1, widthPanelWest-25, heightPanelWest) ) );
+        
+        JLabel domino2Image = new JLabel();
+        BufferedImage imageDomino2 = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino2 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        domino2Image.setIcon( new ImageIcon( fitimage( imageDomino2, widthPanelWest-25, heightPanelWest) ) );
+        
+        JLabel domino3Image = new JLabel();
+        BufferedImage imageDomino3 = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino3 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        domino3Image.setIcon( new ImageIcon( fitimage( imageDomino3, widthPanelWest-25, heightPanelWest) ) );
+        
+        JLabel domino4Image = new JLabel();
+        BufferedImage imageDomino4 = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino4 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        domino4Image.setIcon( new ImageIcon( fitimage( imageDomino4, widthPanelWest-25, heightPanelWest) ) );
         
         ButtonGroup btnRadio = new ButtonGroup();
         btnRadio.add( domino1 );
@@ -1835,13 +1893,40 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Listener
         rotation.addActionListener( this );
-        endTour.addActionListener( this ); 
+        endTour.addActionListener( this );
+        domino1.addActionListener( this );
+        domino2.addActionListener( this );
+        domino3.addActionListener( this );
+        domino4.addActionListener( this );
 
         // Add all contents into the main panel
-        panel1.add( domino1, BorderLayout.LINE_END );
-        panel2.add( domino2, BorderLayout.LINE_END );
-        panel3.add( domino3, BorderLayout.LINE_END );
-        panel4.add( domino4, BorderLayout.LINE_END );
+        gbc1.gridx = 0;
+        gbc1.gridy = 0;
+        panel1.add( domino1Image );
+        gbc1.gridx = 1;
+        gbc1.gridy = 1;
+        panel1.add( domino1 );
+
+        gbc2.gridx = 0;
+        gbc2.gridy = 0;
+        panel2.add( domino2Image );
+        gbc2.gridx = 1;
+        gbc2.gridy = 1;
+        panel2.add( domino2 );
+
+        gbc3.gridx = 0;
+        gbc3.gridy = 0;
+        panel3.add( domino3Image );
+        gbc3.gridx = 1;
+        gbc3.gridy = 1;
+        panel3.add( domino3 );
+
+        gbc4.gridx = 0;
+        gbc4.gridy = 0;
+        panel4.add( domino4Image );
+        gbc4.gridx = 1;
+        gbc4.gridy = 1;
+        panel4.add( domino4 );
 
         // Add all contents into the main panel
         panelWest.add( endTour );
@@ -2362,6 +2447,94 @@ public class Graphic_interface extends JFrame implements Action {
             
         } else if ( e.getSource() == endTour ) {
             
+        } else if ( e.getSource() == domino1 ) {
+            domino1 = null;
+            domino2 = null;
+            domino3 = null;
+            domino4 = null;
+            
+            try {
+                domino1 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            domino2 = new JRadioButton();
+            domino3 = new JRadioButton();
+            domino4 = new JRadioButton();
+
+            frame.remove( panelWest );
+
+            panelEast = null;
+
+            frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+        } else if ( e.getSource() == domino2 ) {
+            domino1 = null;
+            domino2 = null;
+            domino3 = null;
+            domino4 = null;
+            
+            try {
+                domino2 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            domino1 = new JRadioButton();
+            domino3 = new JRadioButton();
+            domino4 = new JRadioButton();
+
+            frame.remove( panelWest );
+
+            panelEast = null;
+
+            frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+        } else if ( e.getSource() == domino3 ) {
+            domino1 = null;
+            domino2 = null;
+            domino3 = null;
+            domino4 = null;
+            
+            try {
+                domino3 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            domino1 = new JRadioButton();
+            domino2= new JRadioButton();
+            domino4 = new JRadioButton();
+
+            frame.remove( panelWest );
+
+            panelEast = null;
+
+            frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+        } else if ( e.getSource() == domino4 ) {
+            domino1 = null;
+            domino2 = null;
+            domino3 = null;
+            domino4 = null;
+            
+            try {
+                domino4 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            domino1 = new JRadioButton();
+            domino2= new JRadioButton();
+            domino3 = new JRadioButton();
+
+            frame.remove( panelWest );
+
+            panelEast = null;
+
+            frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         }
 
         // Actualize the frame
