@@ -122,6 +122,8 @@ public class Graphic_interface extends JFrame implements Action {
     private static String police = "Century Gothic";
     private static Game game = new Game();
     public static Player[] playersFinal;
+    public static Domino[] currentDominos;
+    public static Domino[] nextDominos;
     
     // Get the height and the width of the screen
     private static Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
