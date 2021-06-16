@@ -3031,6 +3031,10 @@ public class Graphic_interface extends JFrame implements Action {
                 // game.printBoard( player );
             }
 
+            System.out.println("On place des dominos sur le plateau des différents joueurs :");
+            game.updateBoard(2,3,3,3,currentDominos[0],playersFinal[0]);
+            game.updateBoard(2,1,1,1,currentDominos[1],playersFinal[1]);
+
             playersNextTurn = new Player[numberPlayers];
 
             // Remove all panels from the frame
@@ -3160,7 +3164,11 @@ public class Graphic_interface extends JFrame implements Action {
 
             }
 
-            //System.out.println(playersNextTurn[0].getName());
+            System.out.println("Liste des joueurs pour le prochain tour : ");
+            System.out.println(playersNextTurn[0].getName());
+            System.out.println(playersNextTurn[1].getName());
+            System.out.println(playersNextTurn[2].getName());
+            System.out.println(playersNextTurn[3].getName());
             
             frame.remove( panelCenter );
             frame.remove( panelWest );
