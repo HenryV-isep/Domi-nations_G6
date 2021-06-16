@@ -3168,11 +3168,11 @@ public class Graphic_interface extends JFrame implements Action {
             }
 
             currentPlayer = playersFinal[0];
-            for (int i =0; i<numberPlayers; i++){
-                game.initializeBoard(i);
+            for ( Player player : playersFinal ){
+                player.setBoard( game.initializeBoard( player ) );
+                game.printBoard( player );
             }
 
-            game.printBoard(0);
 
             // Remove all panels from the frame
             frame.remove( panelNorth );
