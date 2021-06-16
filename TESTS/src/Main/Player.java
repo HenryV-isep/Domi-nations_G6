@@ -21,7 +21,7 @@ public class Player {
 		return Board;
 	}
 
-	public void setBoard( Board[][] Board ) {
+	public void setBoard(Board[][] Board) {
 		this.Board = Board;
 	}
 
@@ -29,7 +29,7 @@ public class Player {
 		return dominoTaken;
 	}
 
-	public void setDominoTaken( List<Domino> dominoTaken ) {
+	public void setDominoTaken(List<Domino> dominoTaken) {
 		this.dominoTaken = dominoTaken;
 	}
 
@@ -55,8 +55,8 @@ public class Player {
 		super();
 		this.name = name;
 		this.color = color;
-		this.king = new King( color,numberKing );
-		this.castle = new Castle( color );
+		this.king = new King(color,numberKing);
+		this.castle = new Castle(color);
 
 	}
 

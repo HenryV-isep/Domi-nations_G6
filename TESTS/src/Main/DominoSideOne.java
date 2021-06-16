@@ -1,17 +1,13 @@
 package Main;
 
 public class DominoSideOne{
-	
-	// Attributs of this class 
 	private int crown;
-	private String type;
-
-	//  Getter and Setter
 	public int getCrown() {
 		return crown;
 	}
+	private String type;
 
-	public void setType( String type ) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -19,10 +15,10 @@ public class DominoSideOne{
 		return type;
 	}
 
-	// Constructor
-	public DominoSideOne( int crown, String type ){
+	public DominoSideOne(int crown, String type){
 		super();
 		this.crown = crown;
 		this.type = type;
 	}
+	
 }
