@@ -126,6 +126,7 @@ public class Graphic_interface extends JFrame implements Action {
     private static String police = "Century Gothic";
     private static Game game = new Game();
     public static Player[] playersFinal;
+    public static Player[] playersNextTurn;
     public static Domino[] dominoBegun;
     public static Domino[] currentDominos = new Domino[4];
     public static Domino[] nextDominos = new Domino[4];
@@ -3030,6 +3031,8 @@ public class Graphic_interface extends JFrame implements Action {
                 // game.printBoard( player );
             }
 
+            playersNextTurn = new Player[numberPlayers];
+
             // Remove all panels from the frame
             frame.remove( panelNorth );
             frame.remove( panelWest );
@@ -3104,18 +3107,22 @@ public class Graphic_interface extends JFrame implements Action {
 
                     currentPlayer.getDominoTaken().add( currentDominos[0]  );
                     currentDominos[0].setSelected( true );
+                    playersNextTurn[0] = currentPlayer;
                 } else if ( domino2.isSelected() ) {
 
                     currentPlayer.getDominoTaken().add( currentDominos[1]  );
                     currentDominos[1].setSelected( true );
+                    playersNextTurn[1] = currentPlayer;
                 } else if ( domino3.isSelected() ) {
 
                     currentPlayer.getDominoTaken().add( currentDominos[2]  );
                     currentDominos[2].setSelected( true );
+                    playersNextTurn[2] = currentPlayer;
                 } else if ( domino4.isSelected() ) {
 
                     currentPlayer.getDominoTaken().add( currentDominos[3]  );
                     currentDominos[3].setSelected( true );
+                    playersNextTurn[3] = currentPlayer;
                 }
                 
                 turnDraw++;
@@ -3127,18 +3134,22 @@ public class Graphic_interface extends JFrame implements Action {
 
                     currentPlayer.setDominoTaken( Arrays.asList( currentDominos[0] )  );
                     currentDominos[0].setSelected( true );
+                    playersNextTurn[0] = currentPlayer;
                 } else if ( domino2.isSelected() ) {
 
                     currentPlayer.setDominoTaken( Arrays.asList( currentDominos[1] )  );
                     currentDominos[1].setSelected( true );
+                    playersNextTurn[1] = currentPlayer;
                 } else if ( domino3.isSelected() ) {
 
                     currentPlayer.setDominoTaken( Arrays.asList( currentDominos[2] )  );
                     currentDominos[2].setSelected( true );
+                    playersNextTurn[2] = currentPlayer;
                 } else if ( domino4.isSelected() ) {
 
                     currentPlayer.setDominoTaken( Arrays.asList( currentDominos[3] )  );
                     currentDominos[3].setSelected( true );
+                    playersNextTurn[3] = currentPlayer;
                 }
 
                 turnDraw++;
@@ -3148,6 +3159,8 @@ public class Graphic_interface extends JFrame implements Action {
                 turnDraw = 0;
 
             }
+
+            //System.out.println(playersNextTurn[0].getName());
             
             frame.remove( panelCenter );
             frame.remove( panelWest );
