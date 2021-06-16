@@ -1805,8 +1805,85 @@ public class Graphic_interface extends JFrame implements Action {
         }
         northText.setFont( new Font( police, Font.PLAIN, 25 ) );
 
-        // Add all contents into the main panel
+        // Add all contents into there panel
         north.add( northText );
+
+        center.add( box00Button );
+        center.add( box01Button );
+        center.add( box02Button );
+        center.add( box03Button );
+        center.add( box04Button );
+        if ( sizeKingdom == 7 ) {
+
+            center.add( box05Button );
+            center.add( box06Button );
+        }
+
+        center.add( box10Button );
+        center.add( box11Button );
+        center.add( box12Button );
+        center.add( box13Button );
+        center.add( box14Button );
+        if ( sizeKingdom == 7 ) {
+
+            center.add( box15Button );
+            center.add( box16Button );
+        }
+
+        center.add( box20Button );
+        center.add( box21Button );
+        center.add( box22Button );
+        center.add( box23Button );
+        center.add( box24Button );
+        if ( sizeKingdom == 7 ) {
+
+            center.add( box25Button );
+            center.add( box26Button );
+        }
+
+        center.add( box30Button );
+        center.add( box31Button );
+        center.add( box32Button );
+        center.add( box33Button );
+        center.add( box34Button );
+        if ( sizeKingdom == 7 ) {
+            
+            center.add( box35Button );
+            center.add( box36Button );
+        }
+
+        center.add( box40Button );
+        center.add( box41Button );
+        center.add( box42Button );
+        center.add( box43Button );
+        center.add( box44Button );
+        if ( sizeKingdom == 7 ) {
+            
+            center.add( box45Button );
+            center.add( box46Button );
+        }
+
+        center.add( box50Button );
+        center.add( box51Button );
+        center.add( box52Button );
+        center.add( box53Button );
+        center.add( box54Button );
+        if ( sizeKingdom == 7 ) {
+            
+            center.add( box55Button );
+            center.add( box56Button );
+        }
+
+        center.add( box60Button );
+        center.add( box61Button );
+        center.add( box62Button );
+        center.add( box63Button );
+        center.add( box64Button );
+        if ( sizeKingdom == 7 ) {
+
+            center.add( box65Button );
+            center.add( box66Button );
+        }
 
         // Add all contents into the main panel
         panelCenter.add( north, BorderLayout.NORTH );
@@ -2734,7 +2811,7 @@ public class Graphic_interface extends JFrame implements Action {
 
             currentPlayer = playersFinal[0];
             game.initializeBoard();
-            game.printBoard();
+            // game.printBoard();
 
             // Remove all panels from the frame
             frame.remove( panelNorth );
