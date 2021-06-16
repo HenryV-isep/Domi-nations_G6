@@ -2732,12 +2732,9 @@ public class Graphic_interface extends JFrame implements Action {
 
             }
 
-<<<<<<< HEAD
-=======
             currentPlayer = playersFinal[0];
             game.initializeBoard();
             game.printBoard();
->>>>>>> Cecile
 
             // Remove all panels from the frame
             frame.remove( panelNorth );
