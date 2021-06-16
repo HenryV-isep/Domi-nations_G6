@@ -3279,6 +3279,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 0, 1, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3286,6 +3288,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 0, 0, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3306,6 +3310,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 1, 1, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3313,6 +3319,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 1, 0, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3333,6 +3341,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 2, 1, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3340,6 +3350,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 2, 0, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3360,6 +3372,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 3, 1, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3367,6 +3381,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 3, 0, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3387,6 +3403,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 4, 1, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3394,6 +3412,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 4, 0, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3415,6 +3435,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 5, 1, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3422,6 +3444,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 5, 0, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3443,6 +3467,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 6, 1, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3450,6 +3476,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 0, 6, 0, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3471,6 +3499,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 0, 2, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3478,6 +3508,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 0, 1, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3499,6 +3531,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 1, 2, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3506,6 +3540,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 1, 1, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3527,6 +3563,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 2, 0, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3534,6 +3572,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 2, 1, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3555,6 +3595,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 3, 2, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3562,6 +3604,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 3, 1, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3583,6 +3627,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 4, 2, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3590,6 +3636,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 4, 1, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3611,6 +3659,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 5, 2, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3618,6 +3668,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 5, 2, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3639,6 +3691,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 6, 2, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3646,6 +3700,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 1, 6, 1, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3667,6 +3723,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 0, 3, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3674,6 +3732,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 0, 2, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3695,6 +3755,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 1, 3, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3702,6 +3764,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 1, 2, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3725,6 +3789,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 2, 2, 3, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -3732,6 +3798,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 2, 2, 2, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
     
@@ -3773,6 +3841,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 2, 3, 3, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -3780,6 +3850,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 2, 3, 2, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -3803,6 +3875,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 4, 3, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3810,6 +3884,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 4, 2, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3831,6 +3907,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 5, 3, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3838,6 +3916,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 5, 2, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3859,6 +3939,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 6, 3, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3866,6 +3948,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 2, 6, 2, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3887,6 +3971,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 0, 4, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3894,6 +3980,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 0, 3, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3915,6 +4003,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 1, 4, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3922,6 +4012,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 1, 3, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3943,6 +4035,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 2, 4, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -3950,6 +4044,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 2, 3, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -3973,6 +4069,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 3, 3, 4, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -3980,6 +4078,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 3, 3, 3, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
     
@@ -4003,6 +4103,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 3, 4, 4, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4010,6 +4112,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 3, 4, 3, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             } else {
@@ -4020,6 +4124,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 3, 4, 4, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4027,6 +4133,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 3, 4, 3, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -4049,6 +4157,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 5, 4, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4056,6 +4166,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 5, 3, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4077,6 +4189,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 6, 4, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4084,6 +4198,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 3, 6, 3, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4106,6 +4222,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 0, 5, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4113,6 +4231,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 0, 4, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             } else {
@@ -4123,6 +4243,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 0, 3, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
 
@@ -4130,6 +4252,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 0, 4, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -4153,6 +4277,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 1, 5, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4160,6 +4286,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 1, 4, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             } else {
@@ -4170,6 +4298,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 1, 3, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
 
@@ -4177,6 +4307,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 1, 4, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -4200,6 +4332,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 2, 5, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4207,6 +4341,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 2, 4, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             } else {
@@ -4217,6 +4353,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 2, 3, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
 
@@ -4224,6 +4362,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 2, 4, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -4247,6 +4387,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 3, 5, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4254,6 +4396,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 3, 4, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             } else {
@@ -4264,6 +4408,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 3, 3, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
 
@@ -4271,6 +4417,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 3, 4, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -4294,6 +4442,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 4, 5, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
     
@@ -4301,6 +4451,8 @@ public class Graphic_interface extends JFrame implements Action {
     
                     if ( game.isValidMove( 4, 4, 4, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             } else {
@@ -4311,6 +4463,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 4, 3, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 } else {
 
@@ -4318,6 +4472,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                     if ( game.isValidMove( 4, 4, 4, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                         endTour.setEnabled( true );
+                    } else {
+                        endTour.setEnabled( false );
                     }
                 }
             }
@@ -4340,6 +4496,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 4, 5, 5, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4347,6 +4505,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 4, 5, 4, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4368,6 +4528,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 4, 6, 5, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4375,6 +4537,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 4, 6, 4, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4396,6 +4560,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 0, 6, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4403,6 +4569,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 0, 5, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4424,6 +4592,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 1, 6, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4431,6 +4601,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 1, 5, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4452,6 +4624,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 2, 6, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4459,6 +4633,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 2, 5, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4480,6 +4656,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 3, 6, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4487,6 +4665,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 3, 5, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4508,6 +4688,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 4, 6, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4515,6 +4697,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 4, 5, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4536,6 +4720,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 5, 6, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4543,6 +4729,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 5, 5, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4564,6 +4752,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 6, 6, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4571,6 +4761,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 5, 6, 5, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4592,6 +4784,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 0, 5, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4599,6 +4793,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 0, 6, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4620,6 +4816,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 1, 5, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4627,6 +4825,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 1, 6, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4648,6 +4848,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 2, 5, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4655,6 +4857,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 2, 6, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4676,6 +4880,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 3, 5, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4683,6 +4889,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 3, 6, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4704,6 +4912,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 4, 5, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4711,6 +4921,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 4, 6, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4732,6 +4944,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 5, 5, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4739,6 +4953,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 5, 6, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
@@ -4760,6 +4976,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 6, 5, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             } else {
 
@@ -4767,6 +4985,8 @@ public class Graphic_interface extends JFrame implements Action {
 
                 if ( game.isValidMove( 6, 6, 6, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
                     endTour.setEnabled( true );
+                } else {
+                    endTour.setEnabled( false );
                 }
             }
 
