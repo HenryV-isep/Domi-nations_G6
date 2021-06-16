@@ -14,18 +14,17 @@ public class Player {
 	private int score = 0;
 	private String color;
 	public int numberKing = ( numberPlayers > 2 ) ? 1 : 2;
-	// List of dominos take by the player
-	private List<Domino> dominoTaken = new ArrayList<Domino>( numberKing );
+	private List<Domino> dominoTaken = new ArrayList<Domino>(numberKing);
 
-	// Getter and Setter
 	public List<Domino> getDominoTaken() {
 		return dominoTaken;
 	}
 
-	public void setDominoTaken( List<Domino> dominoTaken ) {
+	public void setDominoTaken(List<Domino> dominoTaken) {
 		this.dominoTaken = dominoTaken;
 	}
 
+	// Getter and Setter
 	public int getScore() {
 		return score;
 	}
@@ -47,8 +46,8 @@ public class Player {
 		super();
 		this.name = name;
 		this.color = color;
-		this.king = new King( color, numberKing );
-		this.castle = new Castle( color );
+		this.king = new King(color,numberKing);
+		this.castle = new Castle(color);
 
 	}
 
