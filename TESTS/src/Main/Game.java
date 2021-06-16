@@ -105,7 +105,7 @@ public class Game {
 
 
 	private boolean isValidMove(int column1,int row1, int column2, int row2,  Domino dominoSelected) {
-		if (board[row1][column1].isEmpty()==true && board[row2][column2].isEmpty()==true){
+		if (board[row1][column1]==null && board[row2][column2] ==null){
 				int middleBoard = sizeKingdom/2;
 				if((row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) || (row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard) || (row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) || (row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard)){
 					return true;
@@ -164,13 +164,13 @@ public class Game {
 
 	public void printBoard( Player player ) {
 
-		//System.out.println(playersFinal[numPlayer].getName());
-		System.out.println( player.getBoard()[2][2].getCastle().getColor() );
+		System.out.println(player.getName());
+		//System.out.println( player.getBoard()[2][2].getCastle().getColor() );
 		for( int li = 0; li < sizeKingdom; li++ ){
 
 			for( int co = 0; co < sizeKingdom; co++ ){
 
-				Board cell = this.board[li][co];
+				Board cell = player.getBoard()[li][co];
 				if ( cell == null ){
 
 					System.out.print( "null " );
@@ -191,27 +191,23 @@ public class Game {
 		}
 	}
 
-	private void updateBoard( int column1, int row1, int column2, int row2,  Domino dominoSelected ) {
+	public void updateBoard( int column1, int row1, int column2, int row2,  Domino dominoSelected, Player player ) {
 		if ( isValidMove( column1, row1, column2, row2, dominoSelected ) ){
-			this.board[row1][column1] = new Board( currentDominos[0].dominoSideOne );
-			this.board[row1][column1].setEmpty( false );
-			this.board[row2][column2] = new Board( currentDominos[0].dominoSideTwo );
-			this.board[row2][column2].setEmpty(false);
+			player.getBoard()[row1][column1] = new Board( dominoSelected.dominoSideOne );
+			player.getBoard()[row1][column1].setEmpty( false );
+			player.getBoard()[row2][column2] = new Board( dominoSelected.dominoSideTwo );
+			player.getBoard()[row2][column2].setEmpty(false);
 
-			System.out.println( board[row1][column1].getDomino1().getType() + board[row1][column1].getDomino1().getCrown() );
-			System.out.println( board[row2][column2].getDomino2().getType() + board[row2][column2].getDomino2().getCrown() );
+			System.out.println( player.getBoard()[row1][column1].getDomino1().getType() + player.getBoard()[row1][column1].getDomino1().getCrown() );
+			System.out.println( player.getBoard()[row2][column2].getDomino2().getType() + player.getBoard()[row2][column2].getDomino2().getCrown() );
 		}
 		else {
 			System.out.println( "Not a valid move." );
 		}
-		
+
+		printBoard(player);
 	}
-	private void askLayTitles() {
-		
-	}
-	private void switchPlayer() {
-		
-	}
+
 	private void calculatePoints() {
 		
 	}
