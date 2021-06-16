@@ -103,29 +103,96 @@ public class Game {
 
 	}
 
+	/**
+	 * Check if the move you made is possible for the domino you have chosen
+	 * @param column1 (0 to sizeKingdom-1) : the column you put the first side of the domino
+	 * @param row1 (0 to sizeKingdom-1) : the row you put the first side of the domino
+	 * @param column2 (0 to sizeKingdom-1) : the column you put the second side of the domino
+	 * @param row2 (0 to sizeKingdom-1) : the row you put the second side of the domino
 
-	private boolean isValidMove(int column1,int row1, int column2, int row2,  Domino dominoSelected) {
+	 */
+	public boolean isValidMove(int row1,int column1, int row2,int column2, Domino dominoSelected) {
 		if (board[row1][column1]==null && board[row2][column2] ==null){
 				int middleBoard = sizeKingdom/2;
-				if((row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) || (row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard) || (row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) || (row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard)){
+				if((row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) ||
+						(row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard) ||
+						(row2 == middleBoard-1 && column2 ==middleBoard) || (row2 == middleBoard && column2 ==middleBoard-1) ||
+						(row2 == middleBoard && column2 ==middleBoard+1) || (row2 == middleBoard+1 && column2 ==middleBoard)){
 					return true;
 				}
 				else{
 					String typeDominoSideOne = dominoSelected.dominoSideOne.getType();
-					String typeDominoSideTwo = dominoSelected.dominoSideTwo.getType();
-					if(typeDominoSideOne.equals(board[row1-1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1-1][column1].getDomino2().getType()) ||
-						typeDominoSideOne.equals(board[row1][column1-1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1-1].getDomino2().getType()) ||
-						typeDominoSideOne.equals(board[row1][column1+1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1+1].getDomino2().getType()) ||
-						typeDominoSideOne.equals(board[row1+1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1+1][column1].getDomino2().getType()) ||
-						typeDominoSideTwo.equals(board[row1-1][column1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1-1][column1].getDomino2().getType()) ||
-						typeDominoSideTwo.equals(board[row1][column1-1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1][column1-1].getDomino2().getType()) ||
-						typeDominoSideTwo.equals(board[row1][column1+1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1][column1+1].getDomino2().getType()) ||
-						typeDominoSideTwo.equals(board[row1+1][column1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1+1][column1].getDomino2().getType())
-					){
-						return true;
+					//String typeDominoSideTwo = dominoSelected.dominoSideTwo.getType();
+
+					if(row1==0) {
+						if (column1 == 0) {
+							if(board[row1][column1 + 1] ==null && board[row1+1][column1] ==null){
+								return false;
+							}
+							else if(board[row1][column1 + 1] !=null && board[row1+1][column1] !=null) {
+								return typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType()) ||
+										typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1][column1].getDomino2().getType());
+							}
+							else if(board[row1 + 1][column1] ==null){
+								return typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType());
+							}
+							else{
+								return typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1][column1].getDomino2().getType());
+							}
+						} else if (column1 == 4) {
+							if(board[row1][column1 - 1] ==null && board[row1+1][column1] ==null){
+								return false;
+							}
+							else if(board[row1][column1 - 1] !=null && board[row1+1][column1] !=null) {
+								return typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1][column1].getDomino2().getType()) ||
+										typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType());
+							}
+							else if(board[row1 + 1][column1] ==null){
+								return typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType());
+							}
+							else{
+								return typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1][column1].getDomino2().getType());
+							}
+						} else { //faire les check null
+							return typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType()) ||
+									typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType()) ||
+									typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1][column1].getDomino2().getType());
+						}
 					}
-					else {
-						return false;
+					else if (row1==4)	{
+							if (column1 == 0) {//faire les check null
+								return typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType()) ||
+										typeDominoSideOne.equals(board[row1 - 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 - 1][column1].getDomino2().getType()) ;
+							}
+							else if (column1 == 4){//faire les check null
+								return typeDominoSideOne.equals(board[row1 - 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 - 1][column1].getDomino2().getType()) ||
+										typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType()) ;
+							}
+							else {//faire les check null
+								return typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType()) ||
+										typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType()) ||
+										typeDominoSideOne.equals(board[row1 - 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 - 1][column1].getDomino2().getType()) ;
+							}
+					}
+					else if (column1==0) {//faire les check null
+						return typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1 ][column1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1 - 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 - 1][column1].getDomino2().getType()) ;
+					}
+					else if (column1==4) {//faire les check null
+						return typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1 ][column1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1 - 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 - 1][column1].getDomino2().getType()) ;
+					}
+					else{//faire les check null
+						return typeDominoSideOne.equals(board[row1 - 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 - 1][column1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1][column1 - 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 - 1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1][column1 + 1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1 + 1].getDomino2().getType()) ||
+								typeDominoSideOne.equals(board[row1 + 1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1 + 1][column1].getDomino2().getType()); /* ||
+								typeDominoSideTwo.equals(board[row2 - 1][column2].getDomino1().getType()) || typeDominoSideTwo.equals(board[row2 - 1][column2].getDomino2().getType()) ||
+								typeDominoSideTwo.equals(board[row2][column2 - 1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row2][column2 - 1].getDomino2().getType()) ||
+								typeDominoSideTwo.equals(board[row2][column2 + 1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row2][column2 + 1].getDomino2().getType()) ||
+								typeDominoSideTwo.equals(board[row2 + 1][column2].getDomino1().getType()) || typeDominoSideTwo.equals(board[row2 + 1][column2].getDomino2().getType());*/
 					}
 				}
 		}
@@ -136,7 +203,7 @@ public class Game {
 
 	/**
 	* Function which create the board of the player and put his castle in the middle of his board
-	* @param numPlayer for number of player
+	* @param player to know who is playing
 	 * @return 
 	*/
 	public Board[][] initializeBoard( Player player ) {
@@ -161,6 +228,10 @@ public class Game {
 		System.out.println(board[1][1].getDomino1().getType() + board[1][1].getDomino1().getCrown());
 		System.out.println(board[1][2].getDomino2().getType() + board[1][2].getDomino2().getCrown());*/
 	}
+
+	/* print the board on the console log
+	 * @param player to know who is playing
+	 */
 
 	public void printBoard( Player player ) {
 
@@ -191,15 +262,25 @@ public class Game {
 		}
 	}
 
-	public void updateBoard( int column1, int row1, int column2, int row2,  Domino dominoSelected, Player player ) {
-		if ( isValidMove( column1, row1, column2, row2, dominoSelected ) ){
+	/* update the board after you put a domino on the board
+	 * @param column1 (0 to sizeKingdom-1) : the column you put the first side of the domino
+	 * @param row1 (0 to sizeKingdom-1) : the row you put the first side of the domino
+	 * @param column2 (0 to sizeKingdom-1) : the column you put the second side of the domino
+	 * @param row2 (0 to sizeKingdom-1) : the row you put the second side of the domino
+	 * @param dominoSelected : domino which is going to be placed on the board
+	 * @param player : who is playing this board
+
+	 */
+
+	public void updateBoard( int row1, int column1, int row2, int column2, Domino dominoSelected, Player player ) {
+		if ( isValidMove( row1, column1, row2, column2, dominoSelected ) ){
 			player.getBoard()[row1][column1] = new Board( dominoSelected.dominoSideOne );
 			player.getBoard()[row1][column1].setEmpty( false );
 			player.getBoard()[row2][column2] = new Board( dominoSelected.dominoSideTwo );
 			player.getBoard()[row2][column2].setEmpty(false);
 
-			System.out.println( player.getBoard()[row1][column1].getDomino1().getType() + player.getBoard()[row1][column1].getDomino1().getCrown() );
-			System.out.println( player.getBoard()[row2][column2].getDomino2().getType() + player.getBoard()[row2][column2].getDomino2().getCrown() );
+			//System.out.println( player.getBoard()[row1][column1].getDomino1().getType() + player.getBoard()[row1][column1].getDomino1().getCrown() );
+			//System.out.println( player.getBoard()[row2][column2].getDomino2().getType() + player.getBoard()[row2][column2].getDomino2().getCrown() );
 		}
 		else {
 			System.out.println( "Not a valid move." );
@@ -208,7 +289,7 @@ public class Game {
 		printBoard(player);
 	}
 
-	private void calculatePoints() {
-		
+	private void calculatePoints(Player player) {
+
 	}
 }

@@ -3174,10 +3174,9 @@ public class Graphic_interface extends JFrame implements Action {
                 game.printBoard( player );
             }
 
-            game.updateBoard(2,1,2,2,currentDominos[0],playersFinal[0]);
-            game.updateBoard(2,1,2,2,currentDominos[0],playersFinal[0]);
-            game.updateBoard(2,1,2,2,currentDominos[0],playersFinal[0]);
-
+            //game.updateBoard(1,2,2,2,currentDominos[0],playersFinal[0]);
+            //game.updateBoard(1,2,1,3,currentDominos[0],playersFinal[0]);
+            //game.updateBoard(0,0,1,0,currentDominos[0],playersFinal[0]);
 
 
             // Remove all panels from the frame
