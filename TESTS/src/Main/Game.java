@@ -1,15 +1,13 @@
 package Main;
 
+import static Grap_int.Graphic_interface.numberDominos; // number of Domino depending the number of players
+import static Grap_int.Graphic_interface.numberPlayers; // number of players
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
-import static Grap_int.Graphic_interface.numberDominos; // number of Domino depending the number of players
-import static Grap_int.Graphic_interface.numberPlayers; // number of players
-import static java.lang.Math.random;
 
 public class Game {
 	
@@ -98,8 +96,6 @@ public class Game {
 	private void initializeBoard() {
 		
 	}
-
-
 	
 	// On decrit brievement la logique du jeu
 	public void play() {

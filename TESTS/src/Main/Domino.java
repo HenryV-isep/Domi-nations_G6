@@ -1,7 +1,4 @@
 package Main;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Domino {
 	public DominoSideOne dominoSideOne;
@@ -27,14 +24,6 @@ public class Domino {
 		isPlaced = placed;
 	}
 
-	public Domino(DominoSideOne dominoSideOne, DominoSideTwo dominoSideTwo, int number, String nameFile) {
-		super();
-		this.dominoSideOne = dominoSideOne;
-		this.dominoSideTwo = dominoSideTwo;
-		this.number = number;
-		this.nameFile = nameFile;
-	}
-
 	public String getNameFile() {
 		return nameFile;
 	}
@@ -43,4 +32,11 @@ public class Domino {
 		return number;
 	}
 	
+	public Domino( DominoSideOne dominoSideOne, DominoSideTwo dominoSideTwo, int number, String nameFile ) {
+		super();
+		this.dominoSideOne = dominoSideOne;
+		this.dominoSideTwo = dominoSideTwo;
+		this.number = number;
+		this.nameFile = nameFile;
+	}
 }
