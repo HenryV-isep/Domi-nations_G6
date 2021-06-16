@@ -1793,6 +1793,7 @@ public class Graphic_interface extends JFrame implements Action {
         south.setBackground( new Color( 0xc57b57 ) );
 
         JPanel center = new JPanel();
+        center.setLayout( new GridLayout( sizeKingdom, sizeKingdom ) );
         center.setBackground( new Color( 0xd4a373 ) );
 
         // Create all contents
