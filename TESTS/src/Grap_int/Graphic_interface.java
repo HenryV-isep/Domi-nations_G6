@@ -2,24 +2,24 @@ package Grap_int;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Image;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 import java.awt.KeyboardFocusManager;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -37,12 +37,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.Border;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import LimitJTextField.LimitJTextField;
-import Main.Domino;
-import Main.Game;
-import Main.Player;
+import Main.*;
 import TextPrompt.TextPrompt;
 
 
@@ -63,8 +62,6 @@ public class Graphic_interface extends JFrame implements Action {
     public static Integer sizeKingdom;
     public static Player currentPlayer;
     public static int turn = 0;
-    public static int turnDraw = 0;
-    public static int turnPlaced = 0;
 
     // Define Option
     public static int dynastie = 0;
@@ -125,7 +122,6 @@ public class Graphic_interface extends JFrame implements Action {
     private static String police = "Century Gothic";
     private static Game game = new Game();
     public static Player[] playersFinal;
-    public static Domino[] dominoBegun;
     public static Domino[] currentDominos = new Domino[4];
     public static Domino[] nextDominos = new Domino[4];
     
@@ -155,71 +151,10 @@ public class Graphic_interface extends JFrame implements Action {
     private JRadioButton domino2 = new JRadioButton();
     private JRadioButton domino3 = new JRadioButton();
     private JRadioButton domino4 = new JRadioButton();
-    private JLabel domino1JL = new JLabel();
-    private JLabel domino2JL = new JLabel();
-    private JLabel domino3JL = new JLabel();
-    private JLabel domino4JL = new JLabel();
     private JCheckBox dynastieBtn = new JCheckBox( "Dynastie" );
     private JCheckBox harmonieBtn = new JCheckBox( "Harmonie" );
     private JCheckBox middleEmpireBtn = new JCheckBox( "Empire du milieu" );
     private JCheckBox theGrandDuelBtn = new JCheckBox( "Le Grand Duel" );
-
-    // Button for the kingdom
-    private JButton box00Button = new JButton();
-    private JButton box01Button = new JButton();
-    private JButton box02Button = new JButton();
-    private JButton box03Button= new JButton();
-    private JButton box04Button = new JButton();
-    private JButton box05Button = new JButton();
-    private JButton box06Button = new JButton();
-
-    private JButton box10Button = new JButton();
-    private JButton box11Button = new JButton();
-    private JButton box12Button = new JButton();
-    private JButton box13Button= new JButton();
-    private JButton box14Button = new JButton();
-    private JButton box15Button = new JButton();
-    private JButton box16Button = new JButton();
-
-    private JButton box20Button = new JButton();
-    private JButton box21Button = new JButton();
-    private JButton box22Button = new JButton();
-    private JButton box23Button= new JButton();
-    private JButton box24Button = new JButton();
-    private JButton box25Button = new JButton();
-    private JButton box26Button = new JButton();
-
-    private JButton box30Button = new JButton();
-    private JButton box31Button = new JButton();
-    private JButton box32Button = new JButton();
-    private JButton box33Button= new JButton();
-    private JButton box34Button = new JButton();
-    private JButton box35Button = new JButton();
-    private JButton box36Button = new JButton();
-
-    private JButton box40Button = new JButton();
-    private JButton box41Button = new JButton();
-    private JButton box42Button = new JButton();
-    private JButton box43Button= new JButton();
-    private JButton box44Button = new JButton();
-    private JButton box45Button = new JButton();
-    private JButton box46Button = new JButton();
-
-    private JButton box50Button = new JButton();
-    private JButton box51Button = new JButton();
-    private JButton box52Button = new JButton();
-    private JButton box53Button= new JButton();
-    private JButton box54Button = new JButton();
-    private JButton box55Button = new JButton();
-    private JButton box56Button = new JButton();
-
-    private JButton box60Button = new JButton();
-    private JButton box61Button = new JButton();
-    private JButton box62Button = new JButton();
-    private JButton box63Button= new JButton();
-    private JButton box64Button = new JButton();
-    private JButton box65Button = new JButton();
-    private JButton box66Button = new JButton();
 
     // Define all panels
     private static JPanel panelNorth;
@@ -1618,9 +1553,6 @@ public class Graphic_interface extends JFrame implements Action {
         panelSouth.setLayout( new GridLayout( 1,3 ) );
         panelSouth.setBorder( BorderFactory.createLineBorder( Color.black ) );
         panelSouth.setPreferredSize( new Dimension( 0,200 ) );
-        
-        /* JScrollBar scrollBar = new JScrollBar();
-        panelSouth.add( scrollBar ); */
 
         // Initializes variables use in this panel
         int fontNotPanel = 25;
@@ -1793,16 +1725,10 @@ public class Graphic_interface extends JFrame implements Action {
         south.setBackground( new Color( 0xc57b57 ) );
 
         JPanel center = new JPanel();
-        center.setLayout( new GridLayout( sizeKingdom, sizeKingdom ) );
         center.setBackground( new Color( 0xd4a373 ) );
 
         // Create all contents
-        JLabel northText = null;
-        if ( turnDraw >= 0 && turnDraw < numberPlayers + 2 && numberPlayers == 2 || turnDraw >= 0 && turnDraw < numberPlayers && numberPlayers != 2 ) {
-            northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + "> C'est au tour de " + currentPlayer.getName() + " de piocher </font></html>" );
-        } else {
-            northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + "> C'est au tour de " + currentPlayer.getName() + " de poser </font></html>" );
-        }
+        JLabel northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + "> c'est le tour de " + currentPlayer.getName() + "</font></html>" );
         northText.setFont( new Font( police, Font.PLAIN, 25 ) );
 
         // Add all contents into the main panel
@@ -1827,19 +1753,13 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Initialaze the main panel
         panelWest = new JPanel();
-        if ( numberPlayers == 3 ) {
-
-            panelWest.setLayout( new GridLayout( 4,2 ) );
-        } else {
-
-            panelWest.setLayout( new GridLayout( 5,2 ) );
-        }
+        panelWest.setLayout( new GridLayout( 5,2 ) );
         panelWest.setPreferredSize( new Dimension( 430, (int) ((int) width - panelSouth.getPreferredSize().getHeight()) ) );
         panelWest.setBackground( new Color( 0xd4a373 ) );
 
         // Initializes variables for this game
         int widthPanelWest = (int) panelWest.getPreferredSize().getWidth()/2;
-        int heightPanelWest = ( numberPlayers == 3 ) ? (int) panelWest.getPreferredSize().getHeight()/8 : (int) panelWest.getPreferredSize().getHeight()/10;
+        int heightPanelWest = (int) panelWest.getPreferredSize().getHeight()/10;
 
         // Create all panels for grid layout
         JPanel panel1 = new JPanel();
@@ -1869,265 +1789,111 @@ public class Graphic_interface extends JFrame implements Action {
         rotation.setBackground( new Color( 0xfefae0 ) );
         endTour.setFont( new Font( police, Font.PLAIN, 18 ) );
         endTour.setBackground( new Color( 0xfefae0 ) );
-
-        //  Next Domino image
-        JLabel nextDomino1 = null;
-        JLabel nextDomino2 = null;
-        JLabel nextDomino3 = null;
-        JLabel nextDomino4 = null;
-
-        int i = 0;
-        for (Domino nextDomino : nextDominos ) {
-            switch ( i ) {
-                case 1:
-                    nextDomino2 = new JLabel();
-                    nextDomino2.setBorder( BorderFactory.createLineBorder( Color.black ) );
-                    BufferedImage nextDomino2Image = null;
-            
-                    try {
-                        // TODO Implement domino.getNameFiles
-                        nextDomino2Image = ImageIO.read( new File( "imagesdomino/" + nextDomino.getNameFile() + ".png" ) );
-                    } catch ( Exception e ) {
-                        e.printStackTrace();
-                    }   
-            
-                    nextDomino2.setIcon( new ImageIcon( fitimage( nextDomino2Image, widthPanelWest, heightPanelWest ) ) );
-                    i++;
-                    break;
-
-                case 2:
-                    nextDomino3 = new JLabel();
-                    BufferedImage nextDomino3Image = null;
-
-                    try {
-                        // TODO Implement domino.getNameFiles
-                        nextDomino3Image = ImageIO.read( new File( "imagesdomino/" + nextDomino.getNameFile() + ".png" ) );
-                    } catch ( Exception e ) {
-                        e.printStackTrace();
-                    }   
-
-                    nextDomino3.setIcon( new ImageIcon( fitimage( nextDomino3Image, widthPanelWest, heightPanelWest ) ) );
-                    i++;
-                    break;
-
-                case 3:
-                    if ( numberPlayers != 3 ) {
-                        nextDomino4 = new JLabel();
-                        nextDomino4.setBorder( BorderFactory.createLineBorder( Color.black ) );
-                        BufferedImage nextDomino4Image = null;
-    
-                        try {
-                            // TODO Implement domino.getNameFiles
-                            nextDomino4Image = ImageIO.read( new File( "imagesdomino/" + nextDomino.getNameFile() + ".png" ) );
-                        } catch ( Exception e ) {
-                            e.printStackTrace();
-                        }   
-    
-                        nextDomino4.setIcon( new ImageIcon( fitimage( nextDomino4Image, widthPanelWest, heightPanelWest ) ) );
-                        i++;
-                    } 
-                    break;
-            
-                default:
-                    nextDomino1 = new JLabel();
-                    BufferedImage nextDomino1Image = null;
-
         
-                    try {
-                        // TODO Implement domino.getNameFiles
-                        nextDomino1Image = ImageIO.read( new File( "imagesdomino/" + nextDomino.getNameFile() + ".png" ) );
-                    } catch ( Exception e ) {
-                        e.printStackTrace();
-                    }   
+        //  Next Domino image
+        JLabel nextDomino1 = new JLabel();
+        BufferedImage nextDomino1Image = null;
 
-                    nextDomino1.setIcon( new ImageIcon( fitimage( nextDomino1Image, widthPanelWest, heightPanelWest ) ) );
-                    i++;
-                    break;
-            }
-        }        
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino1Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        nextDomino1.setIcon( new ImageIcon( fitimage( nextDomino1Image, widthPanelWest, heightPanelWest ) ) );
+
+        JLabel nextDomino2 = new JLabel();
+        nextDomino2.setBorder( BorderFactory.createLineBorder( Color.black ) );
+        BufferedImage nextDomino2Image = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino2Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        nextDomino2.setIcon( new ImageIcon( fitimage( nextDomino2Image, widthPanelWest, heightPanelWest ) ) );
+
+        JLabel nextDomino3 = new JLabel();
+        BufferedImage nextDomino3Image = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino3Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        nextDomino3.setIcon( new ImageIcon( fitimage( nextDomino3Image, widthPanelWest, heightPanelWest ) ) );
+        
+        JLabel nextDomino4 = new JLabel();
+        nextDomino4.setBorder( BorderFactory.createLineBorder( Color.black ) );
+        BufferedImage nextDomino4Image = null;
+
+        try {
+            // TODO Implement domino.getNameFiles
+            nextDomino4Image = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
+
+        nextDomino4.setIcon( new ImageIcon( fitimage( nextDomino4Image, widthPanelWest, heightPanelWest ) ) );
 
         // Domino drawn image
-        JLabel domino1Image = null;
-        JLabel domino2Image = null;
-        JLabel domino3Image = null;
-        JLabel domino4Image = null;
+        JLabel domino1Image = new JLabel();
+        BufferedImage imageDomino1 = null;
 
-        i = 0;
-        for (Domino currentDomino : currentDominos ) {
-            switch ( i ) {
-                case 1:
-                    domino2Image = new JLabel();
-                    BufferedImage imageDomino2 = null;
-                    BufferedImage imageDomino2JL = null;
-            
-                    try {
-                        // TODO Implement domino.getNameFiles
-                        imageDomino2 = ImageIO.read( new File( "imagesdomino/" + currentDomino.getNameFile() + ".png" ) );
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino1 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
 
-                        for( Player player : playersFinal ) {
+        domino1Image.setIcon( new ImageIcon( fitimage( imageDomino1, widthPanelWest-25, heightPanelWest) ) );
+        
+        JLabel domino2Image = new JLabel();
+        BufferedImage imageDomino2 = null;
 
-                            if ( player.getDominoTaken().size() == 2 ) {
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino2 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
 
-                                if ( player.getDominoTaken().get( 0 ) == currentDominos[1] ) {
+        domino2Image.setIcon( new ImageIcon( fitimage( imageDomino2, widthPanelWest-25, heightPanelWest) ) );
+        
+        JLabel domino3Image = new JLabel();
+        BufferedImage imageDomino3 = null;
 
-                                    imageDomino2JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                } else if ( player.getDominoTaken().get( 1 ) == currentDominos[1] ) {
-                                    
-                                    imageDomino2JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                }
-                            } else if ( player.getDominoTaken().size() == 1 ) {
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino3 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
 
-                                if ( player.getDominoTaken().get( 0 ) == currentDominos[1] ) {
-                                    
-                                    imageDomino2JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                }
-                            }
-                            
-                        }
-                    } catch ( Exception e ) {
-                        e.printStackTrace();
-                    }   
-            
-                    domino2Image.setIcon( new ImageIcon( fitimage( imageDomino2, widthPanelWest-25, heightPanelWest) ) );
-                    domino2JL.setIcon( new ImageIcon( fitimage( imageDomino2JL, 25, 25) ) );
-                    i++;
-                    break;
+        domino3Image.setIcon( new ImageIcon( fitimage( imageDomino3, widthPanelWest-25, heightPanelWest) ) );
+        
+        JLabel domino4Image = new JLabel();
+        BufferedImage imageDomino4 = null;
 
-                case 2:
-                    domino3Image = new JLabel();
-                    BufferedImage imageDomino3 = null;
-                    BufferedImage imageDomino3JL = null;
-            
-                    try {
-                        // TODO Implement domino.getNameFiles
-                        imageDomino3 = ImageIO.read( new File( "imagesdomino/" + currentDomino.getNameFile() + ".png" ) );
+        try {
+            // TODO Implement domino.getNameFiles
+            imageDomino4 = ImageIO.read( new File( "imagesdomino/1Cchamp-foret.png" ) );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }   
 
-                        for( Player player : playersFinal ) {
-
-                            if ( player.getDominoTaken().size() == 2 ) {
-
-                                if ( player.getDominoTaken().get( 0 ) == currentDominos[2] ) {
-
-                                    imageDomino3JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                } else if ( player.getDominoTaken().get( 1 ) == currentDominos[2] ) {
-                                    
-                                    imageDomino3JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                }
-                            } else if ( player.getDominoTaken().size() == 1 ) {
-
-                                if ( player.getDominoTaken().get( 0 ) == currentDominos[2] ) {
-                                    
-                                    imageDomino3JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                }
-                            }
-                            
-                        }
-                    } catch ( Exception e ) {
-                        e.printStackTrace();
-                    }   
-            
-                    domino3Image.setIcon( new ImageIcon( fitimage( imageDomino3, widthPanelWest-25, heightPanelWest) ) );
-                    domino3JL.setIcon( new ImageIcon( fitimage( imageDomino3JL, 25, 25) ) );
-                    i++;
-                    break;
-
-                case 3:
-                    if ( numberPlayers != 3 ) {
-                        domino4Image = new JLabel();
-                        BufferedImage imageDomino4 = null;
-                        BufferedImage imageDomino4JL = null;
-                
-                        try {
-                            // TODO Implement domino.getNameFiles
-                            imageDomino4 = ImageIO.read( new File( "imagesdomino/" + currentDomino.getNameFile() + ".png" ) );
-    
-                            for( Player player : playersFinal ) {
-    
-                                if ( player.getDominoTaken().size() == 2 ) {
-    
-                                    if ( player.getDominoTaken().get( 0 ) == currentDominos[3] ) {
-    
-                                        imageDomino4JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                        break;
-                                    } else if ( player.getDominoTaken().get( 1 ) == currentDominos[3] ) {
-                                        
-                                        imageDomino4JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                        break;
-                                    }
-                                } else if ( player.getDominoTaken().size() == 1 ) {
-    
-                                    if ( player.getDominoTaken().get( 0 ) == currentDominos[3] ) {
-                                        
-                                        imageDomino4JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                        break;
-                                    }
-                                }
-                                
-                            }
-                        } catch ( Exception e ) {
-                            e.printStackTrace();
-                        }   
-                
-                        domino4Image.setIcon( new ImageIcon( fitimage( imageDomino4, widthPanelWest-25, heightPanelWest) ) );
-                        domino4JL.setIcon( new ImageIcon( fitimage( imageDomino4JL, 25, 25) ) );
-                        i++;
-                    }
-                    break;
-            
-                default:
-                    domino1Image = new JLabel();
-                    BufferedImage imageDomino1 = null;
-                    BufferedImage imageDomino1JL = null;
-            
-                    try {
-                        // TODO Implement domino.getNameFiles
-                        imageDomino1 = ImageIO.read( new File( "imagesdomino/" + currentDomino.getNameFile() + ".png" ) );
-
-                        for( Player player : playersFinal ) {
-
-                            if ( player.getDominoTaken().size() == 2 ) {
-
-                                if ( player.getDominoTaken().get( 0 ) == currentDominos[0] ) {
-
-                                    imageDomino1JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                } else if ( player.getDominoTaken().get( 1 ) == currentDominos[0] ) {
-                                    
-                                    imageDomino1JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                }
-                            } else if ( player.getDominoTaken().size() == 1 ) {
-
-                                if ( player.getDominoTaken().get( 0 ) == currentDominos[0] ) {
-                                    
-                                    imageDomino1JL = ImageIO.read( new File( "imagesdomino/King-" + player.getColor() + ".png" ) );
-                                    break;
-                                }
-                            }
-                            
-                        }
-                        
-                    } catch ( Exception e ) {
-                        e.printStackTrace();
-                    }   
-            
-                    domino1Image.setIcon( new ImageIcon( fitimage( imageDomino1, widthPanelWest-25, heightPanelWest) ) );
-                    domino1JL.setIcon( new ImageIcon( fitimage( imageDomino1JL, 25, 25) ) );
-                    i++;
-                    break;
-            }
-        }
+        domino4Image.setIcon( new ImageIcon( fitimage( imageDomino4, widthPanelWest-25, heightPanelWest) ) );
         
         ButtonGroup btnRadio = new ButtonGroup();
         btnRadio.add( domino1 );
         btnRadio.add( domino2 );
-        btnRadio.add( domino3 );            
+        btnRadio.add( domino3 );
         btnRadio.add( domino4 );
 
         // Listener
@@ -2144,66 +1910,40 @@ public class Graphic_interface extends JFrame implements Action {
         panel1.add( domino1Image );
         gbc1.gridx = 1;
         gbc1.gridy = 1;
-        if ( currentDominos[0].isSelected() ) {
-            panel1.add( domino1JL );
-        } else {
-            panel1.add( domino1 );
-        }
+        panel1.add( domino1 );
 
         gbc2.gridx = 0;
         gbc2.gridy = 0;
         panel2.add( domino2Image );
         gbc2.gridx = 1;
         gbc2.gridy = 1;
-        if ( currentDominos[1].isSelected() ) {
-            panel2.add( domino2JL );
-        } else {
-            panel2.add( domino2 );
-        }
+        panel2.add( domino2 );
 
         gbc3.gridx = 0;
         gbc3.gridy = 0;
         panel3.add( domino3Image );
         gbc3.gridx = 1;
         gbc3.gridy = 1;
-        if ( currentDominos[2].isSelected() ) {
-            panel3.add( domino3JL );
-        } else {
-            panel3.add( domino3 );
-        }
+        panel3.add( domino3 );
 
-        if ( numberPlayers != 3 ) {
-
-            gbc4.gridx = 0;
-            gbc4.gridy = 0;
-            panel4.add( domino4Image );
-            gbc4.gridx = 1;
-            gbc4.gridy = 1;
-            if ( currentDominos[3].isSelected() ) {
-                panel4.add( domino4JL );
-            } else {
-                panel4.add( domino4 );
-            }
-        }
+        gbc4.gridx = 0;
+        gbc4.gridy = 0;
+        panel4.add( domino4Image );
+        gbc4.gridx = 1;
+        gbc4.gridy = 1;
+        panel4.add( domino4 );
 
         // Add all contents into the main panel
         panelWest.add( endTour );
         panelWest.add( rotation );
-
         panelWest.add( nextDomino1 );
         panelWest.add( panel1 );
-
         panelWest.add( nextDomino2 );
         panelWest.add( panel2 );
-
         panelWest.add( nextDomino3 );
         panelWest.add( panel3 );
-
-        if ( numberPlayers != 3 ) {
-
-            panelWest.add( nextDomino4 );
-            panelWest.add( panel4 );
-        }
+        panelWest.add( nextDomino4 );
+        panelWest.add( panel4 );
         
         return panelWest;
     }
@@ -2572,11 +2312,9 @@ public class Graphic_interface extends JFrame implements Action {
         } else if ( e.getSource() == soundBtn ) {
             
             if ( soundBtn.getText() == "Son activé" ) {
-
                 soundBtn.setText( "Son désactivé" );
                 soundBtn.setFont( new Font ( police, Font.PLAIN, 17 ));
             } else {
-
                 soundBtn.setText( "Son activé" );
                 soundBtn.setFont( new Font ( police, Font.PLAIN, 20 ));
             }
@@ -2640,20 +2378,23 @@ public class Graphic_interface extends JFrame implements Action {
             frame.add( panelSouthForNewGameMenu( position ), BorderLayout.SOUTH );
         } else if ( e.getSource() == launchGame ) {
 
-            // This part create the list of the players for first turn of the game
+            /**
+             * TODO implement the function to create game
+             * TODO initializes the currentPlayers when the game is launching
+             */
+
             playersFinal = new Player[numberPlayers];
             Player[] players = game.getPlayers();
             List<Integer> numPlayers = new ArrayList<Integer>();
 
             for ( int i = 0; i < numberPlayers; i++ ){
-                numPlayers.add( i );
+                numPlayers.add(i);
             }
 
             for ( int i = 0; i < numberPlayers; i++ ) {
-
-                int indiceRandom = (int) ( Math.random() * ( numPlayers.size() ) );
-                playersFinal[i] = players[numPlayers.get( indiceRandom )];
-                numPlayers.remove( indiceRandom );
+                int indiceRandom = (int) (Math.random() * (numPlayers.size()));
+                playersFinal[i] = players[numPlayers.get(indiceRandom)];
+                numPlayers.remove(indiceRandom);
                 /*System.out.println(indiceRandom);
                 System.out.println(numPlayers);
                 System.out.println(playersFinal[i].getName());*/
@@ -2661,77 +2402,97 @@ public class Graphic_interface extends JFrame implements Action {
 
             try {
                 game.createDomino();
-            } catch ( Exception exception ) {
+            } catch (Exception exception) {
                 exception.printStackTrace();
             }
 
-            currentPlayer = playersFinal[0];
+            Domino[] dominoBegun = game.getDomino();
 
-            // This part create the list of the the current and next dominos for first turn of the game
-            dominoBegun = game.getDomino();
+            /*System.out.println("début");
+            for(int k=0; k< numberDominos; k ++){
+                System.out.println(dominoBegun[k].getNumber());
+            }*/
 
-            if( numberPlayers % 2 == 0 ) {
-
+            if(numberPlayers ==2 || numberPlayers ==4) {
                 for (int k = 0; k < numberDominos; k += 4) {
-
-                    for (int i = 0; i < k + 3; i++) {
-
+                    for (int i = k; i < k + 3; i++) {
                         int indiceMin = i;
-
                         for (int j = i; j < k + 4; j++) {
-
                             if (dominoBegun[j].getNumber() < dominoBegun[indiceMin].getNumber()) {
                                 indiceMin = j;
                             }
                         }
-
                         Domino swap = dominoBegun[i];
                         dominoBegun[i] = dominoBegun[indiceMin];
                         dominoBegun[indiceMin] = swap;
                     }
 
+                    currentDominos[0] = dominoBegun[k];
+                    currentDominos[1] = dominoBegun[k + 1];
+                    currentDominos[2] = dominoBegun[k + 2];
+                    currentDominos[3] = dominoBegun[k + 3];
+
+                /*System.out.println("début2 "+ k);
+                System.out.println(currentDominos[0].getNumber());
+                System.out.println(currentDominos[1].getNumber());
+                System.out.println(currentDominos[2].getNumber());
+                System.out.println(currentDominos[3].getNumber());*/
                 }
 
-                currentDominos[0] = dominoBegun[0];
-                currentDominos[1] = dominoBegun[1];
-                currentDominos[2] = dominoBegun[2];
-                currentDominos[3] = dominoBegun[3];
+                for (int k = 4; k < numberDominos; k += 4) {
+                    nextDominos[0] = dominoBegun[k];
+                    nextDominos[1] = dominoBegun[k + 1];
+                    nextDominos[2] = dominoBegun[k + 2];
+                    nextDominos[3] = dominoBegun[k + 3];
 
-                nextDominos[0] = dominoBegun[4];
-                nextDominos[1] = dominoBegun[5];
-                nextDominos[2] = dominoBegun[6];
-                nextDominos[3] = dominoBegun[7];
-            } else {
+                /*System.out.println("début3 "+ k);
+                System.out.println(nextDominos[0].getNumber());
+                System.out.println(nextDominos[1].getNumber());
+                System.out.println(nextDominos[2].getNumber());
+                System.out.println(nextDominos[3].getNumber());*/
 
+                }
+            }
+            else {
                 for (int k = 0; k < numberDominos; k += 3) {
-
                     for (int i = k; i < k + 2; i++) {
-
                         int indiceMin = i;
-
                         for (int j = i; j < k + 3; j++) {
-
                             if (dominoBegun[j].getNumber() < dominoBegun[indiceMin].getNumber()) {
                                 indiceMin = j;
                             }
                         }
-
                         Domino swap = dominoBegun[i];
                         dominoBegun[i] = dominoBegun[indiceMin];
                         dominoBegun[indiceMin] = swap;
                     }
+
+                    currentDominos[0] = dominoBegun[k];
+                    currentDominos[1] = dominoBegun[k + 1];
+                    currentDominos[2] = dominoBegun[k + 2];
+
+                /*System.out.println("début2 "+ k);
+                System.out.println(currentDominos[0].getNumber());
+                System.out.println(currentDominos[1].getNumber());
+                System.out.println(currentDominos[2].getNumber());*/
                 }
 
-                currentDominos[0] = dominoBegun[0];
-                currentDominos[1] = dominoBegun[1];
-                currentDominos[2] = dominoBegun[2];
+                for (int k = 3; k < numberDominos; k += 3) {
+                    nextDominos[0] = dominoBegun[k];
+                    nextDominos[1] = dominoBegun[k + 1];
+                    nextDominos[2] = dominoBegun[k + 2];
 
-                nextDominos[0] = dominoBegun[3];
-                nextDominos[1] = dominoBegun[4];
-                nextDominos[2] = dominoBegun[5];
+                /*System.out.println("début3 "+ k);
+                System.out.println(nextDominos[0].getNumber());
+                System.out.println(nextDominos[1].getNumber());
+                System.out.println(nextDominos[2].getNumber());*/
 
+                }
             }
 
+            currentPlayer = playersFinal[0];
+            game.initializeBoard();
+            game.printBoard();
 
             // Remove all panels from the frame
             frame.remove( panelNorth );
@@ -2747,6 +2508,9 @@ public class Graphic_interface extends JFrame implements Action {
             gameMenu();
 
         } else if ( e.getSource() == leaveGameBtn ) {
+            /**
+             * TODO If needed, remove/delete game
+             */
 
             // Remove all panels from the frame
             frame.remove( panelEast );
@@ -2755,37 +2519,38 @@ public class Graphic_interface extends JFrame implements Action {
             frame.remove( panelWest );
 
             // Clean all option selected
-            dynastie = 0;
-            dynastieBtn.setSelected( false );
+            if ( dynastie != 0 ) {
 
-            harmonie = 0;
-            harmonieBtn.setSelected( false );
+                dynastie = 0;
+                dynastieBtn.setSelected( false );
+            }
+            if ( harmonie != 0 ) {
 
-            middleEmpire = 0;
-            middleEmpireBtn.setSelected( false );
+                harmonie = 0;
+                harmonieBtn.setSelected( false );
+            }
+            if ( middleEmpire != 0 ) {
 
-            theGrandDuel = 0;
-            theGrandDuelBtn.setSelected( false );
+                middleEmpire = 0;
+                middleEmpireBtn.setSelected( false );
+            }
+            if ( theGrandDuel != 0 ) {
 
-            displayTime = 0;
-            displayTimeBtn = null;
-            displayTimeBtn = new JRadioButton( "Afficher le temps" );
+                theGrandDuel = 0;
+                theGrandDuelBtn.setSelected( false );
+            }
+            if ( displayTime != 0 ) {
 
-            displayTimeLimited = 0;
-            displayTimeLimitedBtn = null;
-            displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
+                displayTime = 0;
+                displayTimeBtn = null;
+                displayTimeBtn = new JRadioButton( "Afficher le temps" );
+            }
+            if ( displayTimeLimited != 0 ) {
 
-            turn = 0;
-            turnDraw = 0;
-
-            domino1 = null;
-            domino2 = null;
-            domino3 = null;
-            domino4 = null;
-            domino1 = new JRadioButton();
-            domino2 = new JRadioButton();
-            domino3 = new JRadioButton();
-            domino4 = new JRadioButton();
+                displayTimeLimited = 0;
+                displayTimeLimitedBtn = null;
+                displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
+            }
 
             // Clean panels and buttons used
             cleanJPanel();
@@ -2797,72 +2562,7 @@ public class Graphic_interface extends JFrame implements Action {
             
         } else if ( e.getSource() == endTour ) {
             
-            if ( turnDraw >= 0 && turnDraw < numberPlayers + 2 && numberPlayers == 2 ) {
-
-                if ( domino1.isSelected() ) {
-
-                    currentPlayer.getDominoTaken().add( currentDominos[0]  );
-                    currentDominos[0].setSelected( true );
-                } else if ( domino2.isSelected() ) {
-
-                    currentPlayer.getDominoTaken().add( currentDominos[1]  );
-                    currentDominos[1].setSelected( true );
-                } else if ( domino3.isSelected() ) {
-
-                    currentPlayer.getDominoTaken().add( currentDominos[2]  );
-                    currentDominos[2].setSelected( true );
-                } else if ( domino4.isSelected() ) {
-
-                    currentPlayer.getDominoTaken().add( currentDominos[3]  );
-                    currentDominos[3].setSelected( true );
-                }
-                
-                turnDraw++;
-                currentPlayer = playersFinal[turnDraw%2];
-                
-            } else if ( turnDraw >= 0 && turnDraw < numberPlayers ) { 
-            
-                if ( domino1.isSelected() ) {
-
-                    currentPlayer.setDominoTaken( Arrays.asList( currentDominos[0] )  );
-                    currentDominos[0].setSelected( true );
-                } else if ( domino2.isSelected() ) {
-
-                    currentPlayer.setDominoTaken( Arrays.asList( currentDominos[1] )  );
-                    currentDominos[1].setSelected( true );
-                } else if ( domino3.isSelected() ) {
-
-                    currentPlayer.setDominoTaken( Arrays.asList( currentDominos[2] )  );
-                    currentDominos[2].setSelected( true );
-                } else if ( domino4.isSelected() ) {
-
-                    currentPlayer.setDominoTaken( Arrays.asList( currentDominos[3] )  );
-                    currentDominos[3].setSelected( true );
-                }
-
-                turnDraw++;
-                currentPlayer = ( numberPlayers == 3 ) ? playersFinal[turnDraw%3] : playersFinal[turnDraw%4];
-
-            } else {
-                turnDraw = 0;
-
-            }
-            
-            frame.remove( panelCenter );
-            frame.remove( panelWest );
-            frame.remove( panelEast );
-            frame.remove( panelSouth );
-
-            cleanJPanel();
-            cleanButton();
-
-            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
-            frame.add( panelSouthForGameMenu(), BorderLayout.SOUTH );
-            frame.add( panelWestForGameMenu(), BorderLayout.WEST );
-            frame.add( panelEastForGameMenu(), BorderLayout.EAST );
-            
         } else if ( e.getSource() == domino1 ) {
-
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2870,7 +2570,6 @@ public class Graphic_interface extends JFrame implements Action {
             
             try {
                 domino1 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
-                domino1.setSelected( true );
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -2882,11 +2581,10 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelWest = null;
+            panelEast = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         } else if ( e.getSource() == domino2 ) {
-
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2894,7 +2592,6 @@ public class Graphic_interface extends JFrame implements Action {
             
             try {
                 domino2 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
-                domino2.setSelected( true );
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -2906,11 +2603,10 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelWest = null;
+            panelEast = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         } else if ( e.getSource() == domino3 ) {
-
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2918,7 +2614,6 @@ public class Graphic_interface extends JFrame implements Action {
             
             try {
                 domino3 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
-                domino3.setSelected( true );
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -2930,11 +2625,10 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelWest = null;
+            panelEast = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         } else if ( e.getSource() == domino4 ) {
-
             domino1 = null;
             domino2 = null;
             domino3 = null;
@@ -2942,7 +2636,6 @@ public class Graphic_interface extends JFrame implements Action {
             
             try {
                 domino4 = new JRadioButton( new ImageIcon( fitimage( ImageIO.read( new File( "imagesdomino/King-" + currentPlayer.getColor() + ".png" ) ), 25, 25) ) );
-                domino4.setSelected( true );
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -2954,7 +2647,7 @@ public class Graphic_interface extends JFrame implements Action {
 
             frame.remove( panelWest );
 
-            panelWest = null;
+            panelEast = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
         }

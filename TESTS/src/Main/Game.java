@@ -1,21 +1,26 @@
 package Main;
 
-import static Grap_int.Graphic_interface.numberDominos; // number of Domino depending the number of players
-import static Grap_int.Graphic_interface.numberPlayers; // number of players
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static Grap_int.Graphic_interface.*;
+
 public class Game {
 	
 	// Class attribute
 	private Player[] players = null;
 	private Domino[] domino = null;
+	private Board[][] board;
 
 	// Getter and Setter
+
+
+	public Board[][] getBoard() {
+		return board;
+	}
 
 	public Player[] getPlayers() {
 		return players;
@@ -93,46 +98,45 @@ public class Game {
 	}
 
 
-	private void initializeBoard() {
-		
+	public void initializeBoard() {
+		this.board = new Board[sizeKingdom][sizeKingdom];
+		int middleBoard = sizeKingdom/2;
+		Castle castlePlayer = currentPlayer.castle;
+		//System.out.println(castlePlayer.getColor());
+		//System.out.println(currentDominos[0].getNameFile());
+		this.board[middleBoard][middleBoard] = new Board(castlePlayer);
+		this.board[middleBoard][middleBoard].setEmpty(false);
+		//System.out.println(board[middleBoard][middleBoard].getCastle().getColor());
+
+		/*this.board[1][1] = new Board(currentDominos[0].dominoSideOne);
+		this.board[1][1].setEmpty(false);
+		this.board[1][2] = new Board(currentDominos[0].dominoSideTwo);
+		this.board[1][2].setEmpty(false);
+
+		System.out.println(board[1][1].getDomino1().getType() + board[1][1].getDomino1().getCrown());
+		System.out.println(board[1][2].getDomino2().getType() + board[1][2].getDomino2().getCrown());*/
 	}
-	
-	// On decrit brievement la logique du jeu
-	public void play() {
-	   while (true) {
-	        // attribution des rois, châteaux et connaissance du nombre de joueurs.
-	       //createPlayer();
 
-	       // on placera le château et on choisira la couleur qui commence grâce à une liste de couleur qui donnera random l'ordre
-	       initializeBoard();  
-	       
-	       // A voir si on choisi un while ou un for
-	       for (int tour = 0; tour != numberDominos/numberPlayers; tour++){
-	           for (int tourDominos = 1; tourDominos != 4; tourDominos++) {
-	                // on pioche les tuiles et on les range dans l'ordre
-	                //pioche();
-	 
-	                if (tour==0) {
-	                    // choix des dominos en fonction de l�ordre des couleurs
-	                    //choix1();
-	                } else {
-	                    // choix des dominos en fonction de l�ordre des dominos
-	                    //choixDomino();
-	               }
-
-	                //printBoard();       // En a t�on besoin ??
-	        
-	               String move;
-	               //do {
-	               //    move = askMove();
-	               //}
-	               //while (!isValidMove(move));
-
-	               //placementDomino(move);     // placer le domino sur le plateau
-	               //switchPlayer();
-	           }
-	       }
-	   }
+	public void printBoard() {
+		for(int li=0; li<sizeKingdom; li++){
+			for(int co=0; co<sizeKingdom; co++){
+				Board cell = this.board[li][co];
+				if (cell==null){
+					System.out.print("null ");
+				} else {
+					if (cell.getCastle() != null) {
+						System.out.print(cell.getCastle().getColor() + " ");
+					}
+					else if(cell.getDomino1() != null){
+						System.out.print(cell.getDomino1().getType() + cell.getDomino1().getCrown() + " ");
+					}
+					else{
+						System.out.print(cell.getDomino2().getType() + cell.getDomino2().getCrown() + " ");
+					}
+				}
+			}
+			System.out.println();
+		}
 	}
 
 	private void updateBoard() {
