@@ -2495,297 +2495,152 @@ public class Graphic_interface extends JFrame implements Action {
             endTour = new JButton( "Fin du tour" );
         }
     
-        if ( box00Button.getActionListeners().length > 1 ) {
-            box00Button = null;
-            box00Button = new JButton();
-            box00Button.setEnabled( true );
-        }
+        box00Button = null;
+        box00Button = new JButton();
 
-        if ( box01Button.getActionListeners().length > 1 ) {
-            box01Button = null;
-            box01Button = new JButton();
-            box01Button.setEnabled( true );
-        }
+        box01Button = null;
+        box01Button = new JButton();
 
-        if ( box02Button.getActionListeners().length > 1 ) {
-            box02Button = null;
-            box02Button = new JButton();
-            box02Button.setEnabled( true );
-        }
+        box02Button = null;
+        box02Button = new JButton();
 
-        if ( box03Button.getActionListeners().length > 1 ) {
-            box03Button = null;
-            box03Button = new JButton();
-            box03Button.setEnabled( true );
-        }
+        box03Button = null;
+        box03Button = new JButton();
 
-        if ( box04Button.getActionListeners().length > 1 ) {
-            box04Button = null;
-            box04Button = new JButton();
-            box04Button.setEnabled( true );
-        }
+        box04Button = null;
+        box04Button = new JButton();
 
-        if ( box05Button.getActionListeners().length > 1 ) {
-            box05Button = null;
-            box05Button = new JButton();
-            box05Button.setEnabled( true );
-        }
+        box05Button = null;
+        box05Button = new JButton();
 
-        if ( box06Button.getActionListeners().length > 1 ) {
-            box06Button = null;
-            box06Button = new JButton();
-            box06Button.setEnabled( true );
-        }
+        box06Button = null;
+        box06Button = new JButton();
     
-        if ( box10Button.getActionListeners().length > 1 ) {
-            box10Button = null;
-            box10Button = new JButton();
-            box10Button.setEnabled( true );
-        }
+        box10Button = null;
+        box10Button = new JButton();
 
-        if ( box11Button.getActionListeners().length > 1 ) {
-            box11Button = null;
-            box11Button = new JButton();
-            box11Button.setEnabled( true );
-        }
+        box11Button = null;
+        box11Button = new JButton();
+        
+        box12Button = null;
+        box12Button = new JButton();
 
-        if ( box12Button.getActionListeners().length > 1 ) {
-            box12Button = null;
-            box12Button = new JButton();
-            box12Button.setEnabled( true );
-        }
+        box13Button = null;
+        box13Button = new JButton();
 
-        if ( box13Button.getActionListeners().length > 1 ) {
-            box13Button = null;
-            box13Button = new JButton();
-            box13Button.setEnabled( true );
-        }
+        box14Button = null;
+        box14Button = new JButton();
 
-        if ( box14Button.getActionListeners().length > 1 ) {
-            box14Button = null;
-            box14Button = new JButton();
-            box14Button.setEnabled( true );
-        }
+        box15Button = null;
+        box15Button = new JButton();
 
-        if ( box15Button.getActionListeners().length > 1 ) {
-            box15Button = null;
-            box15Button = new JButton();
-            box15Button.setEnabled( true );
-        }
-
-        if ( box16Button.getActionListeners().length > 1 ) {
-            box16Button = null;
-            box16Button = new JButton();
-            box16Button.setEnabled( true );
-        }
+        box16Button = null;
+        box16Button = new JButton();
     
-        if ( box20Button.getActionListeners().length > 1 ) {
-            box20Button = null;
-            box20Button = new JButton();
-            box20Button.setEnabled( true );
-        }
+        box20Button = null;
+        box20Button = new JButton();
 
-        if ( box21Button.getActionListeners().length > 1 ) {
-            box21Button = null;
-            box21Button = new JButton();
-        }
+        box21Button = null;
+        box21Button = new JButton();
 
-        if ( box22Button.getActionListeners().length > 1 ) {
-            box22Button = null;
-            box22Button = new JButton();
-            box22Button.setEnabled( true );
-        }
+        box22Button = null;
+        box22Button = new JButton();
 
-        if ( box23Button.getActionListeners().length > 1 ) {
-            box23Button = null;
-            box23Button = new JButton();
-            box23Button.setEnabled( true );
-        }
+        box23Button = null;
+        box23Button = new JButton();
 
-        if ( box24Button.getActionListeners().length > 1 ) {
-            box24Button = null;
-            box24Button = new JButton();
-            box24Button.setEnabled( true );
-        }
+        box24Button = null;
+        box24Button = new JButton();
 
-        if ( box25Button.getActionListeners().length > 1 ) {
-            box25Button = null;
-            box25Button = new JButton();
-            box25Button.setEnabled( true );
-        }
+        box25Button = null;
+        box25Button = new JButton();
 
-        if ( box26Button.getActionListeners().length > 1 ) {
-            box26Button = null;
-            box26Button = new JButton();
-            box26Button.setEnabled( true );
-        }
+        box26Button = null;
+        box26Button = new JButton();
     
-        if ( box30Button.getActionListeners().length > 1 ) {
-            box30Button = null;
-            box30Button = new JButton();
-            box30Button.setEnabled( true );
-        }
+        box30Button = null;
+        box30Button = new JButton();
 
-        if ( box31Button.getActionListeners().length > 1 ) {
-            box31Button = null;
-            box31Button = new JButton();
-            box31Button.setEnabled( true );
-        }
+        box31Button = null;
+        box31Button = new JButton();
 
-        if ( box32Button.getActionListeners().length > 1 ) {
-            box32Button = null;
-            box32Button = new JButton();
-            box32Button.setEnabled( true );
-        }
+        box32Button = null;
+        box32Button = new JButton();
 
-        if ( box33Button.getActionListeners().length > 1 ) {
-            box33Button = null;
-            box33Button = new JButton();
-            box33Button.setEnabled( true );
-        }
+        box33Button = null;
+        box33Button = new JButton();
 
-        if ( box34Button.getActionListeners().length > 1 ) {
-            box34Button = null;
-            box34Button = new JButton();
-            box34Button.setEnabled( true );
-        }
+        box34Button = null;
+        box34Button = new JButton();
 
-        if ( box35Button.getActionListeners().length > 1 ) {
-            box35Button = null;
-            box35Button = new JButton();
-            box35Button.setEnabled( true );
-        }
+        box35Button = null;
+        box35Button = new JButton();
 
-        if ( box36Button.getActionListeners().length > 1 ) {
-            box36Button = null;
-            box36Button = new JButton();
-            box36Button.setEnabled( true );
-        }
+        box36Button = null;
+        box36Button = new JButton();
     
-        if ( box40Button.getActionListeners().length > 1 ) {
-            box40Button = null;
-            box40Button = new JButton();
-            box40Button.setEnabled( true );
-        }
+        box40Button = null;
+        box40Button = new JButton();
 
-        if ( box41Button.getActionListeners().length > 1 ) {
-            box41Button = null;
-            box41Button = new JButton();
-            box41Button.setEnabled( true );
-        }
+        box41Button = null;
+        box41Button = new JButton();
 
-        if ( box42Button.getActionListeners().length > 1 ) {
-            box42Button = null;
-            box42Button = new JButton();
-            box42Button.setEnabled( true );
-        }
+        box42Button = null;
+        box42Button = new JButton();
 
-        if ( box43Button.getActionListeners().length > 1 ) {
-            box43Button = null;
-            box43Button = new JButton();
-            box43Button.setEnabled( true );
-        }
+        box43Button = null;
+        box43Button = new JButton();
 
-        if ( box44Button.getActionListeners().length > 1 ) {
-            box44Button = null;
-            box44Button = new JButton();
-            box44Button.setEnabled( true );
-        }
+        box44Button = null;
+        box44Button = new JButton();
 
-        if ( box45Button.getActionListeners().length > 1 ) {
-            box45Button = null;
-            box45Button = new JButton();
-            box45Button.setEnabled( true );
-        }
+        box45Button = null;
+        box45Button = new JButton();
 
-        if ( box46Button.getActionListeners().length > 1 ) {
-            box46Button = null;
-            box46Button = new JButton();
-            box46Button.setEnabled( true );
-        }
+        box46Button = null;
+        box46Button = new JButton();
     
-        if ( box50Button.getActionListeners().length > 1 ) {
-            box50Button = null;
-            box50Button = new JButton();
-            box50Button.setEnabled( true );
-        }
+        box50Button = null;
+        box50Button = new JButton();
 
-        if ( box51Button.getActionListeners().length > 1 ) {
-            box51Button = null;
-            box51Button = new JButton();
-            box51Button.setEnabled( true );
-        }
+        box51Button = null;
+        box51Button = new JButton();
 
-        if ( box52Button.getActionListeners().length > 1 ) {
-            box52Button = null;
-            box52Button = new JButton();
-            box52Button.setEnabled( true );
-        }
+        box52Button = null;
+        box52Button = new JButton();
 
-        if ( box53Button.getActionListeners().length > 1 ) {
-            box53Button = null;
-            box53Button = new JButton();
-            box53Button.setEnabled( true );
-        }
+        box53Button = null;
+        box53Button = new JButton();
 
-        if ( box54Button.getActionListeners().length > 1 ) {
-            box54Button = null;
-            box54Button = new JButton();
-            box54Button.setEnabled( true );
-        }
+        box54Button = null;
+        box54Button = new JButton();
 
-        if ( box55Button.getActionListeners().length > 1 ) {
-            box55Button = null;
-            box55Button = new JButton();
-            box55Button.setEnabled( true );
-        }
+        box55Button = null;
+        box55Button = new JButton();
 
-        if ( box56Button.getActionListeners().length > 1 ) {
-            box56Button = null;
-            box56Button = new JButton();
-            box56Button.setEnabled( true );
-        }
+        box56Button = null;
+        box56Button = new JButton();
     
-        if ( box60Button.getActionListeners().length > 1 ) {
-            box60Button = null;
-            box60Button = new JButton();
-            box60Button.setEnabled( true );
-        }
+        box60Button = null;
+        box60Button = new JButton();
 
-        if ( box61Button.getActionListeners().length > 1 ) {
-            box61Button = null;
-            box61Button = new JButton();
-            box61Button.setEnabled( true );
-        }
+        box61Button = null;
+        box61Button = new JButton();
 
-        if ( box62Button.getActionListeners().length > 1 ) {
-            box62Button = null;
-            box62Button = new JButton();
-            box62Button.setEnabled( true );
-        }
+        box62Button = null;
+        box62Button = new JButton();
 
-        if ( box63Button.getActionListeners().length > 1 ) {
-            box63Button = null;
-            box63Button = new JButton();
-            box63Button.setEnabled( true );
-        }
+        box63Button = null;
+        box63Button = new JButton();
 
-        if ( box64Button.getActionListeners().length > 1 ) {
-            box64Button = null;
-            box64Button = new JButton();
-        }
+        box64Button = null;
+        box64Button = new JButton();
 
-        if ( box65Button.getActionListeners().length > 1 ) {
-            box65Button = null;
-            box65Button = new JButton();
-            box65Button.setEnabled( true );
-        }
+        box65Button = null;
+        box65Button = new JButton();
 
-        if ( box66Button.getActionListeners().length > 1 ) {
-            box66Button = null;
-            box66Button = new JButton();
-            box66Button.setEnabled( true );
-        }
+        box66Button = null;
+        box66Button = new JButton();
     }
 
     // All listeners for buttons
@@ -3172,14 +3027,8 @@ public class Graphic_interface extends JFrame implements Action {
 
             for ( Player player : playersFinal ){
                 player.setBoard( game.initializeBoard( player ) );
-                game.printBoard( player );
+                // game.printBoard( player );
             }
-
-            game.updateBoard(2,1,2,2,currentDominos[0],playersFinal[0]);
-            game.updateBoard(2,1,2,2,currentDominos[0],playersFinal[0]);
-            game.updateBoard(2,1,2,2,currentDominos[0],playersFinal[0]);
-
-
 
             // Remove all panels from the frame
             frame.remove( panelNorth );
@@ -3425,52 +3274,537 @@ public class Graphic_interface extends JFrame implements Action {
             box00Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
 
             if ( rotation == 1 ) {
+
                 box10Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
                 box01Button = null;
                 box01Button = new JButton();
+
+                if ( game.isValidMove( 0, 0, 1, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
             } else {
+
                 box01Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
                 box10Button = null;
                 box10Button = new JButton();
-            }
 
-            /* if ( game.isValidMove( ) ) {
-                endTour.setEnabled( true );
-            } */
+                if ( game.isValidMove( 0, 0, 0, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
 
             frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box01Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box01Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            if ( rotation == 1 ) {
+
+                box11Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box00Button = null;
+                box00Button = new JButton();
+
+                if ( game.isValidMove( 0, 1, 1, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box00Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box11Button = null;
+                box11Button = new JButton();
+
+                if ( game.isValidMove( 0, 1, 0, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box02Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box02Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            if ( rotation == 1 ) {
+
+                box12Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box01Button = null;
+                box01Button = new JButton();
+
+                if ( game.isValidMove( 0, 2, 1, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box01Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box12Button = null;
+                box12Button = new JButton();
+
+                if ( game.isValidMove( 0, 2, 0, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box03Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box03Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            if ( rotation == 1 ) {
+
+                box13Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box02Button = null;
+                box02Button = new JButton();
+
+                if ( game.isValidMove( 0, 3, 1, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box02Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box13Button = null;
+                box13Button = new JButton();
+
+                if ( game.isValidMove( 0, 3, 0, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box04Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box04Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            if ( rotation == 1 ) {
+
+                box14Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box03Button = null;
+                box03Button = new JButton();
+
+                if ( game.isValidMove( 0, 4, 1, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box03Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box14Button = null;
+                box14Button = new JButton();
+
+                if ( game.isValidMove( 0, 4, 0, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box05Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box05Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box15Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box04Button = null;
+                box04Button = new JButton();
+
+                if ( game.isValidMove( 0, 5, 1, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box04Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box15Button = null;
+                box15Button = new JButton();
+
+                if ( game.isValidMove( 0, 5, 0, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box06Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box06Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box16Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box05Button = null;
+                box05Button = new JButton();
+
+                if ( game.isValidMove( 0, 6, 1, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box05Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box16Button = null;
+                box16Button = new JButton();
+
+                if ( game.isValidMove( 0, 6, 0, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box10Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box10Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box20Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box11Button = null;
+                box11Button = new JButton();
+
+                if ( game.isValidMove( 1, 0, 2, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box11Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box20Button = null;
+                box20Button = new JButton();
+
+                if ( game.isValidMove( 1, 0, 1, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box11Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box11Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box21Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box10Button = null;
+                box10Button = new JButton();
+
+                if ( game.isValidMove( 1, 1, 2, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box10Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box21Button = null;
+                box21Button = new JButton();
+
+                if ( game.isValidMove( 1, 1, 1, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box12Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box12Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box02Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box11Button = null;
+                box11Button = new JButton();
+
+                if ( game.isValidMove( 1, 2, 0, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box11Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box02Button = null;
+                box02Button = new JButton();
+
+                if ( game.isValidMove( 1, 2, 1, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box13Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box13Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box23Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box12Button = null;
+                box12Button = new JButton();
+
+                if ( game.isValidMove( 1, 3, 2, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box12Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box23Button = null;
+                box23Button = new JButton();
+
+                if ( game.isValidMove( 1, 3, 1, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box14Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box14Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box24Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box13Button = null;
+                box13Button = new JButton();
+
+                if ( game.isValidMove( 1, 4, 2, 4, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box13Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box24Button = null;
+                box24Button = new JButton();
+
+                if ( game.isValidMove( 1, 4, 1, 3, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box15Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box15Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box25Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box14Button = null;
+                box14Button = new JButton();
+
+                if ( game.isValidMove( 1, 5, 2, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box14Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box25Button = null;
+                box25Button = new JButton();
+
+                if ( game.isValidMove( 1, 5, 2, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box16Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box16Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box26Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box15Button = null;
+                box15Button = new JButton();
+
+                if ( game.isValidMove( 1, 6, 2, 6, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box15Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box26Button = null;
+                box26Button = new JButton();
+
+                if ( game.isValidMove( 1, 6, 1, 5, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box20Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+            
+            cleanButton();
+            
+            box20Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box30Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box21Button = null;
+                box21Button = new JButton();
+
+                if ( game.isValidMove( 2, 0, 3, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box21Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box30Button = null;
+                box30Button = new JButton();
+
+                if ( game.isValidMove( 2, 0, 3, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box21Button ) {
 
+            frame.remove( panelCenter );
+
+            panelCenter = null;
+        
+            cleanButton();
+            
+            box21Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            
+            if ( rotation == 1 ) {
+
+                box31Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                /* box20Button = null;
+                box20Button = new JButton(); */
+
+                if ( game.isValidMove( 2, 1, 3, 1, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            } else {
+
+                box20Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                /* box31Button = null;
+                box31Button = new JButton(); */
+
+                if ( game.isValidMove( 2, 1, 3, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                    endTour.setEnabled( true );
+                }
+            }
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box22Button ) {
 
+            if ( sizeKingdom == 7 ) {
+                
+                frame.remove( panelCenter );
+
+                panelCenter = null;
+                
+                cleanButton();
+                
+                box22Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+    
+                
+                if ( rotation == 1 ) {
+    
+                    box32Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                    box20Button = null;
+                    box20Button = new JButton();
+    
+                    if ( game.isValidMove( 2, 2, 3, 2, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                        endTour.setEnabled( true );
+                    }
+                } else {
+    
+                    box20Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                    box32Button = null;
+                    box32Button = new JButton();
+    
+                    if ( game.isValidMove( 2, 2, 2, 0, currentPlayer.getDominoTaken().get( 0 )  ) ) {
+                        endTour.setEnabled( true );
+                    }
+                }
+    
+                frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
+            }
         } else if ( e.getSource() == box23Button ) {
 
         } else if ( e.getSource() == box24Button ) {
