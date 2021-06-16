@@ -10,6 +10,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Graphics;
 import java.awt.KeyboardFocusManager;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
@@ -26,6 +27,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -168,7 +170,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box00Button = new JButton();
     private JButton box01Button = new JButton();
     private JButton box02Button = new JButton();
-    private JButton box03Button= new JButton();
+    private JButton box03Button = new JButton();
     private JButton box04Button = new JButton();
     private JButton box05Button = new JButton();
     private JButton box06Button = new JButton();
@@ -176,7 +178,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box10Button = new JButton();
     private JButton box11Button = new JButton();
     private JButton box12Button = new JButton();
-    private JButton box13Button= new JButton();
+    private JButton box13Button = new JButton();
     private JButton box14Button = new JButton();
     private JButton box15Button = new JButton();
     private JButton box16Button = new JButton();
@@ -184,7 +186,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box20Button = new JButton();
     private JButton box21Button = new JButton();
     private JButton box22Button = new JButton();
-    private JButton box23Button= new JButton();
+    private JButton box23Button = new JButton();
     private JButton box24Button = new JButton();
     private JButton box25Button = new JButton();
     private JButton box26Button = new JButton();
@@ -192,7 +194,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box30Button = new JButton();
     private JButton box31Button = new JButton();
     private JButton box32Button = new JButton();
-    private JButton box33Button= new JButton();
+    private JButton box33Button = new JButton();
     private JButton box34Button = new JButton();
     private JButton box35Button = new JButton();
     private JButton box36Button = new JButton();
@@ -200,7 +202,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box40Button = new JButton();
     private JButton box41Button = new JButton();
     private JButton box42Button = new JButton();
-    private JButton box43Button= new JButton();
+    private JButton box43Button = new JButton();
     private JButton box44Button = new JButton();
     private JButton box45Button = new JButton();
     private JButton box46Button = new JButton();
@@ -208,7 +210,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box50Button = new JButton();
     private JButton box51Button = new JButton();
     private JButton box52Button = new JButton();
-    private JButton box53Button= new JButton();
+    private JButton box53Button = new JButton();
     private JButton box54Button = new JButton();
     private JButton box55Button = new JButton();
     private JButton box56Button = new JButton();
@@ -216,7 +218,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton box60Button = new JButton();
     private JButton box61Button = new JButton();
     private JButton box62Button = new JButton();
-    private JButton box63Button= new JButton();
+    private JButton box63Button = new JButton();
     private JButton box64Button = new JButton();
     private JButton box65Button = new JButton();
     private JButton box66Button = new JButton();
@@ -1804,6 +1806,77 @@ public class Graphic_interface extends JFrame implements Action {
             northText = new JLabel( "<html><font color =" + currentPlayer.getColor() + "> C'est au tour de " + currentPlayer.getName() + " de poser </font></html>" );
         }
         northText.setFont( new Font( police, Font.PLAIN, 25 ) );
+       
+        if ( sizeKingdom == 7 ) {
+
+            box33Button = new JButton( " Chateau" );
+            box33Button.setFont( new Font( police, Font.PLAIN, 18 ) );
+            box33Button.setEnabled( false );
+            box22Button.setEnabled( true );
+        } else {
+
+            box22Button = new JButton( " Chateau" );
+            box22Button.setFont( new Font( police, Font.PLAIN, 18 ) );
+            box22Button.setEnabled( false );
+            box33Button.setEnabled( true );
+        }
+
+        // Listener
+        box00Button.addActionListener( this );
+        box01Button.addActionListener( this );
+        box02Button.addActionListener( this );
+        box03Button.addActionListener( this );
+        box04Button.addActionListener( this );
+        box05Button.addActionListener( this );
+        box06Button.addActionListener( this );
+
+        box10Button.addActionListener( this );
+        box11Button.addActionListener( this );
+        box12Button.addActionListener( this );
+        box13Button.addActionListener( this );
+        box14Button.addActionListener( this );
+        box15Button.addActionListener( this );
+        box16Button.addActionListener( this );
+
+        box20Button.addActionListener( this );
+        box21Button.addActionListener( this );
+        box22Button.addActionListener( this );
+        box23Button.addActionListener( this );
+        box24Button.addActionListener( this );
+        box25Button.addActionListener( this );
+        box26Button.addActionListener( this );
+
+        box30Button.addActionListener( this );
+        box31Button.addActionListener( this );
+        box32Button.addActionListener( this );
+        box33Button.addActionListener( this );
+        box34Button.addActionListener( this );
+        box35Button.addActionListener( this );
+        box36Button.addActionListener( this );
+
+        box40Button.addActionListener( this );
+        box41Button.addActionListener( this );
+        box42Button.addActionListener( this );
+        box43Button.addActionListener( this );
+        box44Button.addActionListener( this );
+        box45Button.addActionListener( this );
+        box46Button.addActionListener( this );
+
+        box50Button.addActionListener( this );
+        box51Button.addActionListener( this );
+        box52Button.addActionListener( this );
+        box53Button.addActionListener( this );
+        box54Button.addActionListener( this );
+        box55Button.addActionListener( this );
+        box56Button.addActionListener( this );
+
+        box60Button.addActionListener( this );
+        box61Button.addActionListener( this );
+        box62Button.addActionListener( this );
+        box63Button.addActionListener( this );
+        box64Button.addActionListener( this );
+        box65Button.addActionListener( this );
+        box66Button.addActionListener( this );
 
         // Add all contents into there panel
         north.add( northText );
@@ -1861,26 +1934,20 @@ public class Graphic_interface extends JFrame implements Action {
             
             center.add( box45Button );
             center.add( box46Button );
-        }
 
-        center.add( box50Button );
-        center.add( box51Button );
-        center.add( box52Button );
-        center.add( box53Button );
-        center.add( box54Button );
-        if ( sizeKingdom == 7 ) {
-            
+            center.add( box50Button );
+            center.add( box51Button );
+            center.add( box52Button );
+            center.add( box53Button );
+            center.add( box54Button );
             center.add( box55Button );
             center.add( box56Button );
-        }
 
-        center.add( box60Button );
-        center.add( box61Button );
-        center.add( box62Button );
-        center.add( box63Button );
-        center.add( box64Button );
-        if ( sizeKingdom == 7 ) {
-
+            center.add( box60Button );
+            center.add( box61Button );
+            center.add( box62Button );
+            center.add( box63Button );
+            center.add( box64Button );
             center.add( box65Button );
             center.add( box66Button );
         }
@@ -2427,6 +2494,297 @@ public class Graphic_interface extends JFrame implements Action {
             endTour = new JButton( "Fin du tour" );
         }
     
+        if ( box00Button.getActionListeners().length > 1 ) {
+            box00Button = null;
+            box00Button = new JButton();
+            box00Button.setEnabled( true );
+        }
+
+        if ( box01Button.getActionListeners().length > 1 ) {
+            box01Button = null;
+            box01Button = new JButton();
+            box01Button.setEnabled( true );
+        }
+
+        if ( box02Button.getActionListeners().length > 1 ) {
+            box02Button = null;
+            box02Button = new JButton();
+            box02Button.setEnabled( true );
+        }
+
+        if ( box03Button.getActionListeners().length > 1 ) {
+            box03Button = null;
+            box03Button = new JButton();
+            box03Button.setEnabled( true );
+        }
+
+        if ( box04Button.getActionListeners().length > 1 ) {
+            box04Button = null;
+            box04Button = new JButton();
+            box04Button.setEnabled( true );
+        }
+
+        if ( box05Button.getActionListeners().length > 1 ) {
+            box05Button = null;
+            box05Button = new JButton();
+            box05Button.setEnabled( true );
+        }
+
+        if ( box06Button.getActionListeners().length > 1 ) {
+            box06Button = null;
+            box06Button = new JButton();
+            box06Button.setEnabled( true );
+        }
+    
+        if ( box10Button.getActionListeners().length > 1 ) {
+            box10Button = null;
+            box10Button = new JButton();
+            box10Button.setEnabled( true );
+        }
+
+        if ( box11Button.getActionListeners().length > 1 ) {
+            box11Button = null;
+            box11Button = new JButton();
+            box11Button.setEnabled( true );
+        }
+
+        if ( box12Button.getActionListeners().length > 1 ) {
+            box12Button = null;
+            box12Button = new JButton();
+            box12Button.setEnabled( true );
+        }
+
+        if ( box13Button.getActionListeners().length > 1 ) {
+            box13Button = null;
+            box13Button = new JButton();
+            box13Button.setEnabled( true );
+        }
+
+        if ( box14Button.getActionListeners().length > 1 ) {
+            box14Button = null;
+            box14Button = new JButton();
+            box14Button.setEnabled( true );
+        }
+
+        if ( box15Button.getActionListeners().length > 1 ) {
+            box15Button = null;
+            box15Button = new JButton();
+            box15Button.setEnabled( true );
+        }
+
+        if ( box16Button.getActionListeners().length > 1 ) {
+            box16Button = null;
+            box16Button = new JButton();
+            box16Button.setEnabled( true );
+        }
+    
+        if ( box20Button.getActionListeners().length > 1 ) {
+            box20Button = null;
+            box20Button = new JButton();
+            box20Button.setEnabled( true );
+        }
+
+        if ( box21Button.getActionListeners().length > 1 ) {
+            box21Button = null;
+            box21Button = new JButton();
+        }
+
+        if ( box22Button.getActionListeners().length > 1 ) {
+            box22Button = null;
+            box22Button = new JButton();
+            box22Button.setEnabled( true );
+        }
+
+        if ( box23Button.getActionListeners().length > 1 ) {
+            box23Button = null;
+            box23Button = new JButton();
+            box23Button.setEnabled( true );
+        }
+
+        if ( box24Button.getActionListeners().length > 1 ) {
+            box24Button = null;
+            box24Button = new JButton();
+            box24Button.setEnabled( true );
+        }
+
+        if ( box25Button.getActionListeners().length > 1 ) {
+            box25Button = null;
+            box25Button = new JButton();
+            box25Button.setEnabled( true );
+        }
+
+        if ( box26Button.getActionListeners().length > 1 ) {
+            box26Button = null;
+            box26Button = new JButton();
+            box26Button.setEnabled( true );
+        }
+    
+        if ( box30Button.getActionListeners().length > 1 ) {
+            box30Button = null;
+            box30Button = new JButton();
+            box30Button.setEnabled( true );
+        }
+
+        if ( box31Button.getActionListeners().length > 1 ) {
+            box31Button = null;
+            box31Button = new JButton();
+            box31Button.setEnabled( true );
+        }
+
+        if ( box32Button.getActionListeners().length > 1 ) {
+            box32Button = null;
+            box32Button = new JButton();
+            box32Button.setEnabled( true );
+        }
+
+        if ( box33Button.getActionListeners().length > 1 ) {
+            box33Button = null;
+            box33Button = new JButton();
+            box33Button.setEnabled( true );
+        }
+
+        if ( box34Button.getActionListeners().length > 1 ) {
+            box34Button = null;
+            box34Button = new JButton();
+            box34Button.setEnabled( true );
+        }
+
+        if ( box35Button.getActionListeners().length > 1 ) {
+            box35Button = null;
+            box35Button = new JButton();
+            box35Button.setEnabled( true );
+        }
+
+        if ( box36Button.getActionListeners().length > 1 ) {
+            box36Button = null;
+            box36Button = new JButton();
+            box36Button.setEnabled( true );
+        }
+    
+        if ( box40Button.getActionListeners().length > 1 ) {
+            box40Button = null;
+            box40Button = new JButton();
+            box40Button.setEnabled( true );
+        }
+
+        if ( box41Button.getActionListeners().length > 1 ) {
+            box41Button = null;
+            box41Button = new JButton();
+            box41Button.setEnabled( true );
+        }
+
+        if ( box42Button.getActionListeners().length > 1 ) {
+            box42Button = null;
+            box42Button = new JButton();
+            box42Button.setEnabled( true );
+        }
+
+        if ( box43Button.getActionListeners().length > 1 ) {
+            box43Button = null;
+            box43Button = new JButton();
+            box43Button.setEnabled( true );
+        }
+
+        if ( box44Button.getActionListeners().length > 1 ) {
+            box44Button = null;
+            box44Button = new JButton();
+            box44Button.setEnabled( true );
+        }
+
+        if ( box45Button.getActionListeners().length > 1 ) {
+            box45Button = null;
+            box45Button = new JButton();
+            box45Button.setEnabled( true );
+        }
+
+        if ( box46Button.getActionListeners().length > 1 ) {
+            box46Button = null;
+            box46Button = new JButton();
+            box46Button.setEnabled( true );
+        }
+    
+        if ( box50Button.getActionListeners().length > 1 ) {
+            box50Button = null;
+            box50Button = new JButton();
+            box50Button.setEnabled( true );
+        }
+
+        if ( box51Button.getActionListeners().length > 1 ) {
+            box51Button = null;
+            box51Button = new JButton();
+            box51Button.setEnabled( true );
+        }
+
+        if ( box52Button.getActionListeners().length > 1 ) {
+            box52Button = null;
+            box52Button = new JButton();
+            box52Button.setEnabled( true );
+        }
+
+        if ( box53Button.getActionListeners().length > 1 ) {
+            box53Button = null;
+            box53Button = new JButton();
+            box53Button.setEnabled( true );
+        }
+
+        if ( box54Button.getActionListeners().length > 1 ) {
+            box54Button = null;
+            box54Button = new JButton();
+            box54Button.setEnabled( true );
+        }
+
+        if ( box55Button.getActionListeners().length > 1 ) {
+            box55Button = null;
+            box55Button = new JButton();
+            box55Button.setEnabled( true );
+        }
+
+        if ( box56Button.getActionListeners().length > 1 ) {
+            box56Button = null;
+            box56Button = new JButton();
+            box56Button.setEnabled( true );
+        }
+    
+        if ( box60Button.getActionListeners().length > 1 ) {
+            box60Button = null;
+            box60Button = new JButton();
+            box60Button.setEnabled( true );
+        }
+
+        if ( box61Button.getActionListeners().length > 1 ) {
+            box61Button = null;
+            box61Button = new JButton();
+            box61Button.setEnabled( true );
+        }
+
+        if ( box62Button.getActionListeners().length > 1 ) {
+            box62Button = null;
+            box62Button = new JButton();
+            box62Button.setEnabled( true );
+        }
+
+        if ( box63Button.getActionListeners().length > 1 ) {
+            box63Button = null;
+            box63Button = new JButton();
+            box63Button.setEnabled( true );
+        }
+
+        if ( box64Button.getActionListeners().length > 1 ) {
+            box64Button = null;
+            box64Button = new JButton();
+        }
+
+        if ( box65Button.getActionListeners().length > 1 ) {
+            box65Button = null;
+            box65Button = new JButton();
+            box65Button.setEnabled( true );
+        }
+
+        if ( box66Button.getActionListeners().length > 1 ) {
+            box66Button = null;
+            box66Button = new JButton();
+            box66Button.setEnabled( true );
+        }
     }
 
     // All listeners for buttons
