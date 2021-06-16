@@ -10,7 +10,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Graphics;
 import java.awt.KeyboardFocusManager;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
@@ -27,7 +26,6 @@ import javax.imageio.ImageIO;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -3398,6 +3396,112 @@ public class Graphic_interface extends JFrame implements Action {
             panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+        } else if ( e.getSource() == box00Button ) {
+
+
+            frame.remove( panelCenter );
+
+            cleanJPanel();
+            cleanButton();
+            box00Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
+        } else if ( e.getSource() == box01Button ) {
+
+        } else if ( e.getSource() == box02Button ) {
+
+        } else if ( e.getSource() == box03Button ) {
+
+        } else if ( e.getSource() == box04Button ) {
+
+        } else if ( e.getSource() == box05Button ) {
+
+        } else if ( e.getSource() == box06Button ) {
+
+        } else if ( e.getSource() == box10Button ) {
+
+        } else if ( e.getSource() == box11Button ) {
+
+        } else if ( e.getSource() == box12Button ) {
+
+        } else if ( e.getSource() == box13Button ) {
+
+        } else if ( e.getSource() == box14Button ) {
+
+        } else if ( e.getSource() == box15Button ) {
+
+        } else if ( e.getSource() == box16Button ) {
+
+        } else if ( e.getSource() == box20Button ) {
+
+        } else if ( e.getSource() == box21Button ) {
+
+        } else if ( e.getSource() == box22Button ) {
+
+        } else if ( e.getSource() == box23Button ) {
+
+        } else if ( e.getSource() == box24Button ) {
+
+        } else if ( e.getSource() == box25Button ) {
+
+        } else if ( e.getSource() == box26Button ) {
+
+        } else if ( e.getSource() == box30Button ) {
+
+        } else if ( e.getSource() == box31Button ) {
+
+        } else if ( e.getSource() == box32Button ) {
+
+        } else if ( e.getSource() == box33Button ) {
+
+        } else if ( e.getSource() == box34Button ) {
+
+        } else if ( e.getSource() == box35Button ) {
+
+        } else if ( e.getSource() == box36Button ) {
+
+        } else if ( e.getSource() == box40Button ) {
+
+        } else if ( e.getSource() == box41Button ) {
+
+        } else if ( e.getSource() == box42Button ) {
+
+        } else if ( e.getSource() == box43Button ) {
+
+        } else if ( e.getSource() == box44Button ) {
+
+        } else if ( e.getSource() == box45Button ) {
+
+        } else if ( e.getSource() == box46Button ) {
+
+        } else if ( e.getSource() == box50Button ) {
+
+        } else if ( e.getSource() == box51Button ) {
+
+        } else if ( e.getSource() == box52Button ) {
+
+        } else if ( e.getSource() == box53Button ) {
+
+        } else if ( e.getSource() == box54Button ) {
+
+        } else if ( e.getSource() == box55Button ) {
+
+        } else if ( e.getSource() == box56Button ) {
+
+        } else if ( e.getSource() == box60Button ) {
+
+        } else if ( e.getSource() == box61Button ) {
+
+        } else if ( e.getSource() == box62Button ) {
+
+        } else if ( e.getSource() == box63Button ) {
+
+        } else if ( e.getSource() == box64Button ) {
+
+        } else if ( e.getSource() == box65Button ) {
+
+        } else if ( e.getSource() == box66Button ) {
+
         }
 
         // Actualize the frame

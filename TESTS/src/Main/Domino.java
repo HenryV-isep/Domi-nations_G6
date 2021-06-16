@@ -1,9 +1,8 @@
 package Main;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Domino {
+
+	//  Attribut of this class
 	public DominoSideOne dominoSideOne;
 	public DominoSideTwo dominoSideTwo;
 	private int number;
@@ -11,6 +10,7 @@ public class Domino {
 	private boolean isSelected;
 	private boolean isPlaced;
 
+	// Getter and Setter
 	public boolean isSelected() {
 		return isSelected;
 	}
@@ -26,15 +26,7 @@ public class Domino {
 	public void setPlaced(boolean placed) {
 		isPlaced = placed;
 	}
-
-	public Domino(DominoSideOne dominoSideOne, DominoSideTwo dominoSideTwo, int number, String nameFile) {
-		super();
-		this.dominoSideOne = dominoSideOne;
-		this.dominoSideTwo = dominoSideTwo;
-		this.number = number;
-		this.nameFile = nameFile;
-	}
-
+	
 	public String getNameFile() {
 		return nameFile;
 	}
@@ -42,5 +34,13 @@ public class Domino {
 	public int getNumber() {
 		return number;
 	}
-	
+
+	// Constructor
+	public Domino(DominoSideOne dominoSideOne, DominoSideTwo dominoSideTwo, int number, String nameFile) {
+		super();
+		this.dominoSideOne = dominoSideOne;
+		this.dominoSideTwo = dominoSideTwo;
+		this.number = number;
+		this.nameFile = nameFile;
+	}	
 }
