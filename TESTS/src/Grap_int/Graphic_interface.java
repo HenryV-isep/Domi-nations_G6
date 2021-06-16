@@ -122,6 +122,7 @@ public class Graphic_interface extends JFrame implements Action {
     private static JLabel banner;
     private static JLabel background;
     private static int position;
+    private static int rotation;
     private static String police = "Century Gothic";
     private static Game game = new Game();
     public static Player[] playersFinal;
@@ -147,7 +148,7 @@ public class Graphic_interface extends JFrame implements Action {
     private JButton backToSelection = new JButton( "Retour sélection" );
     private JButton launchGame = new JButton( "Lancer la partie" );
     private JButton leaveGameBtn = new JButton( "Quitter la partie" );
-    private JButton rotation = new JButton( "Rotation" );
+    private JButton rotationBtn = new JButton( "Rotation" );
     private JButton endTour = new JButton( "Fin du tour" );
     private JRadioButton displayTimeBtn = new JRadioButton( "Afficher le temps" );
     private JRadioButton displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
@@ -1489,7 +1490,7 @@ public class Graphic_interface extends JFrame implements Action {
         JLabel playerFourTextScore;
 
         int i = 0;
-        for (Player player : game.getPlayers()) {
+        for (Player player : playersFinal) {
             switch ( i ) {
                 case 1:
 
@@ -2007,10 +2008,12 @@ public class Graphic_interface extends JFrame implements Action {
         panel4.setBackground( new Color( 0xd4a373 ) );
 
         // Create all contents
-        rotation.setFont( new Font( police, Font.PLAIN, 18 ) );
-        rotation.setBackground( new Color( 0xfefae0 ) );
+        rotationBtn.setFont( new Font( police, Font.PLAIN, 18 ) );
+        rotationBtn.setBackground( new Color( 0xfefae0 ) );
+
         endTour.setFont( new Font( police, Font.PLAIN, 18 ) );
         endTour.setBackground( new Color( 0xfefae0 ) );
+        endTour.setEnabled( false );
 
         //  Next Domino image
         JLabel nextDomino1 = null;
@@ -2273,7 +2276,7 @@ public class Graphic_interface extends JFrame implements Action {
         btnRadio.add( domino4 );
 
         // Listener
-        rotation.addActionListener( this );
+        rotationBtn.addActionListener( this );
         endTour.addActionListener( this );
         domino1.addActionListener( this );
         domino2.addActionListener( this );
@@ -2330,7 +2333,7 @@ public class Graphic_interface extends JFrame implements Action {
 
         // Add all contents into the main panel
         panelWest.add( endTour );
-        panelWest.add( rotation );
+        panelWest.add( rotationBtn );
 
         panelWest.add( nextDomino1 );
         panelWest.add( panel1 );
@@ -2482,9 +2485,9 @@ public class Graphic_interface extends JFrame implements Action {
             displayTimeLimitedBtn = new JRadioButton( "Ajouter une limite de temps" );
         }
 
-        if ( rotation.getActionListeners().length > 1 ) {
-            rotation = null;
-            rotation = new JButton( "Rotation" );
+        if ( rotationBtn.getActionListeners().length > 1 ) {
+            rotationBtn = null;
+            rotationBtn = new JButton( "Rotation" );
         }
 
         if ( endTour.getActionListeners().length > 1 ) {
@@ -3232,8 +3235,12 @@ public class Graphic_interface extends JFrame implements Action {
 
             // Add new panels to the frame
             startMenu();
-        } else if ( e.getSource() == rotation ) {
-            
+        } else if ( e.getSource() == rotationBtn ) {
+            if ( rotation == 1 ) {
+                rotation = 0;
+            } else {
+                rotation = 1;
+            }
         } else if ( e.getSource() == endTour ) {
             
             if ( turnDraw >= 0 && turnDraw < numberPlayers + 2 && numberPlayers == 2 ) {
@@ -3324,6 +3331,7 @@ public class Graphic_interface extends JFrame implements Action {
             panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+            endTour.setEnabled( true );
         } else if ( e.getSource() == domino2 ) {
 
             domino1 = null;
@@ -3348,6 +3356,7 @@ public class Graphic_interface extends JFrame implements Action {
             panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+            endTour.setEnabled( true );
         } else if ( e.getSource() == domino3 ) {
 
             domino1 = null;
@@ -3372,6 +3381,7 @@ public class Graphic_interface extends JFrame implements Action {
             panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+            endTour.setEnabled( true );
         } else if ( e.getSource() == domino4 ) {
 
             domino1 = null;
@@ -3396,14 +3406,31 @@ public class Graphic_interface extends JFrame implements Action {
             panelWest = null;
 
             frame.add( panelWestForGameMenu(), BorderLayout.WEST );
+            endTour.setEnabled( true );
         } else if ( e.getSource() == box00Button ) {
 
 
             frame.remove( panelCenter );
 
-            cleanJPanel();
+            panelCenter = null;
+            
             cleanButton();
+            
             box00Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+
+            if ( rotation == 1 ) {
+                box10Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box01Button = null;
+                box01Button = new JButton();
+            } else {
+                box01Button = new JButton( currentPlayer.getDominoTaken().get( 0 ).dominoSideTwo.getType() + currentPlayer.getDominoTaken().get( 0 ).dominoSideOne.getCrown() );
+                box10Button = null;
+                box10Button = new JButton();
+            }
+
+            /* if ( game.isValidMove( ) ) {
+                endTour.setEnabled( true );
+            } */
 
             frame.add( panelCenterForGameMenu(), BorderLayout.CENTER );
         } else if ( e.getSource() == box01Button ) {
