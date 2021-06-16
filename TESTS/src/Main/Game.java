@@ -93,19 +93,49 @@ public class Game {
 	}
 
 
-	private boolean isValidMove() {
-		return true;
+	private boolean isValidMove(int column1,int row1, int column2, int row2,  Domino dominoSelected) {
+		if (board[row1][column1].isEmpty()==true && board[row2][column2].isEmpty()==true){
+				int middleBoard = sizeKingdom/2;
+				if((row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) || (row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard) || (row1 == middleBoard-1 && column1 ==middleBoard) || (row1 == middleBoard && column1 ==middleBoard-1) || (row1 == middleBoard && column1 ==middleBoard+1) || (row1 == middleBoard+1 && column1 ==middleBoard)){
+					return true;
+				}
+				else{
+					String typeDominoSideOne = dominoSelected.dominoSideOne.getType();
+					String typeDominoSideTwo = dominoSelected.dominoSideTwo.getType();
+					if(typeDominoSideOne.equals(board[row1-1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1-1][column1].getDomino2().getType()) ||
+						typeDominoSideOne.equals(board[row1][column1-1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1-1].getDomino2().getType()) ||
+						typeDominoSideOne.equals(board[row1][column1+1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1][column1+1].getDomino2().getType()) ||
+						typeDominoSideOne.equals(board[row1+1][column1].getDomino1().getType()) || typeDominoSideOne.equals(board[row1+1][column1].getDomino2().getType()) ||
+						typeDominoSideTwo.equals(board[row1-1][column1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1-1][column1].getDomino2().getType()) ||
+						typeDominoSideTwo.equals(board[row1][column1-1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1][column1-1].getDomino2().getType()) ||
+						typeDominoSideTwo.equals(board[row1][column1+1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1][column1+1].getDomino2().getType()) ||
+						typeDominoSideTwo.equals(board[row1+1][column1].getDomino1().getType()) || typeDominoSideTwo.equals(board[row1+1][column1].getDomino2().getType())
+					){
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+		}
+		else {
+			return false;
+		}
 	}
 
-
-	public void initializeBoard() {
+	/* function which create the board of the player and put his castle in the middle of his board
+	* @param numPlayer for number of player
+	*/
+	public void initializeBoard(int numPlayer) {
 		this.board = new Board[sizeKingdom][sizeKingdom];
 		int middleBoard = sizeKingdom/2;
-		Castle castlePlayer = currentPlayer.castle;
+		Castle castlePlayer = playersFinal[numPlayer].castle;
+
 		//System.out.println(castlePlayer.getColor());
 		//System.out.println(currentDominos[0].getNameFile());
 		this.board[middleBoard][middleBoard] = new Board(castlePlayer);
 		this.board[middleBoard][middleBoard].setEmpty(false);
+		playersFinal[numPlayer].setPlayerBoard(this.board);
 		//System.out.println(board[middleBoard][middleBoard].getCastle().getColor());
 
 		/*this.board[1][1] = new Board(currentDominos[0].dominoSideOne);
@@ -117,7 +147,9 @@ public class Game {
 		System.out.println(board[1][2].getDomino2().getType() + board[1][2].getDomino2().getCrown());*/
 	}
 
-	public void printBoard() {
+	public void printBoard(int numPlayer) {
+		//System.out.println(playersFinal[numPlayer].getName());
+		System.out.println(playersFinal[numPlayer].getPlayerBoard()[2][2].getCastle().getColor());
 		for(int li=0; li<sizeKingdom; li++){
 			for(int co=0; co<sizeKingdom; co++){
 				Board cell = this.board[li][co];
@@ -139,7 +171,19 @@ public class Game {
 		}
 	}
 
-	private void updateBoard() {
+	private void updateBoard(int column1,int row1, int column2, int row2,  Domino dominoSelected) {
+		if (isValidMove(column1,row1,column2,row2,dominoSelected)){
+			this.board[row1][column1] = new Board(currentDominos[0].dominoSideOne);
+			this.board[row1][column1].setEmpty(false);
+			this.board[row2][column2] = new Board(currentDominos[0].dominoSideTwo);
+			this.board[row2][column2].setEmpty(false);
+
+			System.out.println(board[row1][column1].getDomino1().getType() + board[row1][column1].getDomino1().getCrown());
+			System.out.println(board[row2][column2].getDomino2().getType() + board[row2][column2].getDomino2().getCrown());
+		}
+		else {
+			System.out.println("Not a valid move.");
+		}
 		
 	}
 	private void askLayTitles() {

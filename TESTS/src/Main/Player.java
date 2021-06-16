@@ -15,6 +15,15 @@ public class Player {
 	private String color;
 	public int numberKing = ( numberPlayers > 2 ) ? 1 : 2;
 	private List<Domino> dominoTaken = new ArrayList<Domino>(numberKing);
+	private Board[][] playerBoard;
+
+	public Board[][] getPlayerBoard() {
+		return playerBoard;
+	}
+
+	public void setPlayerBoard(Board[][] playerBoard) {
+		this.playerBoard = playerBoard;
+	}
 
 	public List<Domino> getDominoTaken() {
 		return dominoTaken;
