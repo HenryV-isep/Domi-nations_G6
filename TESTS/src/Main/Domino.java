@@ -15,7 +15,7 @@ public class Domino {
 		return isSelected;
 	}
 
-	public void setSelected(boolean selected) {
+	public void setSelected( boolean selected ) {
 		isSelected = selected;
 	}
 
@@ -23,7 +23,7 @@ public class Domino {
 		return isPlaced;
 	}
 
-	public void setPlaced(boolean placed) {
+	public void setPlaced( boolean placed ) {
 		isPlaced = placed;
 	}
 	
@@ -36,7 +36,7 @@ public class Domino {
 	}
 
 	// Constructor
-	public Domino(DominoSideOne dominoSideOne, DominoSideTwo dominoSideTwo, int number, String nameFile) {
+	public Domino( DominoSideOne dominoSideOne, DominoSideTwo dominoSideTwo, int number, String nameFile ) {
 		super();
 		this.dominoSideOne = dominoSideOne;
 		this.dominoSideTwo = dominoSideTwo;
